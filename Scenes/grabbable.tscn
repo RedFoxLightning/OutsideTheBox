@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bhvmsub7iqaen"]
+
+[ext_resource type="Script" uid="uid://5b85wj6t7oho" path="res://Scripts/grabbable.gd" id="1_bhcon"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhcon"]
+size = Vector2(129, 62)
+
+[node name="Grabbable" type="CollisionShape2D" unique_id=160771285]
+self_modulate = Color(1, 1, 1, 0)
+shape = SubResource("RectangleShape2D_bhcon")
+script = ExtResource("1_bhcon")
