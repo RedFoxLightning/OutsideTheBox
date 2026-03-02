@@ -1,27 +1,25 @@
 [gd_scene format=3 uid="uid://3fauufxaniq4"]
 
 [ext_resource type="Script" uid="uid://0i0dpk2u117r" path="res://Scripts/player_hand.gd" id="1_fvenh"]
-[ext_resource type="Texture2D" uid="uid://cg5u8hfki60j0" path="res://Assets/MissingTextureAnim.png" id="2_f2w7u"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ri1ds"]
-atlas = ExtResource("2_f2w7u")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_scj7t"]
-atlas = ExtResource("2_f2w7u")
-region = Rect2(64, 0, 64, 64)
+[ext_resource type="Texture2D" uid="uid://dlmk6mrlgini6" path="res://Assets/ClosedHandTemp.png" id="2_f2w7u"]
+[ext_resource type="Texture2D" uid="uid://b0b2oihhp2nco" path="res://Assets/OpenHandTemp.png" id="3_ri1ds"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_otxqc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ri1ds")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_scj7t")
+"texture": ExtResource("2_f2w7u")
 }],
 "loop": true,
-"name": &"default",
+"name": &"grabbing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ri1ds")
+}],
+"loop": true,
+"name": &"idle",
 "speed": 2.0
 }]
 
@@ -29,6 +27,8 @@ animations = [{
 script = ExtResource("1_fvenh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=86471396]
+z_index = 4096
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_otxqc")
-autoplay = "default"
-frame_progress = 0.5133057
+animation = &"idle"
+autoplay = "idle"

@@ -11,11 +11,16 @@ size = Vector2(127, 62)
 
 [node name="Node2D" type="Node2D" unique_id=1633530728]
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=308138270]
+unique_name_in_owner = true
+position = Vector2(579, 325)
+
 [node name="PlayerHand" parent="." unique_id=1414402712 instance=ExtResource("1_7wa0o")]
 position = Vector2(-36, -53)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=650445851]
 position = Vector2(170, 123)
+lock_rotation = true
 
 [node name="Grabbable" parent="RigidBody2D" unique_id=160771285 instance=ExtResource("2_qemao")]
 shape = SubResource("RectangleShape2D_qemao")
