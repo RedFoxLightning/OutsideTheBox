@@ -21,14 +21,23 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f2w7u")
+}],
+"loop": true,
+"name": &"panning",
+"speed": 5.0
 }]
 
 [node name="PlayerHand" type="Node2D" unique_id=1414402712]
 script = ExtResource("1_fvenh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=86471396]
+self_modulate = Color(1, 1, 1, 0.43529412)
 z_index = 4096
-scale = Vector2(2, 2)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_otxqc")
 animation = &"idle"
 autoplay = "idle"
