@@ -14,7 +14,8 @@ size = Vector2(126, 246)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wc0r2"]
 size = Vector2(62, 756)
 
-[node name="Node2D" type="Node2D" unique_id=1633530728]
+[node name="TestingScene" type="Node2D" unique_id=1633530728]
+texture_filter = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=308138270]
 unique_name_in_owner = true
@@ -71,3 +72,8 @@ texture = ExtResource("3_wc0r2")
 
 [node name="Goober" parent="." unique_id=1200239407 instance=ExtResource("5_rqtow")]
 position = Vector2(3, 447)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1269279131]
+position = Vector2(141.00006, 405)
+rotation = 0.4660029
+texture = ExtResource("3_wc0r2")
