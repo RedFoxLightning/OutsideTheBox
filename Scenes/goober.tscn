@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://c37ny4nx1fir7"]
+
+[ext_resource type="PackedScene" uid="uid://bhvmsub7iqaen" path="res://Scenes/grabbable.tscn" id="1_e6u5c"]
+[ext_resource type="Texture2D" uid="uid://bs7vdu1sbys0t" path="res://Assets/GooberSpriteSheet.png" id="2_xy1m5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6u5c"]
+size = Vector2(194, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68t3s"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv7l0"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd2k5"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmie5"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4aa6"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xst7"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct7if"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt5kx"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fwr1a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68t3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv7l0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd2k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmie5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4aa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xst7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct7if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt5kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68t3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv7l0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd2k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmie5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xy1m5"]
+size = Vector2(108, 184)
+
+[node name="Goober" type="RigidBody2D" unique_id=1200239407]
+lock_rotation = true
+
+[node name="Grabbable" parent="." unique_id=160771285 instance=ExtResource("1_e6u5c")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grabbable" unique_id=1585221271]
+shape = SubResource("RectangleShape2D_e6u5c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=556584701]
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_fwr1a")
+autoplay = "default"
+frame_progress = 0.31991854
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1493940277]
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_xy1m5")
