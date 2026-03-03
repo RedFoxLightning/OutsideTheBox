@@ -11,13 +11,9 @@ config_version=5
 [application]
 
 config/name="OutsideTheBox"
-run/main_scene="uid://c1siee7125enm"
+run/main_scene="uid://lsidf3hsjr2f"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
-
-[display]
-
-window/stretch/mode="viewport"
 
 [input]
 
