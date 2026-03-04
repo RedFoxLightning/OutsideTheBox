@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dkbcbtx7qao03"]
+
+[ext_resource type="PackedScene" uid="uid://dnc7rwwask3nr" path="res://Scenes/health_bar.tscn" id="1_6r7r3"]
+[ext_resource type="Script" uid="uid://mv5k675towkq" path="res://Scenes/base_entity.gd" id="1_m18i3"]
+
+[node name="BaseEntity" type="Node2D" unique_id=1200200737]
+script = ExtResource("1_m18i3")
+
+[node name="HealthBar" parent="." unique_id=1744285310 instance=ExtResource("1_6r7r3")]
+maxHealth = 25

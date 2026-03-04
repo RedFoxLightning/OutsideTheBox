@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c37ny4nx1fir7"]
 
 [ext_resource type="PackedScene" uid="uid://bhvmsub7iqaen" path="res://Scenes/grabbable.tscn" id="1_e6u5c"]
+[ext_resource type="PackedScene" uid="uid://dkbcbtx7qao03" path="res://Scenes/base_entity.tscn" id="1_xy1m5"]
 [ext_resource type="Texture2D" uid="uid://bs7vdu1sbys0t" path="res://Assets/GooberSpriteSheet.png" id="2_xy1m5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6u5c"]
@@ -87,6 +88,9 @@ size = Vector2(108, 184)
 
 [node name="Goober" type="RigidBody2D" unique_id=1200239407]
 lock_rotation = true
+
+[node name="BaseEntity" parent="." unique_id=1200200737 instance=ExtResource("1_xy1m5")]
+healthBarHeight = -120.0
 
 [node name="Grabbable" parent="." unique_id=160771285 instance=ExtResource("1_e6u5c")]
 
