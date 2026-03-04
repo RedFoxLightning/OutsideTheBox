@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://lsidf3hsjr2f" path="res://Scenes/MainScenes/TestingScene.tscn" id="1_ggftu"]
 [ext_resource type="Texture2D" uid="uid://c3esuslysnmhy" path="res://Assets/PixelVignette8-bit.png" id="1_ikxey"]
 [ext_resource type="PackedScene" uid="uid://b43beh87rrhrb" path="res://Scenes/MainScenes/pause_menu.tscn" id="2_xt1mu"]
-[ext_resource type="PackedScene" uid="uid://3fauufxaniq4" path="res://Scenes/player_hand.tscn" id="4_qnoq0"]
 
 [node name="Main" type="Node2D" unique_id=534455431]
 
@@ -12,7 +11,7 @@ unique_name_in_owner = true
 position = Vector2(579, 325)
 zoom = Vector2(0.4, 0.4)
 
-[node name="Vignette" type="Sprite2D" parent="Camera2D" unique_id=1453434037]
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D" unique_id=1453434037]
 self_modulate = Color(1, 1, 1, 0.27058825)
 z_index = 3000
 scale = Vector2(4.5, 4.5)
@@ -22,6 +21,3 @@ texture = ExtResource("1_ikxey")
 position = Vector2(-579, -325)
 
 [node name="TestingScene" parent="." unique_id=1633530728 instance=ExtResource("1_ggftu")]
-
-[node name="PlayerHand" parent="." unique_id=1414402712 instance=ExtResource("4_qnoq0")]
-position = Vector2(-36, -53)
