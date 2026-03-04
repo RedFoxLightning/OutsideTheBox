@@ -10,11 +10,11 @@
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1154371112]
 unique_name_in_owner = true
 position = Vector2(579, 325)
-zoom = Vector2(0.4, 0.4)
+zoom = Vector2(2, 2)
 
 [node name="Vignette" type="Sprite2D" parent="Camera2D" unique_id=1453434037]
 self_modulate = Color(1, 1, 1, 0.27058825)
-z_index = 3000
+z_index = 1999
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("1_ikxey")
 

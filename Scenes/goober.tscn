@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bs7vdu1sbys0t" path="res://Assets/GooberSpriteSheet.png" id="2_xy1m5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6u5c"]
-size = Vector2(194, 212)
+size = Vector2(48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_68t3s"]
 atlas = ExtResource("2_xy1m5")
@@ -84,13 +84,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xy1m5"]
-size = Vector2(108, 184)
+size = Vector2(20, 43)
 
 [node name="Goober" type="RigidBody2D" unique_id=1200239407]
 lock_rotation = true
 
 [node name="BaseEntity" parent="." unique_id=1200200737 instance=ExtResource("1_xy1m5")]
-healthBarHeight = -120.0
+healthBarHeight = -30.0
 
 [node name="Grabbable" parent="." unique_id=160771285 instance=ExtResource("1_e6u5c")]
 
@@ -98,11 +98,11 @@ healthBarHeight = -120.0
 shape = SubResource("RectangleShape2D_e6u5c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=556584701]
-scale = Vector2(4.5, 4.5)
+z_index = 10
 sprite_frames = SubResource("SpriteFrames_fwr1a")
 autoplay = "default"
 frame_progress = 0.31991854
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1493940277]
-position = Vector2(0, 13)
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_xy1m5")

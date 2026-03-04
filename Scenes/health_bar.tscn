@@ -7,6 +7,6 @@
 script = ExtResource("1_m34ix")
 
 [node name="Bar" type="Sprite2D" parent="." unique_id=1206430759]
-scale = Vector2(4, 4)
+z_index = 1000
 texture = ExtResource("2_qay8w")
 vframes = 25

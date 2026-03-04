@@ -36,8 +36,7 @@ script = ExtResource("1_fvenh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=86471396]
 self_modulate = Color(1, 1, 1, 0.5058824)
-z_index = 4096
-scale = Vector2(4, 4)
+z_index = 3000
 sprite_frames = SubResource("SpriteFrames_otxqc")
 animation = &"idle"
 autoplay = "idle"
