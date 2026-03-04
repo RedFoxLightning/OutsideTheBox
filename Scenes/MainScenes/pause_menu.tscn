@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://b43beh87rrhrb"]
+
+[ext_resource type="Script" uid="uid://du4oq4twh1p1" path="res://Scripts/pause_menu.gd" id="1_71n1c"]
+
+[node name="PauseMenu" type="Node2D" unique_id=1150152310 node_paths=PackedStringArray("mainPauseMenu")]
+scale = Vector2(4, 4)
+script = ExtResource("1_71n1c")
+mainPauseMenu = NodePath("MainPauseMenu")
+
+[node name="MainPauseMenu" type="Node2D" parent="." unique_id=741060455]
+
+[node name="Label" type="Label" parent="MainPauseMenu" unique_id=996557134]
+z_index = 3000
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.25
+offset_top = -105.75
+offset_right = 8.75
+offset_bottom = -82.75
+grow_horizontal = 2
+scale = Vector2(6.5397515, 6.5397515)
+text = "Paused"
+
+[node name="ResumeButton" type="Button" parent="MainPauseMenu" unique_id=42391053]
+z_index = 3000
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.749985
+offset_top = 24.0
+offset_right = 397.75
+offset_bottom = 134.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6965856, 0.6965856)
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="MainPauseMenu" unique_id=636954904]
+z_index = 3000
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 25.000015
+offset_top = 115.25
+offset_right = 403.0
+offset_bottom = 211.75
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.66092753, 0.66092753)
+text = "Quit"
+
+[connection signal="button_up" from="MainPauseMenu/ResumeButton" to="." method="_on_resume_button_button_up"]
+[connection signal="button_up" from="MainPauseMenu/QuitButton" to="." method="_on_quit_button_button_up"]

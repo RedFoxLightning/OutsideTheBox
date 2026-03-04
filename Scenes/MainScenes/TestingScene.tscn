@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bhvmsub7iqaen" path="res://Scenes/grabbable.tscn" id="2_qemao"]
 [ext_resource type="Texture2D" uid="uid://cg5u8hfki60j0" path="res://Assets/MissingTextureAnim.png" id="3_wc0r2"]
 [ext_resource type="PackedScene" uid="uid://c37ny4nx1fir7" path="res://Scenes/goober.tscn" id="5_rqtow"]
+[ext_resource type="PackedScene" uid="uid://b43beh87rrhrb" path="res://Scenes/MainScenes/pause_menu.tscn" id="6_hx2dh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqtow"]
 size = Vector2(126, 246)
@@ -26,6 +27,9 @@ self_modulate = Color(1, 1, 1, 0.27058825)
 z_index = 3000
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("1_wc0r2")
+
+[node name="PauseMenu" parent="Camera2D" unique_id=1150152310 instance=ExtResource("6_hx2dh")]
+position = Vector2(-579, -325)
 
 [node name="PlayerHand" parent="." unique_id=1414402712 instance=ExtResource("1_7wa0o")]
 position = Vector2(-36, -53)
