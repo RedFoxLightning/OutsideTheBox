@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://b3hoxbjv3l66e"]
+
+[ext_resource type="Script" uid="uid://dpd36qj10d3bh" path="res://Scenes/goober_bolt.gd" id="1_brunv"]
+[ext_resource type="Texture2D" uid="uid://couriin50fcfu" path="res://Assets/GooberBolt.png" id="1_g6v1g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6v1g"]
+radius = 4.472136
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6v1g"]
+atlas = ExtResource("1_g6v1g")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brunv"]
+atlas = ExtResource("1_g6v1g")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_620ju"]
+atlas = ExtResource("1_g6v1g")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lelms"]
+atlas = ExtResource("1_g6v1g")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi1sf"]
+atlas = ExtResource("1_g6v1g")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryrx8"]
+atlas = ExtResource("1_g6v1g")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrs18"]
+atlas = ExtResource("1_g6v1g")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abyi2"]
+atlas = ExtResource("1_g6v1g")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt0j4"]
+atlas = ExtResource("1_g6v1g")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy2ch"]
+atlas = ExtResource("1_g6v1g")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rrs18"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6v1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brunv")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_620ju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lelms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi1sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryrx8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrs18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abyi2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt0j4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy2ch")
+}],
+"loop": false,
+"name": &"spawn",
+"speed": 10.0
+}]
+
+[node name="GooberBolt" type="StaticBody2D" unique_id=1874243102]
+script = ExtResource("1_brunv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1280357450]
+shape = SubResource("CircleShape2D_g6v1g")
+disabled = true
+
+[node name="Animator" type="AnimatedSprite2D" parent="." unique_id=258093344]
+z_index = 15
+sprite_frames = SubResource("SpriteFrames_rrs18")
+animation = &"spawn"
+autoplay = "idle"
+frame = 3
+frame_progress = 1.0
+
+[node name="ActivationTimer" type="Timer" parent="." unique_id=562301642]
+wait_time = 2.0
+autostart = true
+
+[connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]
+[connection signal="timeout" from="ActivationTimer" to="." method="_on_activation_timer_timeout"]

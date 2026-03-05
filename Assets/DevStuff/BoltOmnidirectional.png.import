@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buv35c71uymg0"
-path="res://.godot/imported/HealthBarFull.png-fe748a27876f17a60b9302488e187e97.ctex"
+uid="uid://c2ivxpte6nufg"
+path="res://.godot/imported/BoltOmnidirectional.png-3f9bff5e9d490d830f7e486ee8d92557.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HealthBarFull.png"
-dest_files=["res://.godot/imported/HealthBarFull.png-fe748a27876f17a60b9302488e187e97.ctex"]
+source_file="res://Assets/DevStuff/BoltOmnidirectional.png"
+dest_files=["res://.godot/imported/BoltOmnidirectional.png-3f9bff5e9d490d830f7e486ee8d92557.ctex"]
 
 [params]
 

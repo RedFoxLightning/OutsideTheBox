@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 		#", currentHealth:" + str(currentHealth) + 
 		#", percentageOfHealthLeft: " + str(percentageOfHealthLeft))
 		
-		bar.frame = percentageOfHealthLeft * 24
+		bar.frame = int(percentageOfHealthLeft * 24)
 	else:
 		bar.frame = 0;
 		healthEmpty = true;

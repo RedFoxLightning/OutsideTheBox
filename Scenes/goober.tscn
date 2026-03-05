@@ -3,10 +3,59 @@
 [ext_resource type="Script" uid="uid://blmv5ew4b03c3" path="res://Scripts/goober.gd" id="1_68t3s"]
 [ext_resource type="PackedScene" uid="uid://bhvmsub7iqaen" path="res://Scenes/grabbable.tscn" id="1_e6u5c"]
 [ext_resource type="PackedScene" uid="uid://dkbcbtx7qao03" path="res://Scenes/base_entity.tscn" id="1_xy1m5"]
+[ext_resource type="PackedScene" uid="uid://b3hoxbjv3l66e" path="res://Scenes/goober_bolt.tscn" id="2_iv7l0"]
 [ext_resource type="Texture2D" uid="uid://bs7vdu1sbys0t" path="res://Assets/GooberSpriteSheet.png" id="2_xy1m5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6u5c"]
 size = Vector2(48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y53y4"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(288, 240, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4ya2"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(336, 240, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0liuf"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(192, 240, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxy7p"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(240, 240, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4eee"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnqnt"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xxf2"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7edxn"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciaf8"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyh3k"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(240, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0txf"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(288, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kx11"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(336, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_68t3s"]
 atlas = ExtResource("2_xy1m5")
@@ -40,8 +89,87 @@ region = Rect2(288, 0, 48, 48)
 atlas = ExtResource("2_xy1m5")
 region = Rect2(336, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwr1a"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(0, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47mgq"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(48, 192, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgs3u"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(0, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hstgm"]
+atlas = ExtResource("2_xy1m5")
+region = Rect2(48, 144, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_fwr1a"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y53y4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4ya2")
+}],
+"loop": true,
+"name": &"ground_casting_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0liuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxy7p")
+}],
+"loop": true,
+"name": &"ground_casting_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4eee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnqnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xxf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7edxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciaf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyh3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0txf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kx11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4eee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnqnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xxf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7edxn")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_68t3s")
@@ -80,19 +208,42 @@ animations = [{
 "texture": SubResource("AtlasTexture_lmie5")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwr1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47mgq")
+}],
+"loop": true,
+"name": &"moving_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgs3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hstgm")
+}],
+"loop": true,
+"name": &"moving_right",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xy1m5"]
 size = Vector2(20, 43)
 
-[node name="Goober" type="RigidBody2D" unique_id=1200239407]
-lock_rotation = true
+[node name="Goober" type="CharacterBody2D" unique_id=2033451847]
+z_index = 10
 script = ExtResource("1_68t3s")
+gooberProjectile = ExtResource("2_iv7l0")
 
 [node name="BaseEntity" parent="." unique_id=1200200737 instance=ExtResource("1_xy1m5")]
-maxHealth = 43
+maxHealth = 48
 healthBarHeight = -30.0
 
 [node name="Grabbable" parent="." unique_id=160771285 instance=ExtResource("1_e6u5c")]
@@ -103,9 +254,17 @@ shape = SubResource("RectangleShape2D_e6u5c")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=556584701]
 z_index = 10
 sprite_frames = SubResource("SpriteFrames_fwr1a")
-autoplay = "default"
-frame_progress = 0.31991854
+animation = &"ground_casting_left"
+autoplay = "idle_right"
+frame = 1
+frame_progress = 0.3177837
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1493940277]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_xy1m5")
+
+[node name="Timer" type="Timer" parent="." unique_id=1863672709]
+wait_time = 6.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

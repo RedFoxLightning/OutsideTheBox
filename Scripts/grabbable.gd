@@ -1,7 +1,7 @@
 extends Node2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
-@onready var rigid_body: RigidBody2D = $".."
+@onready var rigid_body: Node2D = $".."
 var grabbed: bool = false;
 var relative_position;
 var pos;

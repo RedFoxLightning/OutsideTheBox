@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ifdejij56cgt"
-path="res://.godot/imported/Vignette.png-4b9098ed9457f511ee58c211bd7c9d6c.ctex"
+uid="uid://couriin50fcfu"
+path="res://.godot/imported/GooberBolt.png-013eba5bb77a4030e40039a003dbb2b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Vignette.png"
-dest_files=["res://.godot/imported/Vignette.png-4b9098ed9457f511ee58c211bd7c9d6c.ctex"]
+source_file="res://Assets/GooberBolt.png"
+dest_files=["res://.godot/imported/GooberBolt.png-013eba5bb77a4030e40039a003dbb2b8.ctex"]
 
 [params]
 

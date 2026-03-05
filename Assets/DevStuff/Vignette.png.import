@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pmgsrm4buhw7"
-path="res://.godot/imported/HealthBarEmpty.png-749499b213fdbdf12247ef696e76a565.ctex"
+uid="uid://deo33px4nonn4"
+path="res://.godot/imported/Vignette.png-c5c985a1190afe9d892b43f5b2694d77.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HealthBarEmpty.png"
-dest_files=["res://.godot/imported/HealthBarEmpty.png-749499b213fdbdf12247ef696e76a565.ctex"]
+source_file="res://Assets/DevStuff/Vignette.png"
+dest_files=["res://.godot/imported/Vignette.png-c5c985a1190afe9d892b43f5b2694d77.ctex"]
 
 [params]
 
