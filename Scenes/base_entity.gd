@@ -6,6 +6,8 @@ extends Node2D
 @export var healthBarHeight: float
 var currentHealth: int
 
+#@export var takesDamageOnGrab: bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	health_bar.global_position.y = global_position.y + healthBarHeight

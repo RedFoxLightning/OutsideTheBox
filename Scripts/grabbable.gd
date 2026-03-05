@@ -31,7 +31,7 @@ func _input(event: InputEvent) -> void:
 				grabbed = true
 	if event.is_action_released("Grab"):
 		grabbed = false 
-		print("unclick!");
+		#print("unclick!");
 
 func setPosToRigidBodyPos():
 	pos = rigid_body.global_position;
