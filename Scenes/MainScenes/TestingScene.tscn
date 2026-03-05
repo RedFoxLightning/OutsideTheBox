@@ -46,6 +46,17 @@ position = Vector2(1, 33)
 scale = Vector2(2.5, 0.25)
 texture = ExtResource("3_wc0r2")
 
+[node name="Wall2" type="StaticBody2D" parent="." unique_id=1345109346]
+position = Vector2(-364, -29)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=1436128780]
+shape = SubResource("RectangleShape2D_wc0r2")
+
+[node name="MissingTextureAnim" type="Sprite2D" parent="Wall2/CollisionShape2D" unique_id=326881841]
+rotation = 1.5707964
+scale = Vector2(1.5, 0.25)
+texture = ExtResource("3_wc0r2")
+
 [node name="Wall" type="StaticBody2D" parent="." unique_id=1199975598]
 position = Vector2(95, -41)
 

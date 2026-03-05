@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dpd36qj10d3bh" path="res://Scenes/goober_bolt.gd" id="1_brunv"]
 [ext_resource type="Texture2D" uid="uid://couriin50fcfu" path="res://Assets/GooberBolt.png" id="1_g6v1g"]
+[ext_resource type="PackedScene" uid="uid://cysjkl7t0w8mw" path="res://Scenes/goober_bolt_particle.tscn" id="2_620ju"]
+[ext_resource type="PackedScene" uid="uid://2ndsilsew1dk" path="res://Scenes/particle_summoner.tscn" id="3_lelms"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6v1g"]
 radius = 4.472136
@@ -112,6 +114,9 @@ frame_progress = 1.0
 [node name="ActivationTimer" type="Timer" parent="." unique_id=562301642]
 wait_time = 2.0
 autostart = true
+
+[node name="ParticleSummoner" parent="." unique_id=838000790 instance=ExtResource("3_lelms")]
+particlesToSummon = ExtResource("2_620ju")
 
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]
 [connection signal="timeout" from="ActivationTimer" to="." method="_on_activation_timer_timeout"]

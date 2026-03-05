@@ -4,8 +4,11 @@ extends CharacterBody2D
 @onready var grabbable: Node2D = $Grabbable
 @onready var timer: Timer = $Timer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var gooberProjectileParticles: Node2D = $ParticleSummoner
+
 
 @export var gooberProjectile: PackedScene
+
 
 enum actions { IDLE, WALKING, GROUND_ATTACKING }
 var currentAction := actions.IDLE
@@ -14,9 +17,11 @@ var currentlyBeingGrabbed: bool
 var continuouslyBeingGrabbed: bool
 
 
-var grounded: bool = true
+var floating := false
 
 var walkingSpeed: float = 100
+var floatingSpeed: float = 1000
+var airFrictionResistance: float = 3
 var attackSpellCastTime: float = 3.5 
 
 
@@ -45,23 +50,51 @@ func _process(delta: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+
 	
 	# Movement behavior based on the current action/task goober is preforming
-	
-	if currentAction == actions.WALKING:
-		velocity.x = facingDirection * walkingSpeed
-	else: # (if idling)
-		velocity.x = 0
+	if !floating:
+		
+		
+		
+		# Add the gravity.
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+		
+		motion_mode = CharacterBody2D.MOTION_MODE_GROUNDED
+		if currentAction == actions.WALKING:
+			velocity.x = facingDirection * walkingSpeed
+		else: # (if idling)
+			velocity.x = 0
+			pass
+	else:
+		velocity = velocity * 0.99
+		#if velocity.x < 0.01: velocity.x = 0
+		#if velocity.y < 0.01: velocity.y = 0
+		
+		motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
+
+		#velocity.y -= get_gravity().y * delta
+		
+		if currentAction == actions.WALKING:
+			velocity.x += facingDirection * walkingSpeed * delta
+		
+		
+		
+	#Removes all velocy if grabbed
+	if grabbable.grabbed: velocity = Vector2(0,0)
 	
 	move_and_slide()
+	
+	
+	if currentAction == actions.GROUND_ATTACKING:
+		gooberProjectileParticles.SummonParticles()
+	
 
 func getNewAction():
 	currentActionTimeElpased = 0
-	if grounded:
-		var randomAction = randi_range(2,3)
+	if !floating:
+		var randomAction = randi_range(1,3)
 		match randomAction:
 			1:
 				startFloating()
@@ -70,11 +103,24 @@ func getNewAction():
 			3:
 				castDamageSpell()
 	else:
-		pass
+		var randomAction = randi_range(1,3)
+		match randomAction:
+			1:
+				stopFloating()
+			2:
+				walkToRandomPointOnFloor()
+			3:
+				castDamageSpell()
 
 
 func startFloating():
 	print("goober wants to fly!")
+	floating = true;
+	velocity.y -= randf_range(40, 175) #floating a little bit to floating almost off screen
+	pass
+func stopFloating():
+	print("goober wants to decend!")
+	floating = false;
 	pass
 func walkToRandomPointOnFloor():
 	print("goober wants to walk!")
@@ -107,11 +153,13 @@ func _on_timer_timeout() -> void:
 func FinishCurrentAction():
 	if currentAction == actions.GROUND_ATTACKING:
 		var newProjectile = gooberProjectile.instantiate()
-		add_child(newProjectile)
+		newProjectile.position = global_position
+		get_parent().add_child(newProjectile)
+		
 
 
 func SelectCorrectAnimation():
-	if currentAction == actions.WALKING:
+	if currentAction == actions.WALKING or (currentAction == actions.IDLE and floating):
 		if facingDirection == -1:
 			animated_sprite.play("moving_left")
 		else:
@@ -122,10 +170,16 @@ func SelectCorrectAnimation():
 		else:
 			animated_sprite.play("idle_right")
 	elif currentAction == actions.GROUND_ATTACKING:
-		if facingDirection == -1:
-			animated_sprite.play("ground_casting_left")
+		if !floating:
+			if facingDirection == -1:
+				animated_sprite.play("ground_casting_left")
+			else:
+				animated_sprite.play("ground_casting_right")
 		else:
-			animated_sprite.play("ground_casting_right")
+			if facingDirection == -1:
+				animated_sprite.play("air_casting_left")
+			else:
+				animated_sprite.play("air_casting_right")
 
 
 func _input(event: InputEvent) -> void:

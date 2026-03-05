@@ -5,27 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dkbcbtx7qao03" path="res://Scenes/base_entity.tscn" id="1_xy1m5"]
 [ext_resource type="PackedScene" uid="uid://b3hoxbjv3l66e" path="res://Scenes/goober_bolt.tscn" id="2_iv7l0"]
 [ext_resource type="Texture2D" uid="uid://bs7vdu1sbys0t" path="res://Assets/GooberSpriteSheet.png" id="2_xy1m5"]
-[ext_resource type="PackedScene" uid="uid://2ndsilsew1dk" path="res://Scenes/particle_summoner.tscn" id="6_nd2k5"]
-[ext_resource type="PackedScene" uid="uid://cysjkl7t0w8mw" path="res://Scenes/goober_bolt_particle.tscn" id="7_lmie5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6u5c"]
 size = Vector2(48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qde8i"]
-atlas = ExtResource("2_xy1m5")
-region = Rect2(96, 240, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5yqqc"]
-atlas = ExtResource("2_xy1m5")
-region = Rect2(144, 240, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_di4tf"]
-atlas = ExtResource("2_xy1m5")
-region = Rect2(0, 240, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dmagv"]
-atlas = ExtResource("2_xy1m5")
-region = Rect2(48, 240, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y53y4"]
 atlas = ExtResource("2_xy1m5")
@@ -125,28 +107,6 @@ region = Rect2(48, 144, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fwr1a"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qde8i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5yqqc")
-}],
-"loop": true,
-"name": &"air_casting_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_di4tf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dmagv")
-}],
-"loop": true,
-"name": &"air_casting_right",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y53y4")
@@ -294,8 +254,10 @@ shape = SubResource("RectangleShape2D_e6u5c")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=556584701]
 z_index = 10
 sprite_frames = SubResource("SpriteFrames_fwr1a")
-animation = &"air_casting_right"
+animation = &"ground_casting_left"
 autoplay = "idle_right"
+frame = 1
+frame_progress = 0.3177837
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1493940277]
 position = Vector2(0, 2.5)
@@ -304,10 +266,5 @@ shape = SubResource("RectangleShape2D_xy1m5")
 [node name="Timer" type="Timer" parent="." unique_id=1863672709]
 wait_time = 6.0
 autostart = true
-
-[node name="ParticleSummoner" parent="." unique_id=838000790 instance=ExtResource("6_nd2k5")]
-particlesToSummon = ExtResource("7_lmie5")
-particleSummonChancePerTick = 2.0
-maxParticleDist = 32.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
