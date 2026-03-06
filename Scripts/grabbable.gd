@@ -8,11 +8,6 @@ var grabbed: bool = false;
 var relative_position;
 var pos;
 
-
-var velocity: Vector2;
-var positionLastTick: Vector2
-var positionThisTick: Vector2
-
 signal thrown
 
 # Called when the node enters the scene tree for the first time.
@@ -27,14 +22,6 @@ func _process(_delta: float) -> void:
 		rigid_body.global_position = get_global_mouse_position() + relative_position
 	
 
-func _physics_process(_delta: float) -> void:
-	positionThisTick = position
-	
-	velocity = ((positionLastTick - positionThisTick))
-	#print(velocity)
-	
-	positionLastTick = position
-	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Grab"):
@@ -44,14 +31,14 @@ func _input(event: InputEvent) -> void:
 		
 		if (mouse.x < pos.x + size.x / 2) and (mouse.x > pos.x - size.x / 2):
 			if (mouse.y < pos.y + size.y / 2) and (mouse.y > pos.y - size.y / 2):
-				print("click!");
+				#print("click!");
 				relative_position = pos - get_global_mouse_position() 
 				grabbed = true
 	if event.is_action_released("Grab"):
 
-		emit_signal("thrown", velocity)
+		emit_signal("thrown")
 		grabbed = false 
-		print("object thrown with velocity of " + str(velocity))
+		#print("object thrown with velocity of " + str(velocity))
 		#print("unclick!");
 
 func setPosToRigidBodyPos():
@@ -60,9 +47,6 @@ func setPosToRigidBodyPos():
 func _on_button_down() -> void:
 	grabbed = true
 	relative_position = global_position - get_global_mouse_position()
-	
-	positionThisTick = position
-	positionLastTick = position
 
 
 func _on_button_up() -> void:

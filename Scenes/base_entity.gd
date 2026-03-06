@@ -10,7 +10,7 @@ extends Node2D
 @export var grabbableCollisionShapeSize: Vector2 = Vector2(20,20)
 @export var grabbableCollisionShapeOffset: Vector2 = Vector2(0,0)
 var currentHealth: int
-
+const debugMode: bool = false 
 #@export var takesDamageOnGrab: bool = true
 
 # Called when the node enters the scene tree for the first time.
@@ -25,12 +25,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
-	queue_redraw()
-	
+	if debugMode:
+		queue_redraw()
 
 func _draw() -> void:
-	draw_rect(Rect2(-grabbableCollisionShapeSize.x / 2,-grabbableCollisionShapeSize.y / 2,grabbableCollisionShapeSize.x,grabbableCollisionShapeSize.y),Color.CORNFLOWER_BLUE)
+	if debugMode:
+		# Show bounding box of where you're able to grab the entity
+		draw_rect(Rect2(-grabbableCollisionShapeSize.x / 2,-grabbableCollisionShapeSize.y / 2,grabbableCollisionShapeSize.x,grabbableCollisionShapeSize.y),Color.CORNFLOWER_BLUE)
 
 func Damage(amount: int):
 	health_bar.Damage(amount)
@@ -54,17 +55,16 @@ func HandleBeingGrabbedDamage():
 
 
 
-func _on_grabbable_thrown(_thrownVelocity) -> void:
+func _on_grabbable_thrown() -> void:
 	var player_hand: Node2D = get_tree().get_first_node_in_group("Player")
-	#velocity += (thrownVelocity * 20) 
+	
 	if grabbable.grabbed:
 		var xDist = get_global_mouse_position().x - player_hand.global_position.x
 		var yDist = get_global_mouse_position().y - player_hand.global_position.y
 		
 		var parent: CharacterBody2D = get_parent()
-		print(parent)
 		if parent != null:
-			print("attempting to throw!")
+			#print("attempting to throw!")
 			
 			parent.velocity += Vector2(xDist * 20, yDist * 20)
 			pass
