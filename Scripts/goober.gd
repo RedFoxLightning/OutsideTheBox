@@ -1,10 +1,11 @@
 extends CharacterBody2D
 #GOOBER ^^
 @onready var entity: Node2D = $BaseEntity
-@onready var grabbable: Node2D = $Grabbable
+#@onready var grabbable: Node2D = $Grabbable
 @onready var timer: Timer = $Timer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gooberProjectileParticles: Node2D = $ParticleSummoner
+@onready var player_hand: Node2D = %PlayerHand
 
 
 @export var gooberProjectile: PackedScene
@@ -38,7 +39,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	HandleBeingGrabbedDamage()
+	#HandleBeingGrabbedDamage()
 	SelectCorrectAnimation()
 	
 	currentActionTimeElpased += delta
@@ -50,23 +51,21 @@ func _process(delta: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	
-
 	
 	# Movement behavior based on the current action/task goober is preforming
 	if !floating:
-		
-		
 		
 		# Add the gravity.
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 		
 		motion_mode = CharacterBody2D.MOTION_MODE_GROUNDED
-		if currentAction == actions.WALKING:
-			velocity.x = facingDirection * walkingSpeed
-		else: # (if idling)
-			velocity.x = 0
-			pass
+		if is_on_floor():
+			if currentAction == actions.WALKING:
+				velocity.x = facingDirection * walkingSpeed
+			else: # (if idling)
+				velocity.x = 0
+		
 	else:
 		velocity = velocity * 0.99
 		#if velocity.x < 0.01: velocity.x = 0
@@ -82,7 +81,7 @@ func _physics_process(delta: float) -> void:
 		
 		
 	#Removes all velocy if grabbed
-	if grabbable.grabbed: velocity = Vector2(0,0)
+	if entity.grabbable.grabbed: velocity = Vector2(0,0)
 	
 	move_and_slide()
 	
@@ -138,11 +137,24 @@ func castDamageSpell():
 	currentAction = actions.GROUND_ATTACKING
 	pass
 
-func HandleBeingGrabbedDamage():
-	currentlyBeingGrabbed = grabbable.grabbed
-	if(!continuouslyBeingGrabbed and currentlyBeingGrabbed):
-		entity.Damage(1)
-	continuouslyBeingGrabbed = currentlyBeingGrabbed
+#func HandleBeingGrabbedDamage():
+	#currentlyBeingGrabbed = grabbable.grabbed
+	#if(!continuouslyBeingGrabbed and currentlyBeingGrabbed):
+		#entity.Damage(1)
+	#continuouslyBeingGrabbed = currentlyBeingGrabbed
+
+
+#func _on_grabbable_thrown(_thrownVelocity) -> void:
+	##velocity += (thrownVelocity * 20) 
+	#if grabbable.grabbed:
+		#var xDist = get_global_mouse_position().x - player_hand.global_position.x
+		#var yDist = get_global_mouse_position().y - player_hand.global_position.y
+		#velocity += Vector2(xDist * 20, yDist * 20)
+		##velocity += Vector2(40,0)
+		#pass
+
+
+
 
 func _on_timer_timeout() -> void:
 	currentAction = actions.IDLE

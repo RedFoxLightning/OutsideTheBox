@@ -23,7 +23,6 @@ texture = ExtResource("1_ikxey")
 [node name="TestingScene" parent="." unique_id=1633530728 instance=ExtResource("1_ggftu")]
 
 [node name="PlayerHand" parent="." unique_id=1414402712 instance=ExtResource("4_qnoq0")]
-unique_name_in_owner = true
 position = Vector2(-36, -53)
 
 [node name="Goober" parent="." unique_id=2033451847 instance=ExtResource("5_kwk4t")]

@@ -2,9 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://dnc7rwwask3nr" path="res://Scenes/health_bar.tscn" id="1_6r7r3"]
 [ext_resource type="Script" uid="uid://mv5k675towkq" path="res://Scenes/base_entity.gd" id="1_m18i3"]
+[ext_resource type="PackedScene" uid="uid://bhvmsub7iqaen" path="res://Scenes/grabbable.tscn" id="3_m18i3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m18i3"]
 
 [node name="BaseEntity" type="Node2D" unique_id=1200200737]
 script = ExtResource("1_m18i3")
 
 [node name="HealthBar" parent="." unique_id=1744285310 instance=ExtResource("1_6r7r3")]
 maxHealth = 25
+
+[node name="Grabbable" parent="." unique_id=1988225032 node_paths=PackedStringArray("rigid_body") instance=ExtResource("3_m18i3")]
+rigid_body = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grabbable" unique_id=1741206127]
+shape = SubResource("RectangleShape2D_m18i3")
