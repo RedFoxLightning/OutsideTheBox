@@ -1,7 +1,6 @@
 extends CharacterBody2D
 #GOOBER ^^
 @onready var entity: Node2D = $BaseEntity
-#@onready var grabbable: Node2D = $Grabbable
 @onready var timer: Timer = $Timer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gooberProjectileParticles: Node2D = $ParticleSummoner
@@ -29,12 +28,6 @@ var attackSpellCastTime: float = 3.5
 var currentActionTimeGoal: float
 var currentActionTimeElpased: float = 0
 var facingDirection: int # -1, 0, or 1
-
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -137,21 +130,10 @@ func castDamageSpell():
 	currentAction = actions.GROUND_ATTACKING
 	pass
 
-#func HandleBeingGrabbedDamage():
-	#currentlyBeingGrabbed = grabbable.grabbed
-	#if(!continuouslyBeingGrabbed and currentlyBeingGrabbed):
-		#entity.Damage(1)
-	#continuouslyBeingGrabbed = currentlyBeingGrabbed
 
 
-#func _on_grabbable_thrown(_thrownVelocity) -> void:
-	##velocity += (thrownVelocity * 20) 
-	#if grabbable.grabbed:
-		#var xDist = get_global_mouse_position().x - player_hand.global_position.x
-		#var yDist = get_global_mouse_position().y - player_hand.global_position.y
-		#velocity += Vector2(xDist * 20, yDist * 20)
-		##velocity += Vector2(40,0)
-		#pass
+
+
 
 
 

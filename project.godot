@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 window/stretch/mode="viewport"
 
+[global_group]
+
+Player="Used for finding the player, only one object should be in here!"
+
 [input]
 
 Grab={

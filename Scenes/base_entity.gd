@@ -37,3 +37,34 @@ func Damage(amount: int):
 
 func Heal(amount: int):
 	health_bar.Heal(amount)
+
+
+
+# additional grabbing code/methods
+
+var currentlyBeingGrabbed
+var continuouslyBeingGrabbed
+
+
+func HandleBeingGrabbedDamage():
+	currentlyBeingGrabbed = grabbable.grabbed
+	if(!continuouslyBeingGrabbed and currentlyBeingGrabbed):
+		Damage(1)
+	continuouslyBeingGrabbed = currentlyBeingGrabbed
+
+
+
+func _on_grabbable_thrown(_thrownVelocity) -> void:
+	var player_hand: Node2D = get_tree().get_first_node_in_group("Player")
+	#velocity += (thrownVelocity * 20) 
+	if grabbable.grabbed:
+		var xDist = get_global_mouse_position().x - player_hand.global_position.x
+		var yDist = get_global_mouse_position().y - player_hand.global_position.y
+		
+		var parent: CharacterBody2D = get_parent()
+		print(parent)
+		if parent != null:
+			print("attempting to throw!")
+			
+			parent.velocity += Vector2(xDist * 20, yDist * 20)
+			pass

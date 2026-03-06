@@ -17,3 +17,5 @@ rigid_body = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grabbable" unique_id=1741206127]
 shape = SubResource("RectangleShape2D_m18i3")
+
+[connection signal="thrown" from="Grabbable" to="." method="_on_grabbable_thrown"]
