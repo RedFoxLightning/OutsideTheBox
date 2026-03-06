@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://biynjsytv7b0w"]
+
+[ext_resource type="Script" uid="uid://brmmljloogjt4" path="res://Scripts/rooms_handler.gd" id="1_n1igy"]
+[ext_resource type="Script" uid="uid://cnlemdipuqv83" path="res://Assets/AreaSO.gd" id="2_afx5l"]
+[ext_resource type="PackedScene" uid="uid://c37ny4nx1fir7" path="res://Scenes/goober.tscn" id="3_0s2cn"]
+[ext_resource type="PackedScene" uid="uid://2ndsilsew1dk" path="res://Scenes/particle_summoner.tscn" id="4_sjujk"]
+
+[sub_resource type="Resource" id="Resource_n2s2s"]
+script = ExtResource("2_afx5l")
+name = "Outside"
+rooms = Array[PackedScene]([ExtResource("3_0s2cn"), ExtResource("4_sjujk")])
+metadata/_custom_type_script = "uid://cnlemdipuqv83"
+
+[sub_resource type="Resource" id="Resource_0s2cn"]
+script = ExtResource("2_afx5l")
+name = "Perimiter"
+lengthInRooms = 5
+metadata/_custom_type_script = "uid://cnlemdipuqv83"
+
+[sub_resource type="Resource" id="Resource_sjujk"]
+script = ExtResource("2_afx5l")
+name = "VictoryRoom"
+metadata/_custom_type_script = "uid://cnlemdipuqv83"
+
+[node name="RoomsHandler" type="Node2D" unique_id=506314096]
+script = ExtResource("1_n1igy")
+areas = Array[ExtResource("2_afx5l")]([SubResource("Resource_n2s2s"), SubResource("Resource_0s2cn"), SubResource("Resource_sjujk")])
