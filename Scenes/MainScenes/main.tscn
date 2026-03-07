@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://df3i8eqggwekp"]
 
-[ext_resource type="PackedScene" uid="uid://lsidf3hsjr2f" path="res://Scenes/MainScenes/TestingScene.tscn" id="1_ggftu"]
 [ext_resource type="Texture2D" uid="uid://c3esuslysnmhy" path="res://Assets/PixelVignette8-bit.png" id="1_ikxey"]
 [ext_resource type="PackedScene" uid="uid://b43beh87rrhrb" path="res://Scenes/MainScenes/pause_menu.tscn" id="2_xt1mu"]
+[ext_resource type="Texture2D" uid="uid://col8rqogmsmog" path="res://Assets/SkyBG.png" id="3_osum8"]
 [ext_resource type="PackedScene" uid="uid://3fauufxaniq4" path="res://Scenes/player_hand.tscn" id="4_qnoq0"]
 [ext_resource type="PackedScene" uid="uid://biynjsytv7b0w" path="res://Scenes/rooms_handler.tscn" id="5_3ns6s"]
 [ext_resource type="PackedScene" uid="uid://c37ny4nx1fir7" path="res://Scenes/goober.tscn" id="5_kwk4t"]
 [ext_resource type="Script" uid="uid://cnlemdipuqv83" path="res://Assets/AreaSO.gd" id="6_nbfx8"]
-[ext_resource type="PackedScene" uid="uid://dkbcbtx7qao03" path="res://Scenes/base_entity.tscn" id="8_3unti"]
-[ext_resource type="PackedScene" uid="uid://2ndsilsew1dk" path="res://Scenes/particle_summoner.tscn" id="9_pwuqd"]
-[ext_resource type="Texture2D" uid="uid://706vs3gpu1rv" path="res://icon.svg" id="11_pwuqd"]
+[ext_resource type="PackedScene" uid="uid://c1j3oo5bm2hqt" path="res://Scenes/Rooms/perimiter_room_1.tscn" id="8_3unti"]
+[ext_resource type="PackedScene" uid="uid://d164rymbeut1v" path="res://Scenes/Rooms/perimiter_room_2.tscn" id="9_a7y30"]
+[ext_resource type="PackedScene" uid="uid://tap7462oubhs" path="res://Scenes/Rooms/victory_room.tscn" id="10_3unti"]
 
 [sub_resource type="Resource" id="Resource_vcdch"]
 script = ExtResource("6_nbfx8")
@@ -21,13 +21,13 @@ metadata/_custom_type_script = "uid://cnlemdipuqv83"
 script = ExtResource("6_nbfx8")
 name = "Perimiter"
 lengthInRooms = 5
-rooms = Array[PackedScene]([ExtResource("8_3unti")])
+rooms = Array[PackedScene]([ExtResource("8_3unti"), ExtResource("9_a7y30")])
 metadata/_custom_type_script = "uid://cnlemdipuqv83"
 
 [sub_resource type="Resource" id="Resource_sjujk"]
 script = ExtResource("6_nbfx8")
 name = "VictoryRoom"
-rooms = Array[PackedScene]([ExtResource("9_pwuqd")])
+rooms = Array[PackedScene]([ExtResource("10_3unti")])
 metadata/_custom_type_script = "uid://cnlemdipuqv83"
 
 [node name="Main" type="Node2D" unique_id=534455431]
@@ -43,19 +43,15 @@ texture = ExtResource("1_ikxey")
 
 [node name="PauseMenu" parent="Camera2D" unique_id=1150152310 instance=ExtResource("2_xt1mu")]
 
+[node name="Sky" type="Sprite2D" parent="Camera2D" unique_id=1340002039]
+z_index = -4096
+texture = ExtResource("3_osum8")
+
 [node name="PlayerHand" parent="." unique_id=1414402712 groups=["Player"] instance=ExtResource("4_qnoq0")]
 unique_name_in_owner = true
 position = Vector2(-36, -53)
 
 [node name="Goober" parent="." unique_id=2033451847 instance=ExtResource("5_kwk4t")]
-position = Vector2(-100, 27)
 
 [node name="RoomsHandler" parent="." unique_id=506314096 instance=ExtResource("5_3ns6s")]
 areas = Array[ExtResource("6_nbfx8")]([SubResource("Resource_vcdch"), SubResource("Resource_0s2cn"), SubResource("Resource_sjujk")])
-
-[node name="TestingScene" parent="." unique_id=1633530728 instance=ExtResource("1_ggftu")]
-
-[node name="GodotCubeLol" type="Sprite2D" parent="." unique_id=1083354058]
-visible = false
-position = Vector2(-320, 0)
-texture = ExtResource("11_pwuqd")

@@ -6,7 +6,7 @@ var base_state
 var room_numbers: Dictionary[Vector2, int] # used for adding to the seed ^^
 var latest_room_number := 0
 var room_areas: Dictionary[Vector2, AreaSO]
-var cleared: Dictionary[Vector2, bool]
+var cleared_rooms: Dictionary[Vector2, bool]
 var loaded_rooms: Dictionary[Vector2, PackedScene]
 
 const room_size: Vector2 = Vector2(640,360)
@@ -18,23 +18,24 @@ func _ready() -> void:
 
 	var currentPos := Vector2(0,0)
 	for a in areas.size():
-		for r in areas[a].rooms.size():
-			
-			AssignNewRoomNumberAt(currentPos)
-			room_areas[currentPos] = areas[a]
-			
-			if !areas[a].vertical:
-				currentPos.x += 1
-			else:
-				# Reminder, +Y is DOWN
-				currentPos.y += 1 
-			#print(areas[a].rooms[r])
+		for r in areas[a].lengthInRooms:
+			if areas[a].rooms.size() > 0: # this actually stops a crash.. so somehow this code is dealing with something I'm not expecting it to.
+				AssignNewRoomNumberAt(currentPos)
+				room_areas[currentPos] = areas[a]
+				GenerateRoomAt(currentPos)
+				
+				if !areas[a].vertical:
+					currentPos.x += 1
+				else:
+					# Reminder, +Y is DOWN
+					currentPos.y += 1 
+				#print(areas[a].rooms[r])
 	
 	#areas[0].GetRandomRoom()
-	GenerateRoomAt(Vector2(0,0))
+	#GenerateRoomAt(Vector2(0,0))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	#print(rng.seed)
 

@@ -72,6 +72,9 @@ func _physics_process(_delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	
+	# Panning code (disabled :p)
+	
 	if(event.is_action_pressed("Move")):
 		panning = true
 		camera_offset = camera.global_position - get_global_mouse_position()
@@ -82,7 +85,7 @@ func _input(event: InputEvent) -> void:
 	if(event.is_action_released("Grab")): grabbing = false
 
 func _draw() -> void:
-	draw_circle(Vector2(0,0),maxDistanceFromMouse,Color.INDIAN_RED,false,2)
+	#draw_circle(Vector2(0,0),maxDistanceFromMouse,Color.INDIAN_RED,false,2)
 	pass
 	
 func get_distance_to(target: Vector2):
