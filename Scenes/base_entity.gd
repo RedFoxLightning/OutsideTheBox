@@ -9,12 +9,20 @@ extends Node2D
 @export var healthBarHeight: float
 @export var grabbableCollisionShapeSize: Vector2 = Vector2(20,20)
 @export var grabbableCollisionShapeOffset: Vector2 = Vector2(0,0)
+
+## 0 = 0% of speed retained  -  1 = 100% of speed retained
+@export var groundedFrictionModifier: float = -1
+## 0 = 0% of speed retained  -  1 = 100% of speed retained
+@export var arialFrictionModifier: float = -1
+
+var characterBody: CharacterBody2D
 var currentHealth: int
 const debugMode: bool = false 
 #@export var takesDamageOnGrab: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	characterBody = get_parent()
 	health_bar.global_position.y = global_position.y + healthBarHeight
 	health_bar.SetMaxHealth(maxHealth)
 	grabbable_collision_shape.shape.size.x = grabbableCollisionShapeSize.x
@@ -27,6 +35,15 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if debugMode:
 		queue_redraw()
+	
+		#Removes all velocy if grabbed
+
+func _physics_process(delta: float) -> void:
+	if characterBody != null:
+		if grabbable.grabbed: characterBody.velocity = Vector2(0,0)
+		
+
+	pass
 
 func _draw() -> void:
 	if debugMode:
@@ -62,9 +79,14 @@ func _on_grabbable_thrown() -> void:
 		var xDist = get_global_mouse_position().x - player_hand.global_position.x
 		var yDist = get_global_mouse_position().y - player_hand.global_position.y
 		
-		var parent: CharacterBody2D = get_parent()
-		if parent != null:
+		if characterBody != null:
 			#print("attempting to throw!")
 			
-			parent.velocity += Vector2(xDist * 20, yDist * 20)
+			characterBody.velocity += Vector2(xDist * 20, yDist * 20)
 			pass
+
+
+func GetGroundedFriction():
+	return groundedFrictionModifier
+func GetArialFriction():
+	return arialFrictionModifier

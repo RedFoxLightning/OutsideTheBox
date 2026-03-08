@@ -282,6 +282,8 @@ gooberProjectile = ExtResource("2_iv7l0")
 maxHealth = 48
 healthBarHeight = -30.0
 grabbableCollisionShapeSize = Vector2(48, 48)
+groundedFrictionModifier = 0.4
+arialFrictionModifier = 0.99
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=556584701]
 z_index = 10

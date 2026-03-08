@@ -52,20 +52,19 @@ func _physics_process(delta: float) -> void:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 		
-		motion_mode = CharacterBody2D.MOTION_MODE_GROUNDED
+		
 		if is_on_floor():
 			if currentAction == actions.WALKING:
 				velocity.x = facingDirection * walkingSpeed
 			else: # (if idling)
-				velocity.x = 0
+				velocity.x *= entity.GetGroundedFriction()
 		
 	else:
-		velocity = velocity * 0.99
+		velocity = velocity * entity.GetArialFriction()
 		#if velocity.x < 0.01: velocity.x = 0
 		#if velocity.y < 0.01: velocity.y = 0
 		
-		motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
-
+		
 		#velocity.y -= get_gravity().y * delta
 		
 		if currentAction == actions.WALKING:
