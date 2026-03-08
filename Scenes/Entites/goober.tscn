@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c37ny4nx1fir7"]
 
-[ext_resource type="Script" uid="uid://blmv5ew4b03c3" path="res://Scripts/goober.gd" id="1_68t3s"]
-[ext_resource type="PackedScene" uid="uid://dkbcbtx7qao03" path="res://Scenes/base_entity.tscn" id="1_xy1m5"]
+[ext_resource type="Script" uid="uid://blmv5ew4b03c3" path="res://Scripts/Entities/goober.gd" id="1_68t3s"]
+[ext_resource type="PackedScene" uid="uid://dkbcbtx7qao03" path="res://Scenes/Entites/base_entity.tscn" id="1_xy1m5"]
 [ext_resource type="PackedScene" uid="uid://b3hoxbjv3l66e" path="res://Scenes/goober_bolt.tscn" id="2_iv7l0"]
 [ext_resource type="Texture2D" uid="uid://bs7vdu1sbys0t" path="res://Assets/GooberSpriteSheet.png" id="2_xy1m5"]
 [ext_resource type="PackedScene" uid="uid://2ndsilsew1dk" path="res://Scenes/particle_summoner.tscn" id="6_nd2k5"]
@@ -275,6 +275,7 @@ size = Vector2(20, 43)
 
 [node name="Goober" type="CharacterBody2D" unique_id=2033451847]
 z_index = 10
+floor_max_angle = 0.34906584
 script = ExtResource("1_68t3s")
 gooberProjectile = ExtResource("2_iv7l0")
 

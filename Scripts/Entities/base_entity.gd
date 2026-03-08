@@ -15,10 +15,17 @@ extends Node2D
 ## 0 = 0% of speed retained  -  1 = 100% of speed retained
 @export var arialFrictionModifier: float = -1
 
+@export var takesDamageOnGrab: bool = true
+
+
+
+
 var characterBody: CharacterBody2D
+
 var currentHealth: int
 const debugMode: bool = false 
-#@export var takesDamageOnGrab: bool = true
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,18 +35,23 @@ func _ready() -> void:
 	grabbable_collision_shape.shape.size.x = grabbableCollisionShapeSize.x
 	grabbable_collision_shape.shape.size.y = grabbableCollisionShapeSize.y
 	grabbable_collision_shape.position = grabbableCollisionShapeOffset
-	grabbable.rigid_body = get_parent()
+	grabbable.object_to_grab = get_parent()
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if takesDamageOnGrab:
+		HandleBeingGrabbedDamage()
+	
+	
 	if debugMode:
 		queue_redraw()
+	HandleBeingGrabbedDamage()
 	
-		#Removes all velocy if grabbed
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if characterBody != null:
+		#Removes all velocy if grabbed
 		if grabbable.grabbed: characterBody.velocity = Vector2(0,0)
 		
 

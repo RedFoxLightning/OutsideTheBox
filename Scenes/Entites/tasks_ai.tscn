@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://kh3wv76aol3r"]
+
+[ext_resource type="Script" uid="uid://4bt35pinhnvy" path="res://Scripts/Entities/tasks_ai.gd" id="1_lsr3b"]
+[ext_resource type="Resource" uid="uid://dancjoqfugrqr" path="res://Assets/void_state.res" id="2_k7rv3"]
+
+[node name="tasks_ai" type="Node2D" unique_id=1071120289]
+script = ExtResource("1_lsr3b")
+voidState = ExtResource("2_k7rv3")
+
+[node name="interval_between_tasks" type="Timer" parent="." unique_id=2046395158]
+autostart = true
+
+[connection signal="timeout" from="interval_between_tasks" to="." method="_on_interval_between_tasks_timeout"]

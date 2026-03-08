@@ -21,18 +21,19 @@ var floating := false
 
 var walkingSpeed: float = 100
 var floatingSpeed: float = 1000
-var airFrictionResistance: float = 3
 var attackSpellCastTime: float = 3.5 
 
 
 var currentActionTimeGoal: float
 var currentActionTimeElpased: float = 0
+
+
+
 var facingDirection: int # -1, 0, or 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#HandleBeingGrabbedDamage()
 	SelectCorrectAnimation()
 	
 	currentActionTimeElpased += delta
@@ -128,12 +129,6 @@ func castDamageSpell():
 	currentActionTimeGoal = attackSpellCastTime
 	currentAction = actions.GROUND_ATTACKING
 	pass
-
-
-
-
-
-
 
 
 

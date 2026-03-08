@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhvmsub7iqaen"]
 
-[ext_resource type="Script" uid="uid://5b85wj6t7oho" path="res://Scripts/grabbable.gd" id="1_bhcon"]
+[ext_resource type="Script" uid="uid://5b85wj6t7oho" path="res://Scripts/Entities/grabbable.gd" id="1_bhcon"]
 
 [node name="Grabbable" type="Node2D" unique_id=1988225032]
 self_modulate = Color(1, 1, 1, 0)

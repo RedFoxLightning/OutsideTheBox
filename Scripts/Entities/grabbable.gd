@@ -2,7 +2,7 @@ extends Node2D
 #@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var collision_shape: CollisionShape2D = $"CollisionShape2D"
 
-@export var rigid_body: Node2D
+@export var object_to_grab: Node2D
 
 var grabbed: bool = false;
 var relative_position;
@@ -19,7 +19,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	setPosToRigidBodyPos()
 	if grabbed:
-		rigid_body.global_position = get_global_mouse_position() + relative_position
+		object_to_grab.global_position = get_global_mouse_position() + relative_position
 	
 
 
@@ -42,7 +42,7 @@ func _input(event: InputEvent) -> void:
 		#print("unclick!");
 
 func setPosToRigidBodyPos():
-	pos = rigid_body.global_position;
+	pos = object_to_grab.global_position;
 
 func _on_button_down() -> void:
 	grabbed = true

@@ -1,8 +1,53 @@
 [gd_scene format=3 uid="uid://cxtfpk4ceiuaq"]
 
-[ext_resource type="Script" uid="uid://b8aomus6t7r26" path="res://Scenes/Entites/big_frog_enemy.gd" id="1_biyj2"]
-[ext_resource type="PackedScene" uid="uid://dkbcbtx7qao03" path="res://Scenes/base_entity.tscn" id="2_dcuvd"]
+[ext_resource type="Script" uid="uid://b8aomus6t7r26" path="res://Scripts/Entities/big_frog_enemy.gd" id="1_biyj2"]
+[ext_resource type="PackedScene" uid="uid://dkbcbtx7qao03" path="res://Scenes/Entites/base_entity.tscn" id="2_dcuvd"]
 [ext_resource type="Texture2D" uid="uid://ct75sxtvtr6yh" path="res://Assets/KnifeGuySpriteSheet.png" id="3_887g6"]
+[ext_resource type="PackedScene" uid="uid://kh3wv76aol3r" path="res://Scenes/Entites/tasks_ai.tscn" id="3_dcuvd"]
+[ext_resource type="Script" uid="uid://bul4aj6tik7lk" path="res://Assets/TaskAIStateSO.gd" id="4_rod8d"]
+[ext_resource type="Script" uid="uid://8pm11srdvu7f" path="res://Assets/TaskSO.gd" id="5_1k0fd"]
+
+[sub_resource type="Resource" id="Resource_rod8d"]
+script = ExtResource("5_1k0fd")
+task_name = "Idle"
+persistant = true
+metadata/_custom_type_script = "uid://8pm11srdvu7f"
+
+[sub_resource type="Resource" id="Resource_1k0fd"]
+script = ExtResource("5_1k0fd")
+task_name = "Antsy stabs"
+time_to_complete_min = 2.0
+time_to_complete_max = 2.0
+metadata/_custom_type_script = "uid://8pm11srdvu7f"
+
+[sub_resource type="Resource" id="Resource_m4yix"]
+script = ExtResource("5_1k0fd")
+task_name = "Hop twice"
+time_to_complete_min = 2.0
+time_to_complete_max = 2.0
+metadata/_custom_type_script = "uid://8pm11srdvu7f"
+
+[sub_resource type="Resource" id="Resource_mcp5s"]
+script = ExtResource("4_rod8d")
+name = "Unnagroed"
+tasks = Array[ExtResource("5_1k0fd")]([SubResource("Resource_rod8d"), SubResource("Resource_1k0fd"), SubResource("Resource_m4yix")])
+interval_between_tasks = 2.0
+metadata/_custom_type_script = "uid://bul4aj6tik7lk"
+
+[sub_resource type="Resource" id="Resource_4ib7q"]
+script = ExtResource("5_1k0fd")
+metadata/_custom_type_script = "uid://8pm11srdvu7f"
+
+[sub_resource type="Resource" id="Resource_4b1m7"]
+script = ExtResource("5_1k0fd")
+metadata/_custom_type_script = "uid://8pm11srdvu7f"
+
+[sub_resource type="Resource" id="Resource_fnu1k"]
+script = ExtResource("4_rod8d")
+name = "Aggroed"
+tasks = Array[ExtResource("5_1k0fd")]([SubResource("Resource_4ib7q"), SubResource("Resource_4b1m7")])
+interval_between_tasks = 2.0
+metadata/_custom_type_script = "uid://bul4aj6tik7lk"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m4yix"]
 atlas = ExtResource("3_887g6")
@@ -19,25 +64,106 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_biyj2"]
-radius = 28.535067
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rod8d"]
+radius = 21.0
+height = 58.0
+
+[sub_resource type="Animation" id="Animation_rod8d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1k0fd"]
+resource_name = "antsy_stabbing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333333, 0.26666665, 0.6, 0.76666665, 0.94),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.17453292519943295, 0.0, 0.0, 0.17453292519943295, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_m4yix"]
+resource_name = "Hopping"
+length = 1.55
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666665, 0.43, 0.8333333, 1.2666667),
+"transitions": PackedFloat32Array(1, 1, 1, 2.0000005, 1),
+"update": 0,
+"values": [0.0, 3.0, 3.0, -8.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mcp5s"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ib7q"]
+_data = {
+&"RESET": SubResource("Animation_rod8d"),
+&"antsy_stabbing": SubResource("Animation_1k0fd"),
+&"hopping": SubResource("Animation_m4yix"),
+&"idle": SubResource("Animation_mcp5s")
+}
 
 [node name="BigFrogEnemy" type="CharacterBody2D" unique_id=610472911]
 floor_max_angle = 0.34906584
 script = ExtResource("1_biyj2")
+states = Array[ExtResource("4_rod8d")]([SubResource("Resource_mcp5s"), SubResource("Resource_fnu1k")])
 
 [node name="BaseEntity" parent="." unique_id=1200200737 instance=ExtResource("2_dcuvd")]
 healthBarHeight = -30.0
-grabbableCollisionShapeSize = Vector2(65, 56)
+grabbableCollisionShapeSize = Vector2(60, 56)
 grabbableCollisionShapeOffset = Vector2(0, 16)
 groundedFrictionModifier = 0.8
 arialFrictionModifier = 0.99
 
+[node name="tasks_ai" parent="." unique_id=1071120289 instance=ExtResource("3_dcuvd")]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1939177167]
+z_index = 10
 sprite_frames = SubResource("SpriteFrames_mcp5s")
 animation = &"idle_right"
 autoplay = "idle_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=922174496]
-position = Vector2(0, 11.5)
-shape = SubResource("CircleShape2D_biyj2")
+position = Vector2(0, 11)
+shape = SubResource("CapsuleShape2D_rod8d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1804529919]
+libraries/ = SubResource("AnimationLibrary_4ib7q")
+autoplay = &"idle"
+
+[connection signal="new_task" from="tasks_ai" to="." method="_on_tasks_ai_new_task"]
