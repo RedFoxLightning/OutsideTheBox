@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://biynjsytv7b0w"]
 
-[ext_resource type="Script" uid="uid://brmmljloogjt4" path="res://Scripts/rooms_handler.gd" id="1_n1igy"]
+[ext_resource type="Script" uid="uid://brmmljloogjt4" path="res://Assets/Scripts/rooms_handler.gd" id="1_n1igy"]
 [ext_resource type="Script" uid="uid://cnlemdipuqv83" path="res://Assets/AreaSO.gd" id="2_afx5l"]
-[ext_resource type="PackedScene" uid="uid://d02tnptlom2b3" path="res://Scenes/Rooms/starting_room.tscn" id="3_n2s2s"]
+[ext_resource type="PackedScene" uid="uid://d02tnptlom2b3" path="res://Assets/Scenes/Rooms/starting_room.tscn" id="3_n2s2s"]
 
 [sub_resource type="Resource" id="Resource_n2s2s"]
 script = ExtResource("2_afx5l")

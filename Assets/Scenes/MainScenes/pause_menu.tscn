@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b43beh87rrhrb"]
 
-[ext_resource type="Script" uid="uid://du4oq4twh1p1" path="res://Scripts/pause_menu.gd" id="1_71n1c"]
+[ext_resource type="Script" uid="uid://du4oq4twh1p1" path="res://Assets/Scripts/pause_menu.gd" id="1_71n1c"]
 
 [node name="PauseMenu" type="Node2D" unique_id=1150152310 node_paths=PackedStringArray("mainPauseMenu")]
 scale = Vector2(4, 4)

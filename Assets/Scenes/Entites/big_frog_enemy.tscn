@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cxtfpk4ceiuaq"]
 
-[ext_resource type="Script" uid="uid://b8aomus6t7r26" path="res://Scripts/Entities/big_frog_enemy.gd" id="1_biyj2"]
-[ext_resource type="PackedScene" uid="uid://dkbcbtx7qao03" path="res://Scenes/Entites/base_entity.tscn" id="2_dcuvd"]
+[ext_resource type="Script" uid="uid://b8aomus6t7r26" path="res://Assets/Scripts/Entities/big_frog_enemy.gd" id="1_biyj2"]
+[ext_resource type="PackedScene" uid="uid://dkbcbtx7qao03" path="res://Assets/Scenes/Entites/base_entity.tscn" id="2_dcuvd"]
 [ext_resource type="Texture2D" uid="uid://ct75sxtvtr6yh" path="res://Assets/KnifeGuySpriteSheet.png" id="3_887g6"]
-[ext_resource type="PackedScene" uid="uid://kh3wv76aol3r" path="res://Scenes/Entites/tasks_ai.tscn" id="3_dcuvd"]
+[ext_resource type="PackedScene" uid="uid://kh3wv76aol3r" path="res://Assets/Scenes/Entites/tasks_ai.tscn" id="3_dcuvd"]
 [ext_resource type="Script" uid="uid://bul4aj6tik7lk" path="res://Assets/TaskAIStateSO.gd" id="4_rod8d"]
 [ext_resource type="Script" uid="uid://8pm11srdvu7f" path="res://Assets/TaskSO.gd" id="5_1k0fd"]
 

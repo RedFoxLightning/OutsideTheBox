@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b3hoxbjv3l66e"]
 
-[ext_resource type="Script" uid="uid://dpd36qj10d3bh" path="res://Scripts/goober_bolt.gd" id="1_brunv"]
+[ext_resource type="Script" uid="uid://dpd36qj10d3bh" path="res://Assets/Scripts/goober_bolt.gd" id="1_brunv"]
 [ext_resource type="Texture2D" uid="uid://couriin50fcfu" path="res://Assets/GooberBolt.png" id="1_g6v1g"]
-[ext_resource type="PackedScene" uid="uid://cysjkl7t0w8mw" path="res://Scenes/goober_bolt_particle.tscn" id="2_620ju"]
-[ext_resource type="PackedScene" uid="uid://2ndsilsew1dk" path="res://Scenes/particle_summoner.tscn" id="3_lelms"]
+[ext_resource type="PackedScene" uid="uid://cysjkl7t0w8mw" path="res://Assets/Scenes/goober_bolt_particle.tscn" id="2_620ju"]
+[ext_resource type="PackedScene" uid="uid://2ndsilsew1dk" path="res://Assets/Scenes/particle_summoner.tscn" id="3_lelms"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6v1g"]
 radius = 4.472136

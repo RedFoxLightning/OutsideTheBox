@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://df3i8eqggwekp"]
 
 [ext_resource type="Texture2D" uid="uid://c3esuslysnmhy" path="res://Assets/PixelVignette8-bit.png" id="1_ikxey"]
-[ext_resource type="PackedScene" uid="uid://b43beh87rrhrb" path="res://Scenes/MainScenes/pause_menu.tscn" id="2_xt1mu"]
+[ext_resource type="PackedScene" uid="uid://b43beh87rrhrb" path="res://Assets/Scenes/MainScenes/pause_menu.tscn" id="2_xt1mu"]
 [ext_resource type="Texture2D" uid="uid://col8rqogmsmog" path="res://Assets/SkyBG.png" id="3_osum8"]
-[ext_resource type="PackedScene" uid="uid://3fauufxaniq4" path="res://Scenes/player_hand.tscn" id="4_qnoq0"]
-[ext_resource type="PackedScene" uid="uid://biynjsytv7b0w" path="res://Scenes/rooms_handler.tscn" id="5_3ns6s"]
-[ext_resource type="PackedScene" uid="uid://c37ny4nx1fir7" path="res://Scenes/Entites/goober.tscn" id="5_kwk4t"]
+[ext_resource type="PackedScene" uid="uid://3fauufxaniq4" path="res://Assets/Scenes/player_hand.tscn" id="4_qnoq0"]
+[ext_resource type="PackedScene" uid="uid://biynjsytv7b0w" path="res://Assets/Scenes/rooms_handler.tscn" id="5_3ns6s"]
+[ext_resource type="PackedScene" uid="uid://c37ny4nx1fir7" path="res://Assets/Scenes/Entites/goober.tscn" id="5_kwk4t"]
 [ext_resource type="Script" uid="uid://cnlemdipuqv83" path="res://Assets/AreaSO.gd" id="6_nbfx8"]
-[ext_resource type="PackedScene" uid="uid://c1j3oo5bm2hqt" path="res://Scenes/Rooms/perimiter_room_1.tscn" id="8_3unti"]
-[ext_resource type="PackedScene" uid="uid://d164rymbeut1v" path="res://Scenes/Rooms/perimiter_room_2.tscn" id="9_a7y30"]
-[ext_resource type="PackedScene" uid="uid://tap7462oubhs" path="res://Scenes/Rooms/victory_room.tscn" id="10_3unti"]
+[ext_resource type="PackedScene" uid="uid://c1j3oo5bm2hqt" path="res://Assets/Scenes/Rooms/perimiter_room_1.tscn" id="8_3unti"]
+[ext_resource type="PackedScene" uid="uid://d164rymbeut1v" path="res://Assets/Scenes/Rooms/perimiter_room_2.tscn" id="9_a7y30"]
+[ext_resource type="PackedScene" uid="uid://tap7462oubhs" path="res://Assets/Scenes/Rooms/victory_room.tscn" id="10_3unti"]
 
 [sub_resource type="Resource" id="Resource_vcdch"]
 script = ExtResource("6_nbfx8")

@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://d164rymbeut1v"]
 
 [ext_resource type="Texture2D" uid="uid://c3esuslysnmhy" path="res://Assets/PixelVignette8-bit.png" id="1_5i7mu"]
-[ext_resource type="TileSet" uid="uid://cmsylfh5vlcci" path="res://Scenes/Rooms/main_tile_set.res" id="2_6kahw"]
+[ext_resource type="TileSet" uid="uid://cmsylfh5vlcci" path="res://Assets/Scenes/Rooms/main_tile_set.res" id="2_6kahw"]
 
 [node name="perimiter_room_1" type="Node2D" unique_id=1836364607]
 

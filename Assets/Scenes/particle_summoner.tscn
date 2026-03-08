@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://2ndsilsew1dk"]
 
-[ext_resource type="Script" uid="uid://5ox7pidudr8n" path="res://Scripts/particle_summoner.gd" id="1_tbv5m"]
+[ext_resource type="Script" uid="uid://5ox7pidudr8n" path="res://Assets/Scripts/particle_summoner.gd" id="1_tbv5m"]
 
 [node name="ParticleSummoner" type="Node2D" unique_id=838000790]
 script = ExtResource("1_tbv5m")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dnc7rwwask3nr"]
+
+[ext_resource type="Script" uid="uid://byj070alxyiv8" path="res://Assets/Scripts/Entities/health_bar.gd" id="1_j3y81"]
+[ext_resource type="Texture2D" uid="uid://dtpy7rx80l2as" path="res://Assets/HealthBarV2.png" id="2_ou5lc"]
+
+[node name="HealthBar" type="Node2D" unique_id=1744285310]
+script = ExtResource("1_j3y81")
+
+[node name="Bar" type="Sprite2D" parent="." unique_id=1206430759]
+z_index = 1000
+texture = ExtResource("2_ou5lc")
+vframes = 25

@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://d02tnptlom2b3"]
 
 [ext_resource type="Texture2D" uid="uid://c3esuslysnmhy" path="res://Assets/PixelVignette8-bit.png" id="1_nxm3g"]
-[ext_resource type="Script" uid="uid://bnq31wcm241vj" path="res://Scenes/Rooms/room.gd" id="1_ysais"]
-[ext_resource type="TileSet" uid="uid://cmsylfh5vlcci" path="res://Scenes/Rooms/main_tile_set.res" id="3_ysais"]
+[ext_resource type="Script" uid="uid://bnq31wcm241vj" path="res://Assets/Scenes/Rooms/room.gd" id="1_ysais"]
+[ext_resource type="TileSet" uid="uid://cmsylfh5vlcci" path="res://Assets/Scenes/Rooms/main_tile_set.res" id="3_ysais"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23rsy"]
 size = Vector2(688, 20)
