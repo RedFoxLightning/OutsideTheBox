@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var health_bar: Node2D = $HealthBar
 @onready var grabbable: Node2D = $Grabbable
-@onready var grabbable_collision_shape: CollisionShape2D = $Grabbable/CollisionShape2D
+#@onready var grabbable_collision_shape: CollisionShape2D = $Grabbable/CollisionShape2D
 
 
 @export var maxHealth: int = 24
@@ -32,9 +32,11 @@ func _ready() -> void:
 	characterBody = get_parent()
 	health_bar.global_position.y = global_position.y + healthBarHeight
 	health_bar.SetMaxHealth(maxHealth)
-	grabbable_collision_shape.shape.size.x = grabbableCollisionShapeSize.x
-	grabbable_collision_shape.shape.size.y = grabbableCollisionShapeSize.y
-	grabbable_collision_shape.position = grabbableCollisionShapeOffset
+	#grabbable_collision_shape.shape.size.x = grabbableCollisionShapeSize.x
+	#grabbable_collision_shape.shape.size.y = grabbableCollisionShapeSize.y
+	#grabbable_collision_shape.position = grabbableCollisionShapeOffset
+	grabbable.collision_shape = grabbableCollisionShapeSize
+	grabbable.hitbox_offset = grabbableCollisionShapeOffset
 	grabbable.object_to_grab = get_parent()
 	pass
 
@@ -60,7 +62,12 @@ func _physics_process(_delta: float) -> void:
 func _draw() -> void:
 	if debugMode:
 		# Show bounding box of where you're able to grab the entity
-		draw_rect(Rect2(-grabbableCollisionShapeSize.x / 2,-grabbableCollisionShapeSize.y / 2,grabbableCollisionShapeSize.x,grabbableCollisionShapeSize.y),Color.CORNFLOWER_BLUE)
+		draw_rect(Rect2(
+			-grabbableCollisionShapeSize.x / 2 + grabbableCollisionShapeOffset.x,
+			-grabbableCollisionShapeSize.y / 2 + grabbableCollisionShapeOffset.y,
+			grabbableCollisionShapeSize.x,
+			grabbableCollisionShapeSize.y),
+			Color.CORNFLOWER_BLUE)
 
 func Damage(amount: int):
 	health_bar.Damage(amount)
