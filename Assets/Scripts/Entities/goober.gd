@@ -106,16 +106,16 @@ func getNewAction():
 
 
 func startFloating():
-	print("goober wants to fly!")
+	#print("goober wants to fly!")
 	floating = true;
 	velocity.y -= randf_range(40, 175) #floating a little bit to floating almost off screen
 	pass
 func stopFloating():
-	print("goober wants to decend!")
+	#print("goober wants to decend!")
 	floating = false;
 	pass
 func walkToRandomPointOnFloor():
-	print("goober wants to walk!")
+	#print("goober wants to walk!")
 	currentActionTimeGoal = randf_range(1.5,3) # how long goober will walk for
 	match randi_range(1,2):
 		1:
@@ -125,7 +125,7 @@ func walkToRandomPointOnFloor():
 			
 	currentAction = actions.WALKING
 func castDamageSpell():
-	print("goober wants to cause havoc!")
+	#print("goober wants to cause havoc!")
 	currentActionTimeGoal = attackSpellCastTime
 	currentAction = actions.GROUND_ATTACKING
 	pass

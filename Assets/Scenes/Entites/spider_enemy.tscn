@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dbrq6cetuim0j"]
+
+[ext_resource type="Script" uid="uid://c0e7ci6417jk" path="res://Assets/Scripts/Entities/spider_enemy.gd" id="1_3mds1"]
+[ext_resource type="PackedScene" uid="uid://c05db60rl1oyj" path="res://Assets/Scenes/Entites/base_enemy.tscn" id="2_me7qk"]
+[ext_resource type="PackedScene" uid="uid://dkbcbtx7qao03" path="res://Assets/Scenes/Entites/base_entity.tscn" id="3_y74d1"]
+[ext_resource type="Texture2D" uid="uid://f3e4wjylajlu" path="res://Assets/ArcherSpriteSheet.png" id="4_lg7j0"]
+[ext_resource type="Texture2D" uid="uid://bm1cfapyyxd0n" path="res://Assets/SpiderLegsStatic.png" id="5_me7qk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jgq81"]
+radius = 12.0415945
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_me7qk"]
+size = Vector2(30, 14)
+
+[node name="spider_enemy" type="CharacterBody2D" unique_id=1457878292]
+script = ExtResource("1_3mds1")
+
+[node name="HeadCollisionShape" type="CollisionShape2D" parent="." unique_id=471889347]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_jgq81")
+
+[node name="LegsCollisionShape" type="CollisionShape2D" parent="." unique_id=173315447]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_me7qk")
+
+[node name="BaseEntity" parent="." unique_id=1200200737 instance=ExtResource("3_y74d1")]
+healthBarHeight = -35.0
+grabbableCollisionShapeSize = Vector2(40, 20)
+groundedFrictionModifier = 0.4
+arialFrictionModifier = 0.99
+
+[node name="BaseEnemy" parent="." unique_id=1658250846 instance=ExtResource("2_me7qk")]
+detectionRange = 250.0
+
+[node name="HeadSprite" type="Sprite2D" parent="." unique_id=1726754037]
+z_index = 9
+position = Vector2(0, -16)
+texture = ExtResource("4_lg7j0")
+hframes = 16
+vframes = 16
+frame = 2
+
+[node name="LegsSprite" type="Sprite2D" parent="." unique_id=1317643112]
+z_index = 8
+texture = ExtResource("5_me7qk")

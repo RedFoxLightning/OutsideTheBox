@@ -273,7 +273,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xy1m5"]
 size = Vector2(20, 43)
 
-[node name="Goober" type="CharacterBody2D" unique_id=2033451847]
+[node name="Goober" type="CharacterBody2D" unique_id=2033451847 groups=["Goober"]]
 z_index = 10
 floor_max_angle = 0.34906584
 script = ExtResource("1_68t3s")

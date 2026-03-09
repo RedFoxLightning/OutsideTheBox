@@ -23,7 +23,7 @@ extends Node2D
 var characterBody: CharacterBody2D
 
 var currentHealth: int
-const debugMode: bool = false 
+const debugMode: bool = true 
 
 
 
