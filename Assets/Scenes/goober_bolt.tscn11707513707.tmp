@@ -104,6 +104,7 @@ script = ExtResource("1_brunv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1280357450]
 position = Vector2(0.5, -0.5)
 shape = SubResource("CircleShape2D_g6v1g")
+disabled = true
 
 [node name="Animator" type="AnimatedSprite2D" parent="." unique_id=258093344]
 z_index = 15
@@ -120,6 +121,9 @@ autostart = true
 [node name="ParticleSummoner" parent="." unique_id=838000790 instance=ExtResource("3_lelms")]
 particlesToSummon = ExtResource("2_620ju")
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]
 [connection signal="timeout" from="ActivationTimer" to="." method="_on_activation_timer_timeout"]

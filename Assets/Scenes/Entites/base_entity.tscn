@@ -12,8 +12,7 @@ script = ExtResource("1_m18i3")
 [node name="HealthBar" parent="." unique_id=1744285310 instance=ExtResource("1_6r7r3")]
 maxHealth = 25
 
-[node name="Grabbable" parent="." unique_id=1988225032 node_paths=PackedStringArray("object_to_grab") instance=ExtResource("3_m18i3")]
-object_to_grab = NodePath("..")
+[node name="Grabbable" parent="." unique_id=1988225032 instance=ExtResource("3_m18i3")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grabbable" unique_id=1741206127]
 shape = SubResource("RectangleShape2D_m18i3")

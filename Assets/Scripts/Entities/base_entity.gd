@@ -1,4 +1,7 @@
+class_name base_entity
 extends Node2D
+
+
 
 @onready var health_bar: Node2D = $HealthBar
 @onready var grabbable: Node2D = $Grabbable
@@ -23,7 +26,7 @@ extends Node2D
 var characterBody: CharacterBody2D
 
 var currentHealth: int
-const debugMode: bool = true 
+const debugMode: bool = false 
 
 
 
@@ -71,6 +74,8 @@ func _draw() -> void:
 
 func Damage(amount: int):
 	health_bar.Damage(amount)
+	if health_bar.currentHealth <= 0:
+		get_parent().queue_free()
 
 func Heal(amount: int):
 	health_bar.Heal(amount)

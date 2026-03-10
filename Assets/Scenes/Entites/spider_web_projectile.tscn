@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bhg0e87wpcmhq"]
+
+[ext_resource type="Texture2D" uid="uid://dcqwqdsfrwghc" path="res://Assets/SpiderWebProjectile.png" id="1_6kdle"]
+[ext_resource type="Script" uid="uid://bnom1ra0o0t7d" path="res://Assets/Scripts/Entities/spider_web_projectile.gd" id="1_wm5jh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wm5jh"]
+size = Vector2(16, 4)
+
+[node name="SpiderWebProjectile" type="Node2D" unique_id=888334549]
+script = ExtResource("1_wm5jh")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2061314441]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=664329640]
+shape = SubResource("RectangleShape2D_wm5jh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=78868298]
+z_index = 15
+texture = ExtResource("1_6kdle")
+hframes = 8
+vframes = 4
+frame = 24
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

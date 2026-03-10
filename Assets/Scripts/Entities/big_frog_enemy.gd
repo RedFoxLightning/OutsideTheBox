@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var base_entity: Node2D = $BaseEntity
+@onready var entity: Node2D = $BaseEntity
 @onready var tasksAI: Node2D = $tasks_ai
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var base_enemy: Node2D = $BaseEnemy
@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else:
-		velocity.x *= base_entity.GetGroundedFriction()
+		velocity.x *= entity.GetGroundedFriction()
 	
 	tasksAI.ForceStateAndTaskToNotBeNull()
 	

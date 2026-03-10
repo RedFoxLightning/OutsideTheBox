@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Node2D
 @export var flySpeed: float = 200
 @export var orbitDistance: float = 50
 @export var orbitSpeed: float = 8
@@ -10,6 +10,9 @@ var originalPos: Vector2
 @onready var animator: AnimatedSprite2D = $Animator
 @onready var timer: Timer = $ActivationTimer
 @onready var particle_summoner: Node2D = $ParticleSummoner
+
+@onready var area_2d: Area2D = $Area2D
+
 
 
 
@@ -55,3 +58,13 @@ func _on_activation_timer_timeout() -> void:
 
 func _on_animator_animation_finished() -> void: # garunteed to be the spawn animation, as it doesn't loop
 	animator.play("idle")
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+
+	if body.get_script() != null:
+		#print("hit something with a script :nod: " + str(body.get_script()))
+		if body.entity != null and body.get_script():
+			#print("WOA I HIT A LVING SOMETHING!!!!!!11! ^^")
+			body.entity.Damage(1)
+	queue_free()

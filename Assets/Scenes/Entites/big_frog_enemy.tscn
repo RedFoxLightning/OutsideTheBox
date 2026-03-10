@@ -166,8 +166,8 @@ states = Array[ExtResource("4_rod8d")]([SubResource("Resource_mcp5s"), SubResour
 
 [node name="BaseEntity" parent="." unique_id=1200200737 instance=ExtResource("2_dcuvd")]
 healthBarHeight = -30.0
-grabbableCollisionShapeSize = Vector2(60, 56)
-grabbableCollisionShapeOffset = Vector2(0, 16)
+grabbableCollisionShapeSize = Vector2(64, 64)
+grabbableCollisionShapeOffset = Vector2(0, 8)
 groundedFrictionModifier = 0.8
 arialFrictionModifier = 0.99
 
