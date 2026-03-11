@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c3esuslysnmhy" path="res://Assets/PixelVignette8-bit.png" id="1_5i7mu"]
 [ext_resource type="TileSet" uid="uid://cmsylfh5vlcci" path="res://Assets/Scenes/Rooms/main_tile_set.res" id="2_6kahw"]
 [ext_resource type="PackedScene" uid="uid://dbrq6cetuim0j" path="res://Assets/Scenes/Entites/spider_enemy.tscn" id="3_2n5jq"]
+[ext_resource type="PackedScene" uid="uid://bdi5hyf06g1f8" path="res://Assets/Scenes/Environment/torchlight.tscn" id="4_ghux5"]
 
 [node name="perimiter_room_1" type="Node2D" unique_id=1836364607]
 
@@ -22,3 +23,39 @@ tile_set = ExtResource("2_6kahw")
 
 [node name="spider_enemy" parent="." unique_id=1457878292 instance=ExtResource("3_2n5jq")]
 position = Vector2(126, -98)
+
+[node name="Torchlight" parent="." unique_id=1665633796 instance=ExtResource("4_ghux5")]
+position = Vector2(-216, -108)
+
+[node name="Torchlight2" parent="." unique_id=2111372949 instance=ExtResource("4_ghux5")]
+position = Vector2(-152, -108)
+
+[node name="Torchlight3" parent="." unique_id=1487830991 instance=ExtResource("4_ghux5")]
+position = Vector2(-119, 20)
+
+[node name="Torchlight4" parent="." unique_id=678259044 instance=ExtResource("4_ghux5")]
+position = Vector2(-88, 4)
+
+[node name="Torchlight5" parent="." unique_id=499855069 instance=ExtResource("4_ghux5")]
+position = Vector2(-56, 4)
+
+[node name="Torchlight6" parent="." unique_id=797839254 instance=ExtResource("4_ghux5")]
+position = Vector2(-24, 4)
+
+[node name="Torchlight7" parent="." unique_id=891583077 instance=ExtResource("4_ghux5")]
+position = Vector2(8, 4)
+
+[node name="Torchlight8" parent="." unique_id=1703298988 instance=ExtResource("4_ghux5")]
+position = Vector2(40, 4)
+
+[node name="Torchlight9" parent="." unique_id=85647462 instance=ExtResource("4_ghux5")]
+position = Vector2(72, 4)
+
+[node name="Torchlight10" parent="." unique_id=2101217081 instance=ExtResource("4_ghux5")]
+position = Vector2(104, 20)
+
+[node name="Torchlight11" parent="." unique_id=1185175173 instance=ExtResource("4_ghux5")]
+position = Vector2(136, -108)
+
+[node name="Torchlight12" parent="." unique_id=1528632708 instance=ExtResource("4_ghux5")]
+position = Vector2(168, -108)

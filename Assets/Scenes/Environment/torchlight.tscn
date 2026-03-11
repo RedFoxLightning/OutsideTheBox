@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bdi5hyf06g1f8"]
+
+[ext_resource type="Texture2D" uid="uid://di4sma6j8qvs8" path="res://Assets/EnvironmentArt/Light1.png" id="1_d7jby"]
+
+[node name="Torchlight" type="PointLight2D" unique_id=1665633796]
+color = Color(0.8901961, 0.5176471, 0, 1)
+energy = 0.5
+texture = ExtResource("1_d7jby")

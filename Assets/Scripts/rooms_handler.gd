@@ -22,7 +22,6 @@ func _ready() -> void:
 			if areas[a].rooms.size() > 0: # this actually stops a crash.. so somehow this code is dealing with something I'm not expecting it to.
 				AssignNewRoomNumberAt(currentPos)
 				room_areas[currentPos] = areas[a]
-				GenerateRoomAt(currentPos)
 				
 				if !areas[a].vertical:
 					currentPos.x += 1
@@ -32,7 +31,7 @@ func _ready() -> void:
 				#print(areas[a].rooms[r])
 	
 	#areas[0].GetRandomRoom()
-	#GenerateRoomAt(Vector2(0,0))
+	GenerateRoomAt(Vector2(0,0))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

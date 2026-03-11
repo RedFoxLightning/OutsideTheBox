@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://couriin50fcfu" path="res://Assets/GooberBolt.png" id="1_g6v1g"]
 [ext_resource type="PackedScene" uid="uid://cysjkl7t0w8mw" path="res://Assets/Scenes/goober_bolt_particle.tscn" id="2_620ju"]
 [ext_resource type="PackedScene" uid="uid://2ndsilsew1dk" path="res://Assets/Scenes/particle_summoner.tscn" id="3_lelms"]
+[ext_resource type="Texture2D" uid="uid://di4sma6j8qvs8" path="res://Assets/EnvironmentArt/Light1.png" id="5_hl5wa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6v1g"]
 radius = 6.519202
@@ -119,6 +120,13 @@ autostart = true
 
 [node name="ParticleSummoner" parent="." unique_id=838000790 instance=ExtResource("3_lelms")]
 particlesToSummon = ExtResource("2_620ju")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1308333070]
+visible = false
+enabled = false
+color = Color(1, 0.46949375, 0.40143526, 1)
+energy = 0.56
+texture = ExtResource("5_hl5wa")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="Animator" to="." method="_on_animator_animation_finished"]

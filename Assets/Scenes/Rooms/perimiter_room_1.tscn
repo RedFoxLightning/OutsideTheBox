@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c3esuslysnmhy" path="res://Assets/PixelVignette8-bit.png" id="1_cxaom"]
 [ext_resource type="TileSet" uid="uid://cmsylfh5vlcci" path="res://Assets/Scenes/Rooms/main_tile_set.res" id="2_3sl5o"]
 [ext_resource type="PackedScene" uid="uid://cxtfpk4ceiuaq" path="res://Assets/Scenes/Entites/big_frog_enemy.tscn" id="3_ygkvf"]
+[ext_resource type="PackedScene" uid="uid://bdi5hyf06g1f8" path="res://Assets/Scenes/Environment/torchlight.tscn" id="4_8yeck"]
 
 [node name="perimiter_room_1" type="Node2D" unique_id=1836364607]
 
@@ -22,3 +23,21 @@ tile_set = ExtResource("2_3sl5o")
 
 [node name="BigFrogEnemy" parent="." unique_id=610472911 instance=ExtResource("3_ygkvf")]
 position = Vector2(-64, 21)
+
+[node name="Torchlight" parent="." unique_id=1665633796 instance=ExtResource("4_8yeck")]
+position = Vector2(-232, -60)
+
+[node name="Torchlight2" parent="." unique_id=1950545960 instance=ExtResource("4_8yeck")]
+position = Vector2(-136, -12)
+
+[node name="Torchlight3" parent="." unique_id=304445219 instance=ExtResource("4_8yeck")]
+position = Vector2(-8, -75)
+
+[node name="Torchlight4" parent="." unique_id=545124225 instance=ExtResource("4_8yeck")]
+position = Vector2(40, -75)
+
+[node name="Torchlight5" parent="." unique_id=1008183940 instance=ExtResource("4_8yeck")]
+position = Vector2(120, -12)
+
+[node name="Torchlight6" parent="." unique_id=1628734916 instance=ExtResource("4_8yeck")]
+position = Vector2(216, -28)

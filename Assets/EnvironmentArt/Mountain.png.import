@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvrcqvg7tsgwr"
-path="res://.godot/imported/EnvironmentArt1.png-9587f258b2d1bc00c5041961451d6554.ctex"
+uid="uid://dl67awj4gqmky"
+path="res://.godot/imported/Mountain.png-0757128e981a7f615846eec6bd493cff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/EnvironmentArt1.png"
-dest_files=["res://.godot/imported/EnvironmentArt1.png-9587f258b2d1bc00c5041961451d6554.ctex"]
+source_file="res://Assets/EnvironmentArt/Mountain.png"
+dest_files=["res://.godot/imported/Mountain.png-0757128e981a7f615846eec6bd493cff.ctex"]
 
 [params]
 
