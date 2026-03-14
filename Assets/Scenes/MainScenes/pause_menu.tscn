@@ -1,6 +1,20 @@
 [gd_scene format=3 uid="uid://b43beh87rrhrb"]
 
 [ext_resource type="Script" uid="uid://du4oq4twh1p1" path="res://Assets/Scripts/pause_menu.gd" id="1_71n1c"]
+[ext_resource type="PackedScene" uid="uid://d11ymbq5wmanf" path="res://Assets/3D/PAUSED_text.tscn" id="2_3n3se"]
+[ext_resource type="Script" uid="uid://bev8c1y478xad" path="res://Assets/3D/paused_model.gd" id="3_0r3bb"]
+
+[sub_resource type="Environment" id="Environment_3n3se"]
+ambient_light_source = 1
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0r3bb"]
+transparency = 1
+albedo_color = Color(0, 0, 0, 0.40784314)
+emission = Color(1, 1, 1, 1)
+stencil_flags = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_0r3bb"]
 
 [node name="PauseMenu" type="Node2D" unique_id=1150152310 node_paths=PackedStringArray("mainPauseMenu")]
 scale = Vector2(4, 4)
@@ -10,7 +24,49 @@ mainPauseMenu = NodePath("MainPauseMenu")
 [node name="MainPauseMenu" type="Node2D" parent="." unique_id=741060455]
 position = Vector2(-3.25, -6.75)
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MainPauseMenu" unique_id=1165434354]
+z_index = 2400
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -93.5
+offset_top = -56.5
+offset_right = 4002.5
+offset_bottom = 4039.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+
+[node name="SubViewport" type="SubViewport" parent="MainPauseMenu/SubViewportContainer" unique_id=1792403904]
+transparent_bg = true
+handle_input_locally = false
+msaa_3d = 1
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="PAUSEDtxt" parent="MainPauseMenu/SubViewportContainer/SubViewport" unique_id=26214630 instance=ExtResource("2_3n3se")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("3_0r3bb")
+horizontal_amplitute = 2.5
+
+[node name="Camera3D" type="Camera3D" parent="MainPauseMenu/SubViewportContainer/SubViewport" unique_id=966605654]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -2.4201994)
+environment = SubResource("Environment_3n3se")
+fov = 90.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MainPauseMenu/SubViewportContainer/SubViewport" unique_id=781762590]
+transform = Transform3D(29.549263, 0, -8.742272e-08, 0, 15.062076, 0, -2.5832787e-06, 0, -0.99999934, 0, 0, 0.91503596)
+material_override = SubResource("StandardMaterial3D_0r3bb")
+mesh = SubResource("QuadMesh_0r3bb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MainPauseMenu/SubViewportContainer/SubViewport" unique_id=394177356]
+transform = Transform3D(1, 0, 0, 0, -0.9951041, 0.09883341, 0, -0.09883341, -0.9951041, 0, 0.903608, -4.3944545)
+shadow_enabled = true
+shadow_blur = 1.587
+sky_mode = 1
+
 [node name="Label" type="Label" parent="MainPauseMenu" unique_id=996557134]
+visible = false
 z_index = 3000
 anchors_preset = 5
 anchor_left = 0.5

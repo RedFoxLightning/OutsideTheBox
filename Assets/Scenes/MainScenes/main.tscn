@@ -8,13 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://c37ny4nx1fir7" path="res://Assets/Scenes/Entites/goober.tscn" id="5_kwk4t"]
 [ext_resource type="Script" uid="uid://cnlemdipuqv83" path="res://Assets/AreaSO.gd" id="6_nbfx8"]
 [ext_resource type="PackedScene" uid="uid://c1j3oo5bm2hqt" path="res://Assets/Scenes/Rooms/perimiter_room_1.tscn" id="8_3unti"]
+[ext_resource type="PackedScene" uid="uid://d02tnptlom2b3" path="res://Assets/Scenes/Rooms/starting_room.tscn" id="8_v85qa"]
 [ext_resource type="PackedScene" uid="uid://d164rymbeut1v" path="res://Assets/Scenes/Rooms/perimiter_room_2.tscn" id="9_a7y30"]
 [ext_resource type="PackedScene" uid="uid://tap7462oubhs" path="res://Assets/Scenes/Rooms/victory_room.tscn" id="10_3unti"]
 
 [sub_resource type="Resource" id="Resource_vcdch"]
 script = ExtResource("6_nbfx8")
 name = "Outside"
-rooms = Array[PackedScene]([ExtResource("5_3ns6s")])
+rooms = Array[PackedScene]([ExtResource("8_v85qa")])
 metadata/_custom_type_script = "uid://cnlemdipuqv83"
 
 [sub_resource type="Resource" id="Resource_0s2cn"]

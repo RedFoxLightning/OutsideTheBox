@@ -7,12 +7,19 @@ var room_numbers: Dictionary[Vector2, int] # used for adding to the seed ^^
 var latest_room_number := 0
 var room_areas: Dictionary[Vector2, AreaSO]
 var cleared_rooms: Dictionary[Vector2, bool]
-var loaded_rooms: Dictionary[Vector2, PackedScene]
+var loaded_rooms: Dictionary[Vector2, Node2D]
 
-const room_size: Vector2 = Vector2(640,360)
+# target pixel resolution is 640 by 360, but the screen displays a little less than that
+const room_size: Vector2 = Vector2(590,360)
+var goober
+
+#room that goober and the player are currently in
+var currently_in_room = Vector2(0,0)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	goober = get_tree().get_first_node_in_group("Goober")
 	base_state = rng.state 
 	#rng.seed(base_seed + 1)
 
@@ -32,10 +39,23 @@ func _ready() -> void:
 	
 	#areas[0].GetRandomRoom()
 	GenerateRoomAt(Vector2(0,0))
+	currently_in_room = Vector2(0,0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if goober.position.x >= room_size.x / 2:
+		currently_in_room.x += 1
+		GenerateRoomAt(currently_in_room)
+		goober.position.x = loaded_rooms[currently_in_room].goober_enter_forward_pos
+		goober.entity.grabbable.grabbed = false
+	if goober.position.x <= -room_size.x / 2:
+		currently_in_room.x -= 1
+		GenerateRoomAt(currently_in_room)
+		print(loaded_rooms)
+		goober.position.x = loaded_rooms[currently_in_room].goober_enter_backward_pos
+		goober.entity.grabbable.grabbed = false
 	pass
+	
 	#print(rng.seed)
 
 func AssignNewRoomNumberAt(pos: Vector2):
@@ -44,9 +64,18 @@ func AssignNewRoomNumberAt(pos: Vector2):
 	 
 func GenerateRoomAt(pos: Vector2):
 	
+	print("generating new room!!!")
+	
+	# deloads any currently loaded rooms
+	for i in loaded_rooms:
+		loaded_rooms[i].queue_free();
+	loaded_rooms.clear()
+	
 	# get to the same exact same rng state wherever the room is 
-	var room_number = room_numbers[pos]
+	#print(str(pos) + str(room_numbers))
+	var room_number = room_numbers.get(pos)
 	rng.state = base_state
+	
 	for i in room_number:
 		rng.randi_range(0,0)
 	
@@ -54,7 +83,8 @@ func GenerateRoomAt(pos: Vector2):
 	
 	var newRoom = room_areas[pos].GetRandomRoom()
 	newRoom = newRoom.instantiate()
-	add_child(newRoom)
-	newRoom.position = pos * room_size
+	loaded_rooms[pos] = newRoom
+	add_child(newRoom) # new rooms use get_parent() to find this script
+	#newRoom.position = pos * room_size
 	
 	pass

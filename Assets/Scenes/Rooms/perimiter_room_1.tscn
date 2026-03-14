@@ -1,11 +1,13 @@
 [gd_scene format=4 uid="uid://c1j3oo5bm2hqt"]
 
 [ext_resource type="Texture2D" uid="uid://c3esuslysnmhy" path="res://Assets/PixelVignette8-bit.png" id="1_cxaom"]
+[ext_resource type="Script" uid="uid://bnq31wcm241vj" path="res://Assets/Scripts/Environment/room.gd" id="1_q4ktq"]
 [ext_resource type="TileSet" uid="uid://cmsylfh5vlcci" path="res://Assets/Scenes/Rooms/main_tile_set.res" id="2_3sl5o"]
 [ext_resource type="PackedScene" uid="uid://cxtfpk4ceiuaq" path="res://Assets/Scenes/Entites/big_frog_enemy.tscn" id="3_ygkvf"]
 [ext_resource type="PackedScene" uid="uid://bdi5hyf06g1f8" path="res://Assets/Scenes/Environment/torchlight.tscn" id="4_8yeck"]
 
 [node name="perimiter_room_1" type="Node2D" unique_id=1836364607]
+script = ExtResource("1_q4ktq")
 
 [node name="PixelVignette8Bit" type="Sprite2D" parent="." unique_id=1872994038]
 visible = false

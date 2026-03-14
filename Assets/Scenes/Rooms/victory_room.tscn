@@ -1,9 +1,11 @@
 [gd_scene format=4 uid="uid://tap7462oubhs"]
 
 [ext_resource type="Texture2D" uid="uid://c3esuslysnmhy" path="res://Assets/PixelVignette8-bit.png" id="1_0dy40"]
+[ext_resource type="Script" uid="uid://bnq31wcm241vj" path="res://Assets/Scripts/Environment/room.gd" id="1_urb83"]
 [ext_resource type="TileSet" uid="uid://cmsylfh5vlcci" path="res://Assets/Scenes/Rooms/main_tile_set.res" id="2_bgj7k"]
 
 [node name="perimiter_room_1" type="Node2D" unique_id=1836364607]
+script = ExtResource("1_urb83")
 
 [node name="PixelVignette8Bit" type="Sprite2D" parent="." unique_id=1872994038]
 visible = false

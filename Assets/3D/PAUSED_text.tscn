@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d11ymbq5wmanf"]
+
+[ext_resource type="PackedScene" uid="uid://dfu3r7lfqt63y" path="res://Assets/3D/PausedModel.gltf" id="1_roow2"]
+[ext_resource type="Material" uid="uid://c36rbo6yug6d3" path="res://Assets/3D/UI_text_material_3D.res" id="2_51kse"]
+[ext_resource type="Material" uid="uid://ddxrqkw0buqvu" path="res://Assets/3D/outline_material_3D.res" id="2_fnjsh"]
+
+[node name="blockbench_export" unique_id=26214630 instance=ExtResource("1_roow2")]
+
+[node name="Back_001" parent="Node_13/root/A" parent_id_path=PackedInt32Array(870128091) index="0" unique_id=917577457]
+material_override = ExtResource("2_51kse")
+material_overlay = ExtResource("2_fnjsh")
+
+[node name="Back_005" parent="Node_13/root/D" parent_id_path=PackedInt32Array(956009539) index="0" unique_id=298468413]
+material_override = ExtResource("2_51kse")
+material_overlay = ExtResource("2_fnjsh")
+
+[node name="Back_004" parent="Node_13/root/E" parent_id_path=PackedInt32Array(2077930788) index="0" unique_id=305873036]
+material_override = ExtResource("2_51kse")
+material_overlay = ExtResource("2_fnjsh")
+
+[node name="Back" parent="Node_13/root/P" parent_id_path=PackedInt32Array(1409883227) index="0" unique_id=641142623]
+material_override = ExtResource("2_51kse")
+material_overlay = ExtResource("2_fnjsh")
+
+[node name="Back_003" parent="Node_13/root/S" parent_id_path=PackedInt32Array(94005202) index="0" unique_id=436547978]
+material_override = ExtResource("2_51kse")
+material_overlay = ExtResource("2_fnjsh")
+
+[node name="Back_002" parent="Node_13/root/U" parent_id_path=PackedInt32Array(1761140091) index="0" unique_id=1006673998]
+material_override = ExtResource("2_51kse")
+material_overlay = ExtResource("2_fnjsh")

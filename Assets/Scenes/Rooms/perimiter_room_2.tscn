@@ -1,11 +1,14 @@
 [gd_scene format=4 uid="uid://d164rymbeut1v"]
 
 [ext_resource type="Texture2D" uid="uid://c3esuslysnmhy" path="res://Assets/PixelVignette8-bit.png" id="1_5i7mu"]
+[ext_resource type="Script" uid="uid://bnq31wcm241vj" path="res://Assets/Scripts/Environment/room.gd" id="1_j2vrb"]
 [ext_resource type="TileSet" uid="uid://cmsylfh5vlcci" path="res://Assets/Scenes/Rooms/main_tile_set.res" id="2_6kahw"]
 [ext_resource type="PackedScene" uid="uid://dbrq6cetuim0j" path="res://Assets/Scenes/Entites/spider_enemy.tscn" id="3_2n5jq"]
 [ext_resource type="PackedScene" uid="uid://bdi5hyf06g1f8" path="res://Assets/Scenes/Environment/torchlight.tscn" id="4_ghux5"]
 
 [node name="perimiter_room_1" type="Node2D" unique_id=1836364607]
+script = ExtResource("1_j2vrb")
+goober_enter_backward_pos = 0.0
 
 [node name="PixelVignette8Bit" type="Sprite2D" parent="." unique_id=1872994038]
 visible = false

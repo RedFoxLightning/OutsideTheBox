@@ -1,5 +1,10 @@
 extends Node2D
 
+
+@export var goober_enter_forward_pos: float = -250
+@export var goober_enter_backward_pos: float = 250
+
+
 var rooms_handler;
 var roomCoords: Vector2
 

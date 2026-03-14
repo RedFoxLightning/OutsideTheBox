@@ -19,7 +19,7 @@ extends Node2D
 @export var arialFrictionModifier: float = -1
 
 @export var takesDamageOnGrab: bool = true
-
+@export var grabbableDisabled: bool = false
 
 
 
@@ -45,13 +45,20 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if takesDamageOnGrab:
-		HandleBeingGrabbedDamage()
+	
+	if grabbableDisabled:
+		grabbable.disabled = true
+	else:
+		grabbable.disabled = false
+		if takesDamageOnGrab:
+			HandleBeingGrabbedDamage()
+	
+
 	
 	
 	if debugMode:
 		queue_redraw()
-	HandleBeingGrabbedDamage()
+	
 	
 
 func _physics_process(_delta: float) -> void:
@@ -75,6 +82,7 @@ func _draw() -> void:
 func Damage(amount: int):
 	health_bar.Damage(amount)
 	if health_bar.currentHealth <= 0:
+		print("oh no, " + str(get_parent().name) + " has died!")
 		get_parent().queue_free()
 
 func Heal(amount: int):

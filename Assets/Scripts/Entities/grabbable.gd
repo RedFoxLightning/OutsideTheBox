@@ -17,16 +17,19 @@ var hitbox_offset: Vector2;
 
 signal thrown
 
+var disabled: bool = false
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if grabbed:
+	if grabbed and !disabled:
 		object_to_grab.global_position = get_global_mouse_position() + relative_position
-	
+	if disabled:
+		grabbed = false
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Grab"):
+	if event.is_action_pressed("Grab") and !disabled:
 		#var size: Vector2 = collision_shape.shape.size
 		var size: Vector2 = collision_shape
 		var mouse: Vector2 = get_global_mouse_position()
@@ -37,7 +40,7 @@ func _input(event: InputEvent) -> void:
 				#print("click!");
 				relative_position = pos - get_global_mouse_position() 
 				grabbed = true
-	if event.is_action_released("Grab"):
+	if event.is_action_released("Grab") and !disabled:
 
 		emit_signal("thrown")
 		grabbed = false 
