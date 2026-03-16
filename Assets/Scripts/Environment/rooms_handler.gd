@@ -8,6 +8,8 @@ var latest_room_number := 0
 var room_areas: Dictionary[Vector2, AreaSO]
 var cleared_rooms: Dictionary[Vector2, bool]
 var loaded_rooms: Dictionary[Vector2, Node2D]
+## Has to do with wether or not there's poison
+var cleaned_rooms: Dictionary[Vector2, bool]
 
 # target pixel resolution is 640 by 360, but the screen displays a little less than that
 const room_size: Vector2 = Vector2(590,360)
@@ -17,8 +19,20 @@ var goober
 var currently_in_room = Vector2(0,0)
 
 
+@onready var poison_left: Node2D = $PoisonLeft
+@onready var poison_right: Node2D = $PoisonRight
+@onready var poison_up: Node2D = $PoisonUp
+@onready var poison_down: Node2D = $PoisonDown
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	cleaned_rooms[Vector2(0,0)] = true
+	cleaned_rooms[Vector2(-1,0)] = true
+	cleaned_rooms[Vector2(1,0)] = true
+	
 	goober = get_tree().get_first_node_in_group("Goober")
 	base_state = rng.state 
 	#rng.seed(base_seed + 1)
@@ -57,6 +71,18 @@ func _process(_delta: float) -> void:
 	pass
 	
 	#print(rng.seed)
+	
+	
+	if(cleaned_rooms.get_or_add(currently_in_room + Vector2.RIGHT,false) == false):
+		poison_right.SummonParticles()
+	if(cleaned_rooms.get_or_add(currently_in_room + Vector2.LEFT,false) == false):
+		poison_left.SummonParticles()
+	#if(cleaned_rooms.get_or_add(currently_in_room + Vector2.UP,false) == false):
+	#	poison_up.SummonParticles()
+	#if(cleaned_rooms.get_or_add(currently_in_room + Vector2.DOWN,false) == false):
+	#	poison_down.SummonParticles()
+	
+	
 
 func AssignNewRoomNumberAt(pos: Vector2):
 	room_numbers[pos] = latest_room_number

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cysjkl7t0w8mw"]
 
 [ext_resource type="Texture2D" uid="uid://baw4i2wd8jw2g" path="res://Assets/GooberBoldParticles.png" id="1_fq0qh"]
-[ext_resource type="Script" uid="uid://cur42bm4nwduk" path="res://Assets/Scripts/destroy_on_finish_animation.gd" id="1_ke237"]
+[ext_resource type="Script" uid="uid://cur42bm4nwduk" path="res://Assets/Scripts/particle.gd" id="1_ke237"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rafei"]
 atlas = ExtResource("1_fq0qh")
@@ -192,5 +192,6 @@ z_index = 14
 sprite_frames = SubResource("SpriteFrames_fq0qh")
 animation = &"1"
 script = ExtResource("1_ke237")
+animation_count = 4
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

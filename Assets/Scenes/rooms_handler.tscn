@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://brmmljloogjt4" path="res://Assets/Scripts/Environment/rooms_handler.gd" id="1_n1igy"]
 [ext_resource type="Script" uid="uid://cnlemdipuqv83" path="res://Assets/AreaSO.gd" id="2_afx5l"]
 [ext_resource type="PackedScene" uid="uid://d02tnptlom2b3" path="res://Assets/Scenes/Rooms/starting_room.tscn" id="3_n2s2s"]
+[ext_resource type="PackedScene" uid="uid://2ndsilsew1dk" path="res://Assets/Scenes/particle_summoner.tscn" id="4_a8rei"]
+[ext_resource type="PackedScene" uid="uid://b3ru30sldv8g0" path="res://Assets/Scenes/poison_particle.tscn" id="5_5qwn4"]
 
 [sub_resource type="Resource" id="Resource_n2s2s"]
 script = ExtResource("2_afx5l")
@@ -22,5 +24,34 @@ name = "VictoryRoom"
 metadata/_custom_type_script = "uid://cnlemdipuqv83"
 
 [node name="RoomsHandler" type="Node2D" unique_id=506314096]
+z_index = 16
 script = ExtResource("1_n1igy")
 areas = Array[ExtResource("2_afx5l")]([SubResource("Resource_n2s2s"), SubResource("Resource_0s2cn"), SubResource("Resource_sjujk")])
+
+[node name="PoisonLeft" parent="." unique_id=838000790 instance=ExtResource("4_a8rei")]
+z_index = 16
+position = Vector2(-300, 0)
+particlesToSummon = ExtResource("5_5qwn4")
+maxParticleDist = 40.0
+maxParticleDistY = 160.0
+
+[node name="PoisonRight" parent="." unique_id=254154311 instance=ExtResource("4_a8rei")]
+z_index = 16
+position = Vector2(300, 0)
+particlesToSummon = ExtResource("5_5qwn4")
+maxParticleDist = 40.0
+maxParticleDistY = 160.0
+
+[node name="PoisonUp" parent="." unique_id=1332614135 instance=ExtResource("4_a8rei")]
+z_index = 16
+position = Vector2(0, -175)
+particlesToSummon = ExtResource("5_5qwn4")
+maxParticleDist = 350.0
+maxParticleDistY = 40.0
+
+[node name="PoisonDown" parent="." unique_id=384273339 instance=ExtResource("4_a8rei")]
+z_index = 16
+position = Vector2(0, 175)
+particlesToSummon = ExtResource("5_5qwn4")
+maxParticleDist = 350.0
+maxParticleDistY = 40.0
