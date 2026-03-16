@@ -8,6 +8,7 @@ var latest_room_number := 0
 var room_areas: Dictionary[Vector2, AreaSO]
 var cleared_rooms: Dictionary[Vector2, bool]
 var loaded_rooms: Dictionary[Vector2, Node2D]
+var all_rooms: Dictionary[Vector2, PackedScene]
 ## Has to do with wether or not there's poison
 var cleaned_rooms: Dictionary[Vector2, bool]
 
@@ -43,6 +44,7 @@ func _ready() -> void:
 			if areas[a].rooms.size() > 0: # this actually stops a crash.. so somehow this code is dealing with something I'm not expecting it to.
 				AssignNewRoomNumberAt(currentPos)
 				room_areas[currentPos] = areas[a]
+				all_rooms[currentPos] = GenerateRoomAt(currentPos)
 				
 				if !areas[a].vertical:
 					currentPos.x += 1
@@ -51,20 +53,25 @@ func _ready() -> void:
 					currentPos.y += 1 
 				#print(areas[a].rooms[r])
 	
-	#areas[0].GetRandomRoom()
-	GenerateRoomAt(Vector2(0,0))
 	currently_in_room = Vector2(0,0)
+	
+	#areas[0].GetRandomRoom()
+	#GenerateRoomAt(Vector2(0,0))
+	LoadRoomAt(Vector2(0,0))
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if goober.position.x >= room_size.x / 2:
 		currently_in_room.x += 1
-		GenerateRoomAt(currently_in_room)
+		#GenerateRoomAt(currently_in_room)
+		LoadRoomAt(currently_in_room)
 		goober.position.x = loaded_rooms[currently_in_room].goober_enter_forward_pos
 		goober.entity.grabbable.grabbed = false
 	if goober.position.x <= -room_size.x / 2:
 		currently_in_room.x -= 1
-		GenerateRoomAt(currently_in_room)
+		#GenerateRoomAt(currently_in_room)
+		LoadRoomAt(currently_in_room)
 		print(loaded_rooms)
 		goober.position.x = loaded_rooms[currently_in_room].goober_enter_backward_pos
 		goober.entity.grabbable.grabbed = false
@@ -92,25 +99,33 @@ func GenerateRoomAt(pos: Vector2):
 	
 	print("generating new room!!!")
 	
+	## get to the same exact same rng state wherever the room is 
+	##print(str(pos) + str(room_numbers))
+	#var room_number = room_numbers.get(pos)
+	#rng.state = base_state
+	#
+	#for i in room_number:
+		#rng.randi_range(0,0)
+	
+	
+	
+	var newRoom = room_areas[pos].GetRandomRoom()
+	all_rooms[pos] = newRoom
+	return newRoom
+	
+
+func LoadRoomAt(pos: Vector2):
+	print("loading new room!")
 	# deloads any currently loaded rooms
 	for i in loaded_rooms:
 		loaded_rooms[i].queue_free();
 	loaded_rooms.clear()
 	
-	# get to the same exact same rng state wherever the room is 
-	#print(str(pos) + str(room_numbers))
-	var room_number = room_numbers.get(pos)
-	rng.state = base_state
 	
-	for i in room_number:
-		rng.randi_range(0,0)
-	
-	
-	
-	var newRoom = room_areas[pos].GetRandomRoom()
+	var newRoom = all_rooms[pos]
 	newRoom = newRoom.instantiate()
 	loaded_rooms[pos] = newRoom
+
 	add_child(newRoom) # new rooms use get_parent() to find this script
 	#newRoom.position = pos * room_size
 	
-	pass
