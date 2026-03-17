@@ -32,6 +32,7 @@ animations = [{
 }]
 
 [node name="PlayerHand" type="Node2D" unique_id=1414402712]
+scale = Vector2(0.125, 0.125)
 script = ExtResource("1_fvenh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=86471396]

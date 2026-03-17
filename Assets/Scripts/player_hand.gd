@@ -1,6 +1,6 @@
 extends Node2D
 
-const maxDistanceFromMouse: float = 12
+const maxDistanceFromMouse: float = 12.0 / 8.0
 const handStiffness: float = 3
 const panning_sensitivity: float = 1 # 1 means it'll move perfectly with the mouse, 2 means it'll move double
 

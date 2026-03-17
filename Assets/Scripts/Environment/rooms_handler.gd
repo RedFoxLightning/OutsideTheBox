@@ -19,6 +19,7 @@ var goober
 #room that goober and the player are currently in
 var currently_in_room = Vector2(0,0)
 
+@export var main_menu: PackedScene
 
 @onready var poison_left: Node2D = $PoisonLeft
 @onready var poison_right: Node2D = $PoisonRight
@@ -32,6 +33,7 @@ func _ready() -> void:
 	
 	cleaned_rooms[Vector2(0,0)] = true
 	cleaned_rooms[Vector2(-1,0)] = true
+	cleaned_rooms[Vector2(-2,0)] = true
 	cleaned_rooms[Vector2(1,0)] = true
 	
 	goober = get_tree().get_first_node_in_group("Goober")
@@ -53,11 +55,14 @@ func _ready() -> void:
 					currentPos.y += 1 
 				#print(areas[a].rooms[r])
 	
-	currently_in_room = Vector2(0,0)
+	currently_in_room = Vector2(-1,0)
 	
 	#areas[0].GetRandomRoom()
 	#GenerateRoomAt(Vector2(0,0))
-	LoadRoomAt(Vector2(0,0))
+	
+	all_rooms[Vector2(-1,0)] = main_menu
+	
+	LoadRoomAt(currently_in_room)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
