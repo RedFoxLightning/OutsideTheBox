@@ -17,7 +17,7 @@ var camera_moved_so_far: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	pass # Replace with function body.
 
 

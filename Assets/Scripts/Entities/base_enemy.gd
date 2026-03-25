@@ -1,3 +1,4 @@
+#class_name base_enemy
 extends Node2D
 
 signal aggroed_signal

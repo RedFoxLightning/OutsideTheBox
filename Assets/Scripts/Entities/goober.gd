@@ -13,8 +13,8 @@ extends CharacterBody2D
 enum actions { IDLE, WALKING, GROUND_ATTACKING }
 var currentAction := actions.IDLE
 
-var currentlyBeingGrabbed: bool
-var continuouslyBeingGrabbed: bool
+#var _currentlyBeingGrabbed: bool
+#var _continuouslyBeingGrabbed: bool
 
 
 var floating := false
@@ -171,6 +171,6 @@ func SelectCorrectAnimation():
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("GooberButton"):
+	if event.is_action_pressed("GooberButton") and Input.is_action_pressed("CommandModifier"):
 		print("HELP! I'M SOMEHOW AT " + str(global_position))
 		entity.Heal(100)

@@ -67,19 +67,21 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if goober.position.x >= room_size.x / 2:
+	if (goober.position.x >= room_size.x / 2) and !goober.entity.grabbable.grabbed:
 		currently_in_room.x += 1
-		#GenerateRoomAt(currently_in_room)
-		LoadRoomAt(currently_in_room)
-		goober.position.x = loaded_rooms[currently_in_room].goober_enter_forward_pos
-		goober.entity.grabbable.grabbed = false
-	if goober.position.x <= -room_size.x / 2:
+		if all_rooms.has(currently_in_room):
+			LoadRoomAt(currently_in_room)
+			goober.position.x = loaded_rooms[currently_in_room].goober_enter_forward_pos
+			goober.entity.grabbable.grabbed = false
+		else: currently_in_room.x -= 1
+	
+	if (goober.position.x <= -room_size.x / 2) and !goober.entity.grabbable.grabbed:
 		currently_in_room.x -= 1
-		#GenerateRoomAt(currently_in_room)
-		LoadRoomAt(currently_in_room)
-		print(loaded_rooms)
-		goober.position.x = loaded_rooms[currently_in_room].goober_enter_backward_pos
-		goober.entity.grabbable.grabbed = false
+		if all_rooms.has(currently_in_room):
+			LoadRoomAt(currently_in_room)
+			goober.position.x = loaded_rooms[currently_in_room].goober_enter_backward_pos
+			goober.entity.grabbable.grabbed = false
+		else: currently_in_room.x += 1
 	pass
 	
 	#print(rng.seed)

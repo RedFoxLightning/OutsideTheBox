@@ -62,7 +62,8 @@ func _on_animator_animation_finished() -> void: # garunteed to be the spawn anim
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 
-	if body.get_script() != null:
+	if body.find_child("BaseEnemy") != null: #and body.get_child(0).get_script() != null: #and body.get_script().get_global_name() == "base_enemy":
+		
 		#print("hit something with a script :nod: " + str(body.get_script()))
 		if body.entity != null and body.get_script():
 			#print("WOA I HIT A LVING SOMETHING!!!!!!11! ^^")
