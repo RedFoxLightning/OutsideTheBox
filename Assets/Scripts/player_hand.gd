@@ -46,13 +46,13 @@ func _process(delta: float) -> void:
 	
 	
 	
-	# Move the camera when panning
-	mousePosition = get_global_mouse_position()
-	if panning:
-		
-		camera_moved_so_far = camera.global_position - original_camera_pos
-		var distanceToMove = ((get_global_mouse_position() - camera_moved_so_far) + camera_offset) - original_camera_pos
-		camera.global_position = original_camera_pos - distanceToMove * panning_sensitivity
+	## Move the camera when panning
+	#mousePosition = get_global_mouse_position()
+	#if panning:
+		#
+		#camera_moved_so_far = camera.global_position - original_camera_pos
+		#var distanceToMove = ((get_global_mouse_position() - camera_moved_so_far) + camera_offset) - original_camera_pos
+		#camera.global_position = original_camera_pos - distanceToMove * panning_sensitivity
 	
 	
 	# Keeping within a certain distance of the mouse cursor

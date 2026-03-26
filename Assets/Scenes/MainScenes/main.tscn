@@ -38,8 +38,11 @@ metadata/_custom_type_script = "uid://cnlemdipuqv83"
 
 [node name="Main" type="Node2D" unique_id=534455431]
 
-[node name="GameManager" parent="." unique_id=1826632049 node_paths=PackedStringArray("rooms_handler") groups=["GameManager"] instance=ExtResource("1_jvcv2")]
+[node name="GameManager" parent="." unique_id=1826632049 node_paths=PackedStringArray("rooms_handler", "horizontal_boundries", "vertical_boundries", "pauseMenu") groups=["GameManager"] instance=ExtResource("1_jvcv2")]
 rooms_handler = NodePath("../RoomsHandler")
+horizontal_boundries = [NodePath("../StaticBody2D/Left Room Border"), NodePath("../StaticBody2D/Right Room Border")]
+vertical_boundries = [NodePath("../StaticBody2D/Ultimate Cieling"), NodePath("../StaticBody2D/Ultimate Floor")]
+pauseMenu = NodePath("../Camera2D/PauseMenu")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1154371112]
 unique_name_in_owner = true

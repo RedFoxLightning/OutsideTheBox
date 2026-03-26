@@ -20,6 +20,7 @@ signal thrown
 var disabled: bool = false
 
 var playerHand: player_hand
+var gameManager: game_manager
 func _init() -> void:
 	pass
 	
@@ -40,7 +41,8 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	playerHand = get_tree().get_first_node_in_group("Player")
-	if Input.is_action_pressed("Grab") and !disabled and playerHand.canGrab() and !grabbed:
+	gameManager = get_tree().get_first_node_in_group("GameManager")
+	if Input.is_action_pressed("Grab") and !disabled and playerHand.canGrab() and !grabbed and !gameManager.isPaused():
 		#var size: Vector2 = collision_shape.shape.size
 		var size: Vector2 = collision_shape
 		var mouse: Vector2 = get_global_mouse_position()

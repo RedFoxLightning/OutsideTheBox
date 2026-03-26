@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://du4oq4twh1p1" path="res://Assets/Scripts/pause_menu.gd" id="1_71n1c"]
 [ext_resource type="PackedScene" uid="uid://d11ymbq5wmanf" path="res://Assets/3D/PAUSED_text.tscn" id="2_3n3se"]
 [ext_resource type="Script" uid="uid://bev8c1y478xad" path="res://Assets/3D/paused_model.gd" id="3_0r3bb"]
+[ext_resource type="PackedScene" uid="uid://cls0f5pf72l4q" path="res://Assets/3D/InfoScreenBG.gltf" id="4_mm27b"]
+[ext_resource type="Texture2D" uid="uid://hdcgyfmwqxsa" path="res://Assets/Portrait.png" id="5_jgl26"]
+[ext_resource type="Texture2D" uid="uid://dehtja0wl5f68" path="res://Assets/PortraitShadow.png" id="6_usfh4"]
 
 [sub_resource type="Environment" id="Environment_3n3se"]
 ambient_light_source = 1
@@ -16,16 +19,22 @@ stencil_flags = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_0r3bb"]
 
-[node name="PauseMenu" type="Node2D" unique_id=1150152310 node_paths=PackedStringArray("mainPauseMenu")]
+[sub_resource type="LabelSettings" id="LabelSettings_usfh4"]
+font_color = Color(0.2509804, 0.2627451, 0.22745098, 1)
+
+[node name="PauseMenu" type="Node2D" unique_id=1150152310 node_paths=PackedStringArray("mainPauseMenu", "pauseMenuLabel", "infoScreen", "infoScreenBG")]
 scale = Vector2(4, 4)
 script = ExtResource("1_71n1c")
 mainPauseMenu = NodePath("MainPauseMenu")
+pauseMenuLabel = NodePath("MainPauseMenu/SubViewportContainer/SubViewport/PAUSEDtxt")
+infoScreen = NodePath("InfoScreen")
+infoScreenBG = NodePath("InfoScreen/SubViewportContainer/SubViewport/infoScreenBG")
 
 [node name="MainPauseMenu" type="Node2D" parent="." unique_id=741060455]
 position = Vector2(-3.25, -6.75)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="MainPauseMenu" unique_id=1165434354]
-z_index = 2400
+z_index = 2300
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -111,5 +120,145 @@ grow_vertical = 2
 scale = Vector2(0.331, 0.331)
 text = "Quit"
 
+[node name="InformationButton" type="Button" parent="MainPauseMenu" unique_id=69459188]
+z_index = 3000
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 58.000004
+offset_top = 30.25
+offset_right = 87.14197
+offset_bottom = 61.25
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.349, 0.349)
+text = "?"
+
+[node name="InfoScreen" type="Node2D" parent="." unique_id=2081726045]
+position = Vector2(-3.25, -6.75)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="InfoScreen" unique_id=788316730]
+z_index = 2300
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -93.5
+offset_top = -56.5
+offset_right = 4002.5
+offset_bottom = 4039.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+
+[node name="SubViewport" type="SubViewport" parent="InfoScreen/SubViewportContainer" unique_id=1640884937]
+transparent_bg = true
+handle_input_locally = false
+msaa_3d = 1
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="infoScreenBG" parent="InfoScreen/SubViewportContainer/SubViewport" unique_id=949264757 instance=ExtResource("4_mm27b")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.3045447, 0)
+script = ExtResource("3_0r3bb")
+horizontal_amplitute = 0.5
+vertical_amplitute = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="InfoScreen/SubViewportContainer/SubViewport" unique_id=416898848]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -2.4201994)
+environment = SubResource("Environment_3n3se")
+fov = 90.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InfoScreen/SubViewportContainer/SubViewport" unique_id=1106758191]
+transform = Transform3D(29.549263, 0, -8.742272e-08, 0, 15.062076, 0, -2.5832787e-06, 0, -0.99999934, 0, 0, 0.91503596)
+material_override = SubResource("StandardMaterial3D_0r3bb")
+mesh = SubResource("QuadMesh_0r3bb")
+
+[node name="Label" type="Label" parent="InfoScreen" unique_id=1369794304]
+visible = false
+z_index = 3000
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_top = -35.5
+offset_right = 13.0
+offset_bottom = -12.5
+grow_horizontal = 2
+scale = Vector2(1.635, 1.635)
+text = "Info"
+
+[node name="InfoScreenBackButton" type="Button" parent="InfoScreen" unique_id=1591767145]
+z_index = 3000
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.249996
+offset_top = 28.75
+offset_right = 35.250004
+offset_bottom = 59.75
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.349, 0.349)
+text = "Back"
+
+[node name="Portrait" type="Sprite2D" parent="InfoScreen" unique_id=929889987]
+z_index = 2400
+position = Vector2(47, 7)
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("5_jgl26")
+
+[node name="PortraitShadow" type="Sprite2D" parent="InfoScreen/Portrait" unique_id=1976791430]
+self_modulate = Color(1, 1, 1, 0.2901961)
+z_index = -1
+position = Vector2(-23.80951, 19.841269)
+scale = Vector2(3.9682539, 3.9682539)
+texture = ExtResource("6_usfh4")
+
+[node name="Label2" type="Label" parent="InfoScreen" unique_id=1438703959]
+z_index = 2400
+offset_left = -53.75
+offset_top = -12.25
+offset_right = -13.75
+offset_bottom = 10.75
+scale = Vector2(0.215, 0.215)
+text = "Made by foxy for the bad ideas game jam!
+Theme: Outside the box
+     ~      (YOU are outside the box)
+     ~      (box being the 2nd dimention)
+Big thanks to bad ideas for hosting this jam
+and another big thanks to all those who
+participated, yall are so wholesome >u<"
+label_settings = SubResource("LabelSettings_usfh4")
+
+[node name="Label3" type="Label" parent="InfoScreen" unique_id=1883234516]
+z_index = 2400
+offset_left = 22.5
+offset_top = 35.0
+offset_right = 384.5
+offset_bottom = 84.0
+scale = Vector2(0.11, 0.11)
+text = "(Fred from \"Fred Ships himself\" by Rekd)
+(Hindon Blungle from \"Hindon Horror\" by Alex)"
+label_settings = SubResource("LabelSettings_usfh4")
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="InfoScreen" unique_id=1366420400]
+self_modulate = Color(1, 1, 1, 0.43529412)
+z_index = 2400
+offset_left = 29.499998
+offset_top = 40.75
+offset_right = 391.5
+offset_bottom = 89.75
+scale = Vector2(0.09, 0.09)
+text = "(portrait made by all three of us :3)"
+label_settings = SubResource("LabelSettings_usfh4")
+horizontal_alignment = 2
+
 [connection signal="button_up" from="MainPauseMenu/ResumeButton" to="." method="_on_resume_button_button_up"]
 [connection signal="button_up" from="MainPauseMenu/QuitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="button_up" from="MainPauseMenu/InformationButton" to="." method="_on_information_button_button_up"]
+[connection signal="button_up" from="InfoScreen/InfoScreenBackButton" to="." method="_on_info_screen_back_button_button_up"]

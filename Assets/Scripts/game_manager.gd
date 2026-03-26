@@ -13,6 +13,8 @@ extends Node2D
 ## for specifically the ultimate boundries
 @export var vertical_boundries: Array[CollisionShape2D]
 
+@export var pauseMenu: pause_menu
+
 var cleared: bool
 
 func _physics_process(_delta: float) -> void:
@@ -59,6 +61,10 @@ func RemoveEnemy(enemy):
 		MarkRoomAsClean(rooms_handler.currently_in_room + Vector2.RIGHT)
 		MarkRoomAsClean(rooms_handler.currently_in_room + Vector2.LEFT)
 	
+
+
+func isPaused() -> bool:
+	return pauseMenu.paused
 
 func isCurrentRoomClear():
 	return rooms_handler.cleared_rooms.get(rooms_handler.currently_in_room)
