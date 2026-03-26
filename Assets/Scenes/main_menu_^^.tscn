@@ -144,5 +144,5 @@ texture = ExtResource("5_djp43")
 position = Vector2(-232, 21)
 
 [node name="MenuBlockout" type="Sprite2D" parent="." unique_id=698659234]
-z_index = 4000
+z_index = 2000
 texture = ExtResource("7_hx1fg")

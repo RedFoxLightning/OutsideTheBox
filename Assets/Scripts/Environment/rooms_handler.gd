@@ -7,10 +7,17 @@ var room_numbers: Dictionary[Vector2, int] # used for adding to the seed ^^
 var latest_room_number := 0
 var room_areas: Dictionary[Vector2, AreaSO]
 var cleared_rooms: Dictionary[Vector2, bool]
+
+func ClearRoom(room: Vector2):
+	cleared_rooms[room] = true;
+
 var loaded_rooms: Dictionary[Vector2, Node2D]
 var all_rooms: Dictionary[Vector2, PackedScene]
 ## Has to do with wether or not there's poison
 var cleaned_rooms: Dictionary[Vector2, bool]
+func CleanRoom(room: Vector2):
+	cleaned_rooms[room] = true;
+
 
 # target pixel resolution is 640 by 360, but the screen displays a little less than that
 const room_size: Vector2 = Vector2(590,360)

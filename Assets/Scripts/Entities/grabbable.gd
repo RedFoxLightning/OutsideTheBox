@@ -19,6 +19,16 @@ signal thrown
 
 var disabled: bool = false
 
+var playerHand: player_hand
+func _init() -> void:
+	pass
+	
+	
+	#playerHand = null
+	#if get_parent() == null: 
+		#print("WHAT THE FUCK?")
+		#print(position)
+		#queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -29,7 +39,8 @@ func _process(_delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Grab") and !disabled:
+	playerHand = get_tree().get_first_node_in_group("Player")
+	if Input.is_action_pressed("Grab") and !disabled and playerHand.canGrab() and !grabbed:
 		#var size: Vector2 = collision_shape.shape.size
 		var size: Vector2 = collision_shape
 		var mouse: Vector2 = get_global_mouse_position()
@@ -41,7 +52,10 @@ func _input(event: InputEvent) -> void:
 				relative_position = pos - get_global_mouse_position() 
 				grabbed = true
 	if event.is_action_released("Grab") and !disabled:
-
-		emit_signal("thrown")
-		grabbed = false 
+	
+		if(grabbed):
+			emit_signal("thrown")
+			grabbed = false 
+			playerHand.ResetGrabbingCooldown()
+		
 		#print("unclick!");

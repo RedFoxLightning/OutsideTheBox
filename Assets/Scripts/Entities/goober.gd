@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var timer: Timer = $Timer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gooberProjectileParticles: Node2D = $ParticleSummoner
-@onready var player_hand: Node2D = %PlayerHand
+@onready var playerHand: Node2D = %PlayerHand
 
 
 @export var gooberProjectile: PackedScene

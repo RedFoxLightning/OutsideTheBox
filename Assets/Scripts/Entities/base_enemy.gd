@@ -6,13 +6,22 @@ signal aggroed_signal
 
 var player
 var goober
+var gameManager: game_manager
 
 var aggroed: bool = false
 # Called when the node enters the scene tree for the first time.
+
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	goober = get_tree().get_first_node_in_group("Goober")
-	pass # Replace with function body.
+	gameManager = get_tree().get_first_node_in_group("GameManager")
+	
+	gameManager.RecognizeEnemy(get_parent())
+	
+	if gameManager.isCurrentRoomClear():
+		#gameManager.RemoveEnemy(get_parent())
+		get_parent().queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,3 +39,14 @@ func get_distance_to(target: Vector2):
 	var total_distance: float = sqrt((xDist * xDist) + (yDist * yDist))
 	
 	return total_distance
+
+
+# ty to kleonc on reddit for code for detecting when a node is abt to be deleted \/
+# https://www.reddit.com/r/godot/comments/mph9jw/how_can_i_run_a_function_right_before_the_node_is/
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_PREDELETE:
+			on_predelete()
+
+func on_predelete() -> void:
+	gameManager.RemoveEnemy(get_node("."))

@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://cmsylfh5vlcci" path="res://Assets/Scenes/Rooms/main_tile_set.res" id="2_6kahw"]
 [ext_resource type="PackedScene" uid="uid://dbrq6cetuim0j" path="res://Assets/Scenes/Entites/spider_enemy.tscn" id="3_2n5jq"]
 [ext_resource type="PackedScene" uid="uid://bdi5hyf06g1f8" path="res://Assets/Scenes/Environment/torchlight.tscn" id="4_ghux5"]
+[ext_resource type="PackedScene" uid="uid://y2efwvu7mghe" path="res://Assets/Scenes/Environment/gate.tscn" id="6_rgpag"]
 
 [node name="perimiter_room_1" type="Node2D" unique_id=1836364607]
 script = ExtResource("1_j2vrb")
@@ -63,3 +64,9 @@ position = Vector2(136, -108)
 
 [node name="Torchlight12" parent="." unique_id=1528632708 instance=ExtResource("4_ghux5")]
 position = Vector2(168, -108)
+
+[node name="Gate" parent="." unique_id=1085567954 instance=ExtResource("6_rgpag")]
+position = Vector2(-280, 0)
+
+[node name="Gate2" parent="." unique_id=1372978348 instance=ExtResource("6_rgpag")]
+position = Vector2(280, 0)

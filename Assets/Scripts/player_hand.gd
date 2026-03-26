@@ -1,3 +1,4 @@
+class_name player_hand
 extends Node2D
 
 const maxDistanceFromMouse: float = 12.0 / 8.0
@@ -15,6 +16,14 @@ var camera_offset: Vector2
 var original_camera_pos: Vector2
 var camera_moved_so_far: Vector2
 
+## const for now, doesn't have to be later
+const grabbing_delay_time := 0
+var grabbing_cooldown_remaining: float = 0;
+func canGrab() -> bool:
+	return grabbing_cooldown_remaining <= 0
+func ResetGrabbingCooldown():
+	grabbing_cooldown_remaining = grabbing_delay_time
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
@@ -22,7 +31,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	mousePosition = get_global_mouse_position()
 	queue_redraw()
 	
@@ -59,6 +68,8 @@ func _process(_delta: float) -> void:
 			
 			
 	
+	
+	grabbing_cooldown_remaining -= delta
 
 
 func _physics_process(_delta: float) -> void:
@@ -66,9 +77,6 @@ func _physics_process(_delta: float) -> void:
 	position = position + (mousePosition - global_position) / handStiffness
 	
 
-	
-
-	
 
 
 func _input(event: InputEvent) -> void:

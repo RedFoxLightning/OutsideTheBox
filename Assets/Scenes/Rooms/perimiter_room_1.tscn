@@ -48,3 +48,6 @@ position = Vector2(216, -28)
 
 [node name="Gate" parent="." unique_id=1085567954 instance=ExtResource("6_lw1wl")]
 position = Vector2(-280, 0)
+
+[node name="Gate2" parent="." unique_id=413565320 instance=ExtResource("6_lw1wl")]
+position = Vector2(280, 0)

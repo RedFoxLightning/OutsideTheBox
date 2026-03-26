@@ -38,7 +38,8 @@ metadata/_custom_type_script = "uid://cnlemdipuqv83"
 
 [node name="Main" type="Node2D" unique_id=534455431]
 
-[node name="GameManager" parent="." unique_id=1826632049 instance=ExtResource("1_jvcv2")]
+[node name="GameManager" parent="." unique_id=1826632049 node_paths=PackedStringArray("rooms_handler") groups=["GameManager"] instance=ExtResource("1_jvcv2")]
+rooms_handler = NodePath("../RoomsHandler")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1154371112]
 unique_name_in_owner = true

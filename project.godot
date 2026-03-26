@@ -27,6 +27,7 @@ import/blender/enabled=false
 
 Player="Used for finding the player, only one object should be in here!"
 Goober="used to find goober (should only be one)"
+GameManager="Manages game"
 
 [input]
 

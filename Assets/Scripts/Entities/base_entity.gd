@@ -105,11 +105,11 @@ func HandleBeingGrabbedDamage():
 
 
 func _on_grabbable_thrown() -> void:
-	var player_hand: Node2D = get_tree().get_first_node_in_group("Player")
+	var playerHand: Node2D = get_tree().get_first_node_in_group("Player")
 	
 	if grabbable.grabbed:
-		var xDist = get_global_mouse_position().x - player_hand.global_position.x
-		var yDist = get_global_mouse_position().y - player_hand.global_position.y
+		var xDist = get_global_mouse_position().x - playerHand.global_position.x
+		var yDist = get_global_mouse_position().y - playerHand.global_position.y
 		
 		if characterBody != null:
 			#print("attempting to throw!")
