@@ -5,7 +5,10 @@
 [ext_resource type="Script" uid="uid://bev8c1y478xad" path="res://Assets/3D/paused_model.gd" id="3_0r3bb"]
 [ext_resource type="PackedScene" uid="uid://cls0f5pf72l4q" path="res://Assets/3D/InfoScreenBG.gltf" id="4_mm27b"]
 [ext_resource type="Texture2D" uid="uid://hdcgyfmwqxsa" path="res://Assets/Portrait.png" id="5_jgl26"]
+[ext_resource type="Script" uid="uid://cae7jsan16itj" path="res://Assets/Scripts/UI/portrait.gd" id="6_kdpam"]
 [ext_resource type="Texture2D" uid="uid://dehtja0wl5f68" path="res://Assets/PortraitShadow.png" id="6_usfh4"]
+[ext_resource type="Texture2D" uid="uid://56chhgku3d8g" path="res://Assets/TheThing.png" id="8_g5qv5"]
+[ext_resource type="Texture2D" uid="uid://ff3npd44pgib" path="res://Assets/TheShadow.png" id="9_8j6hy"]
 
 [sub_resource type="Environment" id="Environment_3n3se"]
 ambient_light_source = 1
@@ -19,10 +22,71 @@ stencil_flags = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_0r3bb"]
 
+[sub_resource type="Animation" id="Animation_kdpam"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.063, 0.063)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_g5qv5"]
+resource_name = "grab"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.063, 0.063), Vector2(0.055, 0.055)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.03490658503988659]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8j6hy"]
+_data = {
+&"RESET": SubResource("Animation_kdpam"),
+&"grab": SubResource("Animation_g5qv5")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_usfh4"]
 font_color = Color(0.2509804, 0.2627451, 0.22745098, 1)
 
 [node name="PauseMenu" type="Node2D" unique_id=1150152310 node_paths=PackedStringArray("mainPauseMenu", "pauseMenuLabel", "infoScreen", "infoScreenBG")]
+process_mode = 3
 scale = Vector2(4, 4)
 script = ExtResource("1_71n1c")
 mainPauseMenu = NodePath("MainPauseMenu")
@@ -206,10 +270,12 @@ scale = Vector2(0.349, 0.349)
 text = "Back"
 
 [node name="Portrait" type="Sprite2D" parent="InfoScreen" unique_id=929889987]
-z_index = 2400
+z_index = 2500
 position = Vector2(47, 7)
 scale = Vector2(0.063, 0.063)
 texture = ExtResource("5_jgl26")
+script = ExtResource("6_kdpam")
+collision_shape = Vector2(203, 203)
 
 [node name="PortraitShadow" type="Sprite2D" parent="InfoScreen/Portrait" unique_id=1976791430]
 self_modulate = Color(1, 1, 1, 0.2901961)
@@ -218,12 +284,33 @@ position = Vector2(-23.80951, 19.841269)
 scale = Vector2(3.9682539, 3.9682539)
 texture = ExtResource("6_usfh4")
 
-[node name="Label2" type="Label" parent="InfoScreen" unique_id=1438703959]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InfoScreen/Portrait" unique_id=1465768560]
+libraries/ = SubResource("AnimationLibrary_8j6hy")
+
+[node name="MainInfoText" type="Label" parent="InfoScreen" unique_id=1438703959]
 z_index = 2400
 offset_left = -53.75
 offset_top = -12.25
 offset_right = -13.75
 offset_bottom = 10.75
+scale = Vector2(0.215, 0.215)
+text = "Made by foxy for the bad ideas game jam!
+Theme: Outside the box
+     ~      (YOU are outside the box)
+     ~      (box being the 2nd dimention)
+Big thanks to bad ideas for hosting this jam
+and another big thanks to all those who
+participated, yall are so wholesome >u<"
+label_settings = SubResource("LabelSettings_usfh4")
+
+[node name="MainInfoText2" type="Label" parent="InfoScreen" unique_id=930006796]
+visible = false
+self_modulate = Color(1, 1, 1, 0.101960786)
+z_index = 2400
+offset_left = -54.999996
+offset_top = -10.75
+offset_right = 279.0
+offset_bottom = 168.25
 scale = Vector2(0.215, 0.215)
 text = "Made by foxy for the bad ideas game jam!
 Theme: Outside the box
@@ -257,6 +344,18 @@ scale = Vector2(0.09, 0.09)
 text = "(portrait made by all three of us :3)"
 label_settings = SubResource("LabelSettings_usfh4")
 horizontal_alignment = 2
+
+[node name="TheThing" type="Sprite2D" parent="InfoScreen" unique_id=689323938]
+z_index = 2400
+position = Vector2(45.25, 5.7499995)
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("8_g5qv5")
+
+[node name="TheShadow" type="Sprite2D" parent="InfoScreen/TheThing" unique_id=610596794]
+self_modulate = Color(1, 1, 1, 0.2901961)
+z_index = -1
+position = Vector2(-5.3571396, 5.3571463)
+texture = ExtResource("9_8j6hy")
 
 [connection signal="button_up" from="MainPauseMenu/ResumeButton" to="." method="_on_resume_button_button_up"]
 [connection signal="button_up" from="MainPauseMenu/QuitButton" to="." method="_on_quit_button_button_up"]

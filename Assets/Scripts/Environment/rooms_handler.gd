@@ -1,3 +1,4 @@
+class_name rooms_handler
 extends Node2D
 @export var areas: Array[AreaSO]
 var rng := RandomNumberGenerator.new()
@@ -42,6 +43,9 @@ func _ready() -> void:
 	cleaned_rooms[Vector2(-1,0)] = true
 	cleaned_rooms[Vector2(-2,0)] = true
 	cleaned_rooms[Vector2(1,0)] = true
+	
+	cleared_rooms[Vector2(-1, 0)] = true
+	cleared_rooms[Vector2(0, 0)] = true
 	
 	goober = get_tree().get_first_node_in_group("Goober")
 	base_state = rng.state 

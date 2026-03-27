@@ -6,7 +6,7 @@ extends Node2D
 ## Enemies = entities that count toward the room being cleared
 @export var enemyCount: int
 
-@export var rooms_handler: Node2D
+@export var roomsHandler: rooms_handler
 
 ## for specifically the ultimate boundries
 @export var horizontal_boundries: Array[CollisionShape2D]
@@ -56,10 +56,10 @@ func RemoveEnemy(enemy):
 	enemy.queue_free()
 	
 	if enemyCount == 0:
-		MarkRoomAsClear(rooms_handler.currently_in_room)
-		MarkRoomAsClean(rooms_handler.currently_in_room)
-		MarkRoomAsClean(rooms_handler.currently_in_room + Vector2.RIGHT)
-		MarkRoomAsClean(rooms_handler.currently_in_room + Vector2.LEFT)
+		MarkRoomAsClear(roomsHandler.currently_in_room)
+		MarkRoomAsClean(roomsHandler.currently_in_room)
+		MarkRoomAsClean(roomsHandler.currently_in_room + Vector2.RIGHT)
+		MarkRoomAsClean(roomsHandler.currently_in_room + Vector2.LEFT)
 	
 
 
@@ -67,11 +67,11 @@ func isPaused() -> bool:
 	return pauseMenu.paused
 
 func isCurrentRoomClear():
-	return rooms_handler.cleared_rooms.get(rooms_handler.currently_in_room)
+	return roomsHandler.cleared_rooms.get(roomsHandler.currently_in_room)
 
 
 func MarkRoomAsClear(pos: Vector2):
-	rooms_handler.ClearRoom(pos)
+	roomsHandler.ClearRoom(pos)
 
 func MarkRoomAsClean(pos: Vector2):
-	rooms_handler.CleanRoom(pos)
+	roomsHandler.CleanRoom(pos)

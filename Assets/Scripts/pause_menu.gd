@@ -94,9 +94,11 @@ func _on_info_screen_back_button_button_up() -> void:
 ## purely for timescale purposes, doesn't toggle any menus
 func pause():
 	paused = true;
-	Engine.time_scale = 0;
+	#Engine.time_scale = 0;
+	get_tree().paused = true
 
 ## purely for timescale purposes, doesn't toggle any menus
 func unpause():
 	paused = false;
-	Engine.time_scale = 1;
+	#Engine.time_scale = 1;
+	get_tree().paused = false
