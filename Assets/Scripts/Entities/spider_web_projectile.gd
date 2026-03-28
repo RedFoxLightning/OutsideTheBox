@@ -28,7 +28,7 @@ func SetRotation(newRotation: float):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 
-	if body.get_script() != null and body.get_script() != creator:
+	if body.get_script() == goober:
 		#print("hit something with a script :nod: " + str(body.get_script()))
 		if body.entity != null and body.get_script():
 			#print("WOA I HIT A LVING SOMETHING!!!!!!11! ^^")

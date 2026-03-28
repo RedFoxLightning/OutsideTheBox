@@ -1,3 +1,4 @@
+class_name goober
 extends CharacterBody2D
 #GOOBER ^^
 @onready var entity: Node2D = $BaseEntity

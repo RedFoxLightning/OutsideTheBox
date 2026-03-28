@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cxtfpk4ceiuaq" path="res://Assets/Scenes/Entites/big_frog_enemy.tscn" id="3_ygkvf"]
 [ext_resource type="PackedScene" uid="uid://bdi5hyf06g1f8" path="res://Assets/Scenes/Environment/torchlight.tscn" id="4_8yeck"]
 [ext_resource type="PackedScene" uid="uid://y2efwvu7mghe" path="res://Assets/Scenes/Environment/gate.tscn" id="6_lw1wl"]
+[ext_resource type="PackedScene" uid="uid://b1gs2dgoa7nvn" path="res://Assets/Scenes/Environment/pile_of_crates.tscn" id="7_7khxf"]
 
 [node name="perimiter_room_1" type="Node2D" unique_id=1836364607]
 script = ExtResource("1_q4ktq")
@@ -51,3 +52,6 @@ position = Vector2(-280, 0)
 
 [node name="Gate2" parent="." unique_id=413565320 instance=ExtResource("6_lw1wl")]
 position = Vector2(280, 0)
+
+[node name="PileOfCrates" parent="." unique_id=1757236074 instance=ExtResource("7_7khxf")]
+position = Vector2(92, 32)

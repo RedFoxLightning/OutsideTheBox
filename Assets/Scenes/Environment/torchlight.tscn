@@ -5,4 +5,6 @@
 [node name="Torchlight" type="PointLight2D" unique_id=1665633796]
 color = Color(0.8901961, 0.5176471, 0, 1)
 energy = 0.5
+range_z_min = 0
+range_z_max = 4
 texture = ExtResource("1_d7jby")
