@@ -6,7 +6,8 @@ extends Node2D
 @onready var health_bar: Node2D = $HealthBar
 @onready var grabbable: Node2D = $Grabbable
 #@onready var grabbable_collision_shape: CollisionShape2D = $Grabbable/CollisionShape2D
-
+@onready var audioPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@export var hurtSounds: Array[AudioStreamWAV]
 
 @export var maxHealth: int = 24
 @export var healthBarHeight: float
@@ -21,7 +22,7 @@ extends Node2D
 @export var takesDamageOnGrab: bool = true
 @export var grabbableDisabled: bool = false
 
-
+@export var immuneToKineticEnergy = false
 
 var characterBody: CharacterBody2D
 
@@ -66,7 +67,9 @@ func _physics_process(_delta: float) -> void:
 		#Removes all velocy if grabbed
 		if grabbable.grabbed: characterBody.velocity = Vector2(0,0)
 		
-
+	
+	#if characterBody.get_last_motion()
+	
 	pass
 
 func _draw() -> void:
@@ -84,6 +87,9 @@ func Damage(amount: int):
 	if health_bar.currentHealth <= 0:
 		print("oh no, " + str(get_parent().name) + " has died!")
 		get_parent().queue_free()
+	elif !hurtSounds.is_empty():
+		audioPlayer.stream = hurtSounds.pick_random()
+		audioPlayer.play()
 
 func Heal(amount: int):
 	health_bar.Heal(amount)

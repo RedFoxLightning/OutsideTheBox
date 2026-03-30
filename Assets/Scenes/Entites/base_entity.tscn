@@ -18,4 +18,6 @@ maxHealth = 25
 shape = SubResource("RectangleShape2D_m18i3")
 disabled = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=931932729]
+
 [connection signal="thrown" from="Grabbable" to="." method="_on_grabbable_thrown"]

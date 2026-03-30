@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://3fauufxaniq4"]
 
 [ext_resource type="Script" uid="uid://0i0dpk2u117r" path="res://Assets/Scripts/player_hand.gd" id="1_fvenh"]
-[ext_resource type="Texture2D" uid="uid://dlmk6mrlgini6" path="res://Assets/ClosedHandTemp.png" id="2_f2w7u"]
-[ext_resource type="Texture2D" uid="uid://b0b2oihhp2nco" path="res://Assets/OpenHandTemp.png" id="3_ri1ds"]
+[ext_resource type="Texture2D" uid="uid://bieixohkayxwa" path="res://Assets/3D/ClosedHandOutlinedt.png" id="2_3usjf"]
+[ext_resource type="Texture2D" uid="uid://dlu148gindfne" path="res://Assets/3D/ClosedHandHappyOutlined.png" id="2_302go"]
+[ext_resource type="Texture2D" uid="uid://bw2gvon07d7h4" path="res://Assets/3D/OpenHandOutlined.png" id="3_302go"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_otxqc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_f2w7u")
+"texture": ExtResource("2_302go")
 }],
 "loop": true,
 "name": &"grabbing",
@@ -16,7 +17,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_ri1ds")
+"texture": ExtResource("3_302go")
 }],
 "loop": true,
 "name": &"idle",
@@ -24,7 +25,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_f2w7u")
+"texture": ExtResource("2_3usjf")
 }],
 "loop": true,
 "name": &"panning",
@@ -39,5 +40,5 @@ script = ExtResource("1_fvenh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=86471396]
 z_index = 3000
 sprite_frames = SubResource("SpriteFrames_otxqc")
-animation = &"idle"
+animation = &"panning"
 autoplay = "idle"

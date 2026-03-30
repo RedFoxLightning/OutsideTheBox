@@ -7,6 +7,7 @@ extends Node2D
 @export var enemyCount: int
 
 @export var roomsHandler: rooms_handler
+@export var goober: goober_script
 
 ## for specifically the ultimate boundries
 @export var horizontal_boundries: Array[CollisionShape2D]
@@ -18,6 +19,14 @@ extends Node2D
 var cleared: bool
 
 func _physics_process(_delta: float) -> void:
+	
+	# this code was copied from smth later in this script
+	if enemyCount == 0:
+		MarkRoomAsClear(roomsHandler.currently_in_room)
+		MarkRoomAsClean(roomsHandler.currently_in_room)
+		MarkRoomAsClean(roomsHandler.currently_in_room + Vector2.RIGHT)
+		MarkRoomAsClean(roomsHandler.currently_in_room + Vector2.LEFT)
+	
 	if isCurrentRoomClear():
 		for i in horizontal_boundries:
 			i.disabled = true
@@ -62,7 +71,6 @@ func RemoveEnemy(enemy):
 		MarkRoomAsClean(roomsHandler.currently_in_room + Vector2.LEFT)
 	
 
-
 func isPaused() -> bool:
 	return pauseMenu.paused
 
@@ -75,3 +83,10 @@ func MarkRoomAsClear(pos: Vector2):
 
 func MarkRoomAsClean(pos: Vector2):
 	roomsHandler.CleanRoom(pos)
+
+
+func StartGame():
+	roomsHandler.currently_in_room = Vector2(0,0)
+	roomsHandler.LoadRoomAt(Vector2(0,0))
+	goober.entity.grabbable.grabbed = false
+	goober.position = Vector2(-48,32)

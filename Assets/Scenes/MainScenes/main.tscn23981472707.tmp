@@ -40,9 +40,10 @@ metadata/_custom_type_script = "uid://cnlemdipuqv83"
 [node name="Main" type="Node2D" unique_id=534455431]
 
 [node name="GameManager" parent="." unique_id=1826632049 node_paths=PackedStringArray("roomsHandler", "goober", "horizontal_boundries", "vertical_boundries", "pauseMenu") groups=["GameManager"] instance=ExtResource("1_jvcv2")]
+enemyCount = null
 roomsHandler = NodePath("../RoomsHandler")
 goober = NodePath("../Goober")
-horizontal_boundries = [NodePath("../StaticBody2D/Right Room Border"), NodePath("../StaticBody2D/Left Room Border")]
+horizontal_boundries = [NodePath("../StaticBody2D/Left Room Border"), NodePath("../StaticBody2D/Right Room Border")]
 vertical_boundries = [NodePath("../StaticBody2D/Ultimate Cieling"), NodePath("../StaticBody2D/Ultimate Floor")]
 pauseMenu = NodePath("../Camera2D/PauseMenu")
 

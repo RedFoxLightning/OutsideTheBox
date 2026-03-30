@@ -1,7 +1,7 @@
 class_name goober_script
 extends CharacterBody2D
 #GOOBER ^^
-@onready var entity: Node2D = $BaseEntity
+@onready var entity: base_entity = $BaseEntity
 @onready var timer: Timer = $Timer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gooberProjectileParticles: Node2D = $ParticleSummoner
