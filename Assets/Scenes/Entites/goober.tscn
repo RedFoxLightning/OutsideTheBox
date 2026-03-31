@@ -296,6 +296,7 @@ idleSounds = Array[AudioStreamOggVorbis]([ExtResource("3_rvogb"), ExtResource("4
 castSpellSounds = Array[AudioStreamOggVorbis]([ExtResource("11_w5nyq")])
 
 [node name="BaseEntity" parent="." unique_id=1200200737 instance=ExtResource("1_xy1m5")]
+isGoober = true
 hurtSounds = Array[AudioStreamWAV]([ExtResource("4_822en"), ExtResource("5_7oppy"), ExtResource("6_ymgwm"), ExtResource("7_xgibw"), ExtResource("8_8ml7o")])
 maxHealth = 48
 healthBarHeight = -30.0

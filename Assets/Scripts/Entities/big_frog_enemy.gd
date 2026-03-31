@@ -80,6 +80,7 @@ func _on_tasks_ai_new_task(task) -> void:
 			#print("(charging :p)")
 		else:
 			base_enemy.goober.entity.Damage(12)
+			base_enemy.goober.entity.SpawnImpactParticle(false)
 			animation_player.play("violent_stabbing")
 			#print("stab stab")
 		

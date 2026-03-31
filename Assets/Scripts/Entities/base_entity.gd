@@ -1,13 +1,15 @@
 class_name base_entity
 extends Node2D
 
-
+@export var isGoober: bool
 
 @onready var health_bar: Node2D = $HealthBar
 @onready var grabbable: Node2D = $Grabbable
 #@onready var grabbable_collision_shape: CollisionShape2D = $Grabbable/CollisionShape2D
 @onready var audioPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @export var hurtSounds: Array[AudioStreamWAV]
+
+@export var getHurtParticle: PackedScene
 
 @export var maxHealth: int = 24
 @export var healthBarHeight: float
@@ -82,11 +84,27 @@ func _draw() -> void:
 			grabbableCollisionShapeSize.y),
 			Color.CORNFLOWER_BLUE)
 
+func SpawnImpactParticle(atHand: bool):
+	# add particle
+	var newParticle = getHurtParticle.instantiate()
+	if atHand:
+		newParticle.position = get_global_mouse_position()
+	else:
+		newParticle.position = global_position
+	newParticle.rotation_degrees = randf_range(0,360)
+	get_parent().get_parent().add_child(newParticle) # I have commited godot sin I know
+
 func Damage(amount: int):
 	health_bar.Damage(amount)
+	
+	# handle death/sound effects
+	
 	if health_bar.currentHealth <= 0:
-		print("oh no, " + str(get_parent().name) + " has died!")
-		get_parent().queue_free()
+		if !isGoober:
+			print("oh no, " + str(get_parent().name) + " has died!")
+			get_parent().queue_free()
+		else:
+			get_tree().reload_current_scene()
 	elif !hurtSounds.is_empty():
 		audioPlayer.stream = hurtSounds.pick_random()
 		audioPlayer.play()
@@ -106,6 +124,7 @@ func HandleBeingGrabbedDamage():
 	currentlyBeingGrabbed = grabbable.grabbed
 	if(!continuouslyBeingGrabbed and currentlyBeingGrabbed):
 		Damage(1)
+		SpawnImpactParticle(true)
 	continuouslyBeingGrabbed = currentlyBeingGrabbed
 
 

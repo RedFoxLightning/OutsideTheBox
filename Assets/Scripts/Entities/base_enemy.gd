@@ -10,18 +10,20 @@ var gameManager: game_manager
 
 var aggroed: bool = false
 # Called when the node enters the scene tree for the first time.
-
+var recognized: bool = false
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	goober = get_tree().get_first_node_in_group("Goober")
 	gameManager = get_tree().get_first_node_in_group("GameManager")
 	
-	gameManager.RecognizeEnemy(get_parent())
-	
 	if gameManager.isCurrentRoomClear():
 		#gameManager.RemoveEnemy(get_parent())
 		get_parent().queue_free()
+	else:
+		gameManager.RecognizeEnemy(get_parent())
+		recognized = true
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,4 +51,5 @@ func _notification(what: int) -> void:
 			on_predelete()
 
 func on_predelete() -> void:
-	gameManager.RemoveEnemy(get_node("."))
+	if recognized:
+		gameManager.RemoveEnemy(get_node("."))

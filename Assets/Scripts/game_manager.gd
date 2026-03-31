@@ -19,14 +19,27 @@ extends Node2D
 var cleared: bool
 
 @onready var audio_stream_player: AudioStreamPlayer2D = $MusicPlayer
-
+@export var mainMenuMusic: AudioStream
+@export var windSounds: AudioStream
+@export var torchFlickering: AudioStream
 
 func _physics_process(_delta: float) -> void:
 	
 	if roomsHandler.currently_in_room == Vector2(-1,0):
 		audio_stream_player.volume_db = 0
+		if(audio_stream_player.stream != mainMenuMusic):
+			audio_stream_player.stream = mainMenuMusic
+			audio_stream_player.play()
+	elif roomsHandler.currently_in_room == Vector2(0,0):
+		audio_stream_player.volume_db = 0
+		if(audio_stream_player.stream != windSounds):
+			audio_stream_player.stream = windSounds
+			audio_stream_player.play()
 	else:
-		audio_stream_player.volume_db = -500
+		audio_stream_player.volume_db = 0
+		if(audio_stream_player.stream != torchFlickering):
+			audio_stream_player.stream = torchFlickering
+			audio_stream_player.play()
 	
 	CheckIfRoomIsClear()
 	

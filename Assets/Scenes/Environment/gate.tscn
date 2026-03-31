@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dn8vc03ytecy4" path="res://Assets/Gates.png" id="1_whud7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whud7"]
-size = Vector2(16, 128)
+size = Vector2(16, 233)
 
 [sub_resource type="Animation" id="Animation_bbeqk"]
 length = 0.001
@@ -106,7 +106,14 @@ script = ExtResource("1_2nypa")
 texture = ExtResource("1_whud7")
 hframes = 8
 
+[node name="Behind_Sprite_2D" type="Sprite2D" parent="Sprite2D" unique_id=511220604]
+z_index = -1
+position = Vector2(0, -104)
+texture = ExtResource("1_whud7")
+hframes = 8
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1420805855]
+position = Vector2(0, -52.5)
 shape = SubResource("RectangleShape2D_whud7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=57570779]

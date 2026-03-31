@@ -82,7 +82,9 @@ func _process(_delta: float) -> void:
 		currently_in_room.x += 1
 		if all_rooms.has(currently_in_room):
 			LoadRoomAt(currently_in_room)
-			goober.position.x = loaded_rooms[currently_in_room].goober_enter_forward_pos
+			if loaded_rooms[currently_in_room].goober_enter_forward_pos != 0:
+				goober.position.y = loaded_rooms[currently_in_room].goober_enter_forward_pos
+			goober.position.x = -250
 			goober.entity.grabbable.grabbed = false
 		else: currently_in_room.x -= 1
 	
@@ -90,7 +92,9 @@ func _process(_delta: float) -> void:
 		currently_in_room.x -= 1
 		if all_rooms.has(currently_in_room):
 			LoadRoomAt(currently_in_room)
-			goober.position.x = loaded_rooms[currently_in_room].goober_enter_backward_pos
+			if loaded_rooms[currently_in_room].goober_enter_backward_pos != 0:
+				goober.position.y = loaded_rooms[currently_in_room].goober_enter_backward_pos
+			goober.position.x = 250
 			goober.entity.grabbable.grabbed = false
 		else: currently_in_room.x += 1
 	pass

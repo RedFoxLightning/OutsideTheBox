@@ -53,6 +53,8 @@ height = 33.999847
 
 [node name="Main menu room" type="Node2D" unique_id=1679183239]
 script = ExtResource("1_xc63i")
+goober_enter_forward_pos = 0.0
+goober_enter_backward_pos = 0.0
 
 [node name="MainMenu" type="Node" parent="." unique_id=645474519]
 script = ExtResource("2_kyxq4")

@@ -85,6 +85,10 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_usfh4"]
 font_color = Color(0.2509804, 0.2627451, 0.22745098, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_8j6hy"]
+font_size = 8
+font_color = Color(0.2509804, 0.2627451, 0.22745098, 1)
+
 [node name="PauseMenu" type="Node2D" unique_id=1150152310 node_paths=PackedStringArray("mainPauseMenu", "pauseMenuLabel", "infoScreen", "infoScreenBG")]
 process_mode = 3
 scale = Vector2(4, 4)
@@ -356,6 +360,26 @@ self_modulate = Color(1, 1, 1, 0.2901961)
 z_index = -1
 position = Vector2(-5.3571396, 5.3571463)
 texture = ExtResource("9_8j6hy")
+
+[node name="torchambiencecredti" type="Label" parent="InfoScreen" unique_id=1901500802]
+z_index = 2400
+offset_left = -58.249996
+offset_top = 26.999998
+offset_right = 728.75
+offset_bottom = 50.0
+scale = Vector2(0.2, 0.2)
+text = "torch ambience loop by LordStirling -- https://freesound.org/s/483692/ -- License: Creative Commons 0"
+label_settings = SubResource("LabelSettings_8j6hy")
+
+[node name="torchambiencecredti2" type="Label" parent="InfoScreen" unique_id=698751553]
+z_index = 2400
+offset_left = -5.7500076
+offset_top = 29.25
+offset_right = 108.24999
+offset_bottom = 41.25
+scale = Vector2(0.2, 0.2)
+text = "(ambient sound inside castle)"
+label_settings = SubResource("LabelSettings_8j6hy")
 
 [connection signal="button_up" from="MainPauseMenu/ResumeButton" to="." method="_on_resume_button_button_up"]
 [connection signal="button_up" from="MainPauseMenu/QuitButton" to="." method="_on_quit_button_button_up"]

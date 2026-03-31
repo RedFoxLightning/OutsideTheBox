@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bht0w2d3smds7" path="res://Assets/Scenes/MainScenes/game_manager.tscn" id="1_jvcv2"]
 [ext_resource type="AudioStream" uid="uid://co2yhmkusc65e" path="res://Assets/Sounds/Song212gooberMainMenu.wav" id="2_18byw"]
 [ext_resource type="PackedScene" uid="uid://b43beh87rrhrb" path="res://Assets/Scenes/MainScenes/pause_menu.tscn" id="2_xt1mu"]
+[ext_resource type="AudioStream" uid="uid://danmmk0v85ilp" path="res://Assets/Sounds/windy.ogg" id="3_5plus"]
 [ext_resource type="Texture2D" uid="uid://col8rqogmsmog" path="res://Assets/SkyBG.png" id="3_osum8"]
+[ext_resource type="AudioStream" uid="uid://d38du0hoqycbr" path="res://Assets/Sounds/483692__lordstirling__torch-ambience-loop.ogg" id="3_x2fp6"]
 [ext_resource type="PackedScene" uid="uid://3fauufxaniq4" path="res://Assets/Scenes/player_hand.tscn" id="4_qnoq0"]
 [ext_resource type="PackedScene" uid="uid://biynjsytv7b0w" path="res://Assets/Scenes/rooms_handler.tscn" id="5_3ns6s"]
 [ext_resource type="PackedScene" uid="uid://c37ny4nx1fir7" path="res://Assets/Scenes/Entites/goober.tscn" id="5_kwk4t"]
@@ -13,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://d02tnptlom2b3" path="res://Assets/Scenes/Rooms/starting_room.tscn" id="8_v85qa"]
 [ext_resource type="PackedScene" uid="uid://d164rymbeut1v" path="res://Assets/Scenes/Rooms/perimiter_room_2.tscn" id="9_a7y30"]
 [ext_resource type="PackedScene" uid="uid://tap7462oubhs" path="res://Assets/Scenes/Rooms/victory_room.tscn" id="10_3unti"]
+[ext_resource type="PackedScene" uid="uid://c5fx0qv8fie1k" path="res://Assets/Scenes/Rooms/perimiter_room_evil.tscn" id="15_4asoh"]
+[ext_resource type="PackedScene" uid="uid://mptm01ewsefl" path="res://Assets/Scenes/Rooms/dead_end_room.tscn" id="15_33wol"]
+[ext_resource type="PackedScene" uid="uid://onr4fnik8ucu" path="res://Assets/Scenes/Rooms/perimiter_room_warehouse.tscn" id="16_ppiff"]
 
 [sub_resource type="Resource" id="Resource_vcdch"]
 script = ExtResource("6_nbfx8")
@@ -22,9 +27,22 @@ metadata/_custom_type_script = "uid://cnlemdipuqv83"
 
 [sub_resource type="Resource" id="Resource_0s2cn"]
 script = ExtResource("6_nbfx8")
-name = "Perimiter"
-lengthInRooms = 5
+name = "Perimiter1.1"
+lengthInRooms = 3
 rooms = Array[PackedScene]([ExtResource("8_3unti"), ExtResource("9_a7y30")])
+metadata/_custom_type_script = "uid://cnlemdipuqv83"
+
+[sub_resource type="Resource" id="Resource_ppiff"]
+script = ExtResource("6_nbfx8")
+name = "Perimiter1.2"
+lengthInRooms = 10
+rooms = Array[PackedScene]([ExtResource("9_a7y30"), ExtResource("15_4asoh"), ExtResource("16_ppiff")])
+metadata/_custom_type_script = "uid://cnlemdipuqv83"
+
+[sub_resource type="Resource" id="Resource_4asoh"]
+script = ExtResource("6_nbfx8")
+name = "DeadEnd"
+rooms = Array[PackedScene]([ExtResource("15_33wol")])
 metadata/_custom_type_script = "uid://cnlemdipuqv83"
 
 [sub_resource type="Resource" id="Resource_sjujk"]
@@ -45,6 +63,9 @@ goober = NodePath("../Goober")
 horizontal_boundries = [NodePath("../StaticBody2D/Right Room Border"), NodePath("../StaticBody2D/Left Room Border")]
 vertical_boundries = [NodePath("../StaticBody2D/Ultimate Cieling"), NodePath("../StaticBody2D/Ultimate Floor")]
 pauseMenu = NodePath("../Camera2D/PauseMenu")
+mainMenuMusic = ExtResource("2_18byw")
+windSounds = ExtResource("3_5plus")
+torchFlickering = ExtResource("3_x2fp6")
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="GameManager" unique_id=114908751]
 stream = ExtResource("2_18byw")
@@ -73,7 +94,7 @@ position = Vector2(-36, -53)
 
 [node name="RoomsHandler" parent="." unique_id=506314096 instance=ExtResource("5_3ns6s")]
 z_index = 0
-areas = Array[ExtResource("6_nbfx8")]([SubResource("Resource_vcdch"), SubResource("Resource_0s2cn"), SubResource("Resource_sjujk")])
+areas = Array[ExtResource("6_nbfx8")]([SubResource("Resource_vcdch"), SubResource("Resource_0s2cn"), SubResource("Resource_ppiff"), SubResource("Resource_4asoh"), SubResource("Resource_sjujk")])
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1276421170]
 
