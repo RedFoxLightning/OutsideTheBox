@@ -51,6 +51,7 @@ position = Vector2(-40, -63)
 texture = ExtResource("4_mmnx2")
 
 [node name="GradientToDarkness" type="Sprite2D" parent="." unique_id=469660315]
+z_index = 2
 position = Vector2(120, 74)
 texture = ExtResource("5_2fttx")
 

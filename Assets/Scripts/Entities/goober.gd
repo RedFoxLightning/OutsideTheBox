@@ -6,10 +6,12 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gooberProjectileParticles: Node2D = $ParticleSummoner
 @onready var playerHand: Node2D = %PlayerHand
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 @export var gooberProjectile: PackedScene
-
+@export var idleSounds: Array[AudioStreamOggVorbis]
+@export var castSpellSounds: Array[AudioStreamOggVorbis]
 
 enum actions { IDLE, WALKING, GROUND_ATTACKING }
 var currentAction := actions.IDLE
@@ -91,8 +93,12 @@ func getNewAction():
 		match randomAction:
 			1:
 				startFloating()
+				audio_player.stream = idleSounds.pick_random()
+				audio_player.play()
 			2:
 				walkToRandomPointOnFloor()
+				audio_player.stream = idleSounds.pick_random()
+				audio_player.play()
 			3:
 				castDamageSpell()
 	else:
@@ -100,8 +106,12 @@ func getNewAction():
 		match randomAction:
 			1:
 				stopFloating()
+				audio_player.stream = idleSounds.pick_random()
+				audio_player.play()
 			2:
 				walkToRandomPointOnFloor()
+				audio_player.stream = idleSounds.pick_random()
+				audio_player.play()
 			3:
 				castDamageSpell()
 
@@ -129,6 +139,10 @@ func castDamageSpell():
 	#print("goober wants to cause havoc!")
 	currentActionTimeGoal = attackSpellCastTime
 	currentAction = actions.GROUND_ATTACKING
+	
+	audio_player.stream = castSpellSounds.pick_random()
+	audio_player.play()
+	
 	pass
 
 

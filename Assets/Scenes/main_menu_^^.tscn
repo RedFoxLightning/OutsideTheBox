@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://d3bjpi6hi88r3" path="res://Assets/SecretChest.png" id="5_djp43"]
 [ext_resource type="PackedScene" uid="uid://bdi5hyf06g1f8" path="res://Assets/Scenes/Environment/torchlight.tscn" id="6_yvlhm"]
 [ext_resource type="Texture2D" uid="uid://ci6x40li6ip2g" path="res://Assets/MenuBlockout.png" id="7_hx1fg"]
+[ext_resource type="Script" uid="uid://cx4dtmijleb0y" path="res://Assets/Scripts/right_collision_of_main_menu.gd" id="8_rjhcy"]
+[ext_resource type="Texture2D" uid="uid://d3c1pb111kc1s" path="res://Assets/FullTitle.png" id="9_bdnmt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bdnmt"]
+font_color = Color(0.52, 0.52, 0.52, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j2grw"]
 
@@ -52,7 +57,13 @@ script = ExtResource("1_xc63i")
 [node name="MainMenu" type="Node" parent="." unique_id=645474519]
 script = ExtResource("2_kyxq4")
 
+[node name="FullTitle" type="Sprite2D" parent="MainMenu" unique_id=1468939151]
+z_index = 2000
+position = Vector2(0, -124)
+texture = ExtResource("9_bdnmt")
+
 [node name="MenuBlockout" type="Sprite2D" parent="MainMenu" unique_id=698659234]
+visible = false
 z_index = 2000
 texture = ExtResource("7_hx1fg")
 
@@ -86,6 +97,16 @@ offset_bottom = -192.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Leave"
+
+[node name="infoScreenArrow" type="Label" parent="MainMenu" unique_id=1950651296]
+z_index = 2000
+offset_left = 77.0
+offset_top = 103.0
+offset_right = 345.0
+offset_bottom = 152.0
+text = "pause game to  ->
+access info screen"
+label_settings = SubResource("LabelSettings_bdnmt")
 
 [node name="PixelVignette8Bit" type="Sprite2D" parent="." unique_id=377167847]
 self_modulate = Color(1, 1, 1, 0.23529412)
@@ -174,6 +195,7 @@ shape = SubResource("CapsuleShape2D_hx1fg")
 position = Vector2(288, -13)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_djp43")
+script = ExtResource("8_rjhcy")
 
 [node name="SecretChest" type="Sprite2D" parent="." unique_id=1825313368]
 position = Vector2(-207, 57)

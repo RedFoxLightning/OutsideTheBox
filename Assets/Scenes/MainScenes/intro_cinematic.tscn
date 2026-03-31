@@ -1,0 +1,496 @@
+[gd_scene format=3 uid="uid://blfgcx447mltx"]
+
+[ext_resource type="Script" uid="uid://dwr3rq4bj7wpx" path="res://Assets/Scripts/intro_cinematic.gd" id="1_femi1"]
+[ext_resource type="Texture2D" uid="uid://col8rqogmsmog" path="res://Assets/SkyBG.png" id="1_leeq2"]
+[ext_resource type="Texture2D" uid="uid://c5u0j3ihh87tw" path="res://Assets/IntroMountain.png" id="2_l3dv7"]
+[ext_resource type="PackedScene" uid="uid://df3i8eqggwekp" path="res://Assets/Scenes/MainScenes/main.tscn" id="2_rq53w"]
+[ext_resource type="Texture2D" uid="uid://bs7vdu1sbys0t" path="res://Assets/GooberSpriteSheet.png" id="3_l3dv7"]
+[ext_resource type="AudioStream" uid="uid://ddkhptcprfgrt" path="res://Assets/Sounds/ILikeStrawberries.ogg" id="4_2hyau"]
+[ext_resource type="Texture2D" uid="uid://bw2gvon07d7h4" path="res://Assets/3D/OpenHandOutlined.png" id="5_8xwbr"]
+[ext_resource type="AudioStream" uid="uid://cg6b3exqbtwee" path="res://Assets/Sounds/IntroWhistle.ogg" id="6_0uoh8"]
+[ext_resource type="Texture2D" uid="uid://btw4tridqfj3a" path="res://Assets/Mee2.png" id="7_aoavc"]
+[ext_resource type="Texture2D" uid="uid://hrmrs51k81t5" path="res://Assets/EnvironmentArt/GradientToDarkness.png" id="8_lnsqy"]
+[ext_resource type="AudioStream" uid="uid://dv4orkt0h0y3n" path="res://Assets/Sounds/IntroYay.ogg" id="9_64g6l"]
+[ext_resource type="Texture2D" uid="uid://dcjjoc25ure1n" path="res://Assets/2DTitle.png" id="10_81ou0"]
+[ext_resource type="Texture2D" uid="uid://ht1s02rx7brn" path="res://Assets/3DTitle.png" id="11_femi1"]
+[ext_resource type="AudioStream" uid="uid://dw4snlko7a6fs" path="res://Assets/Sounds/Song211CelebratorySound.ogg" id="14_45f15"]
+[ext_resource type="Texture2D" uid="uid://ovgsloq8pxym" path="res://Assets/Black.png" id="15_xblx4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_64g6l"]
+font_size = 32
+font_color = Color(1, 1, 1, 0.4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xblx4"]
+font_size = 43
+
+[sub_resource type="Animation" id="Animation_leeq2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(717, 294)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GooberSpriteSheet:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ILikeStrawberries:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OpenHandOutlined:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(171, 753)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("IntroWhistle:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mee2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(312, -414)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mee2:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("IntroYay:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Camera2D/2dTitle:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Camera2D/2dTitle:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Camera2D/2dTitle/3dTitle:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Camera2D/2dTitle/3dTitle:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Song211CelebratorySound:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Camera2D/Black:self_modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Camera2D/VolumeWarning:self_modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l3dv7"]
+resource_name = "intro_cinematic"
+length = 18.34
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.0333333),
+"transitions": PackedFloat32Array(0.59460354, 1),
+"update": 0,
+"values": [Vector2(717, 294), Vector2(-22.89, -331.72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GooberSpriteSheet:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.03333333, 4.8, 5.4, 7.3, 13.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(0, 0), Vector2i(0, 5), Vector2i(0, 0), Vector2i(0, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ILikeStrawberries:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.233333, 5.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OpenHandOutlined:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(8.066667, 10, 10.7, 10.866667, 11.033334),
+"transitions": PackedFloat32Array(0.4829681, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(171, 753), Vector2(208.655, -420.62), Vector2(208.655, -420.62), Vector2(208.655, -446.49), Vector2(208.655, -420.62)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("IntroWhistle:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(10.166667, 10.733334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mee2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(10.727485, 11.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(312, -457.01), Vector2(312, -464.95)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mee2:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(10.727485, 11.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("IntroYay:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(12.533334, 13.14974),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Camera2D/2dTitle:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(14.166667, 16.266666),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0, 34.57), Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Camera2D/2dTitle:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(14.1, 16.266666),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Camera2D/2dTitle/3dTitle:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(14.429227, 16.9),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0, 3.535), Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Camera2D/2dTitle/3dTitle:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(14.429227, 16.9),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Song211CelebratorySound:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(13.633334, 14.030569),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Camera2D/Black:self_modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.096767545, 3.9, 16.969898, 18.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Camera2D/VolumeWarning:self_modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 3.3, 3.5333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.6431373), Color(1, 1, 1, 0.6431373), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hyau"]
+_data = {
+&"RESET": SubResource("Animation_leeq2"),
+&"intro_cinematic": SubResource("Animation_l3dv7")
+}
+
+[node name="Intro Cinematic" type="Node2D" unique_id=993379129]
+script = ExtResource("1_femi1")
+mainScene = ExtResource("2_rq53w")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=804282136]
+position = Vector2(717, 294)
+
+[node name="SkyBg" type="Sprite2D" parent="Camera2D" unique_id=699887914]
+z_index = -1
+scale = Vector2(1.828125, 1.8388889)
+texture = ExtResource("1_leeq2")
+
+[node name="GradientToDarkness" type="Sprite2D" parent="Camera2D" unique_id=387612703]
+self_modulate = Color(1, 1, 1, 0.58431375)
+z_index = 1
+position = Vector2(1.3900146, 302.71997)
+scale = Vector2(73.8125, 4)
+texture = ExtResource("8_lnsqy")
+
+[node name="Label" type="Label" parent="Camera2D" unique_id=1701744515]
+z_index = 1
+offset_left = -225.10999
+offset_top = 281.71997
+offset_right = 265.89
+offset_bottom = 326.71997
+text = "Click anywhere to skip cutscene"
+label_settings = SubResource("LabelSettings_64g6l")
+
+[node name="2dTitle" type="Sprite2D" parent="Camera2D" unique_id=603052039]
+z_index = 2
+scale = Vector2(3, 3)
+texture = ExtResource("10_81ou0")
+
+[node name="3dTitle" type="Sprite2D" parent="Camera2D/2dTitle" unique_id=1836751636]
+texture = ExtResource("11_femi1")
+
+[node name="Black" type="Sprite2D" parent="Camera2D" unique_id=860495425]
+z_index = 5
+scale = Vector2(1200, 675)
+texture = ExtResource("15_xblx4")
+
+[node name="VolumeWarning" type="Label" parent="Camera2D" unique_id=1891666243]
+z_index = 6
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -497.0
+offset_top = -59.0
+offset_right = 486.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Warning: There is no volume slider
+(sorry)"
+label_settings = SubResource("LabelSettings_xblx4")
+horizontal_alignment = 1
+
+[node name="IntroMountain" type="Sprite2D" parent="." unique_id=1967279155]
+position = Vector2(31, 98)
+scale = Vector2(2, 2)
+texture = ExtResource("2_l3dv7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=929760276]
+libraries/ = SubResource("AnimationLibrary_2hyau")
+autoplay = &"intro_cinematic"
+
+[node name="GooberSpriteSheet" type="Sprite2D" parent="." unique_id=1469382820]
+position = Vector2(-14, -373)
+scale = Vector2(2, 2)
+texture = ExtResource("3_l3dv7")
+hframes = 8
+vframes = 8
+
+[node name="ILikeStrawberries" type="AudioStreamPlayer" parent="." unique_id=111133048]
+stream = ExtResource("4_2hyau")
+
+[node name="OpenHandOutlined" type="Sprite2D" parent="." unique_id=662626920]
+position = Vector2(171, 753)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_8xwbr")
+
+[node name="IntroWhistle" type="AudioStreamPlayer" parent="." unique_id=702923233]
+stream = ExtResource("6_0uoh8")
+
+[node name="Mee2" type="Sprite2D" parent="." unique_id=869180038]
+position = Vector2(312, -414)
+scale = Vector2(3, 3)
+texture = ExtResource("7_aoavc")
+
+[node name="IntroYay" type="AudioStreamPlayer" parent="." unique_id=762997083]
+stream = ExtResource("9_64g6l")
+
+[node name="Song211CelebratorySound" type="AudioStreamPlayer" parent="." unique_id=1414649543]
+stream = ExtResource("14_45f15")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

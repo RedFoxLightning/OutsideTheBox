@@ -10,7 +10,6 @@
 
 [node name="perimiter_room_1" type="Node2D" unique_id=1836364607]
 script = ExtResource("1_j2vrb")
-goober_enter_backward_pos = 0.0
 
 [node name="PixelVignette8Bit" type="Sprite2D" parent="." unique_id=1872994038]
 visible = false

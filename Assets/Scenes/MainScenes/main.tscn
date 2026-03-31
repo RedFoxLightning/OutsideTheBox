@@ -46,7 +46,7 @@ horizontal_boundries = [NodePath("../StaticBody2D/Right Room Border"), NodePath(
 vertical_boundries = [NodePath("../StaticBody2D/Ultimate Cieling"), NodePath("../StaticBody2D/Ultimate Floor")]
 pauseMenu = NodePath("../Camera2D/PauseMenu")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GameManager" unique_id=114908751]
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="GameManager" unique_id=114908751]
 stream = ExtResource("2_18byw")
 autoplay = true
 

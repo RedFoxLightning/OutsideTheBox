@@ -18,14 +18,17 @@ extends Node2D
 
 var cleared: bool
 
+@onready var audio_stream_player: AudioStreamPlayer2D = $MusicPlayer
+
+
 func _physics_process(_delta: float) -> void:
 	
-	# this code was copied from smth later in this script
-	if enemyCount == 0:
-		MarkRoomAsClear(roomsHandler.currently_in_room)
-		MarkRoomAsClean(roomsHandler.currently_in_room)
-		MarkRoomAsClean(roomsHandler.currently_in_room + Vector2.RIGHT)
-		MarkRoomAsClean(roomsHandler.currently_in_room + Vector2.LEFT)
+	if roomsHandler.currently_in_room == Vector2(-1,0):
+		audio_stream_player.volume_db = 0
+	else:
+		audio_stream_player.volume_db = -500
+	
+	CheckIfRoomIsClear()
 	
 	if isCurrentRoomClear():
 		for i in horizontal_boundries:
@@ -64,11 +67,7 @@ func RemoveEnemy(enemy):
 	enemies.remove_at(enemies.find(enemy))
 	enemy.queue_free()
 	
-	if enemyCount == 0:
-		MarkRoomAsClear(roomsHandler.currently_in_room)
-		MarkRoomAsClean(roomsHandler.currently_in_room)
-		MarkRoomAsClean(roomsHandler.currently_in_room + Vector2.RIGHT)
-		MarkRoomAsClean(roomsHandler.currently_in_room + Vector2.LEFT)
+	CheckIfRoomIsClear()
 	
 
 func isPaused() -> bool:
@@ -90,3 +89,10 @@ func StartGame():
 	roomsHandler.LoadRoomAt(Vector2(0,0))
 	goober.entity.grabbable.grabbed = false
 	goober.position = Vector2(-48,32)
+
+func CheckIfRoomIsClear():
+		if enemyCount == 0:
+			MarkRoomAsClear(roomsHandler.currently_in_room)
+			MarkRoomAsClean(roomsHandler.currently_in_room)
+			MarkRoomAsClean(roomsHandler.currently_in_room + Vector2.RIGHT)
+			MarkRoomAsClean(roomsHandler.currently_in_room + Vector2.LEFT)
