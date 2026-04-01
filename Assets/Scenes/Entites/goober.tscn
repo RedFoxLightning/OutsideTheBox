@@ -288,7 +288,6 @@ animations = [{
 size = Vector2(20, 43)
 
 [node name="Goober" type="CharacterBody2D" unique_id=2033451847 groups=["Goober"]]
-z_index = 10
 floor_max_angle = 0.34906584
 script = ExtResource("1_68t3s")
 gooberProjectile = ExtResource("2_iv7l0")

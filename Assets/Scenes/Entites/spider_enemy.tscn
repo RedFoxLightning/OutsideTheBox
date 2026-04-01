@@ -4,8 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://c05db60rl1oyj" path="res://Assets/Scenes/Entites/base_enemy.tscn" id="2_me7qk"]
 [ext_resource type="PackedScene" uid="uid://bhg0e87wpcmhq" path="res://Assets/Scenes/Entites/spider_web_projectile.tscn" id="2_y74d1"]
 [ext_resource type="PackedScene" uid="uid://dkbcbtx7qao03" path="res://Assets/Scenes/Entites/base_entity.tscn" id="3_y74d1"]
+[ext_resource type="AudioStream" uid="uid://crokvljej4ixo" path="res://Assets/Sounds/SpiderHurt1.ogg" id="4_ganlb"]
 [ext_resource type="Texture2D" uid="uid://f3e4wjylajlu" path="res://Assets/ArcherSpriteSheet.png" id="4_lg7j0"]
+[ext_resource type="AudioStream" uid="uid://b3am3hrt07dg6" path="res://Assets/Sounds/SpiderHurt2.ogg" id="5_8qsas"]
 [ext_resource type="Texture2D" uid="uid://bm1cfapyyxd0n" path="res://Assets/SpiderLegsStatic.png" id="5_me7qk"]
+[ext_resource type="AudioStream" uid="uid://cajyrsdbh8gvk" path="res://Assets/Sounds/SpiderHurt3.ogg" id="6_rnu8j"]
+[ext_resource type="AudioStream" uid="uid://cljy24c5u8s62" path="res://Assets/Sounds/SpiderHurt4.ogg" id="7_sh4ht"]
+[ext_resource type="AudioStream" uid="uid://c6w1o4isba2h4" path="res://Assets/Sounds/SpiderDeath2.ogg" id="9_xn7pf"]
+[ext_resource type="AudioStream" uid="uid://dinc0mj1r3mto" path="res://Assets/Sounds/SpiderDeath3.ogg" id="10_nfl11"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jgq81"]
 radius = 12.0415945
@@ -17,6 +23,24 @@ size = Vector2(30, 14)
 script = ExtResource("1_3mds1")
 webProjectile = ExtResource("2_y74d1")
 
+[node name="BaseEntity" parent="." unique_id=1200200737 instance=ExtResource("3_y74d1")]
+isGoober = null
+hurtSounds = Array[AudioStream]([ExtResource("4_ganlb"), ExtResource("5_8qsas"), ExtResource("6_rnu8j"), ExtResource("7_sh4ht")])
+deathSounds = Array[AudioStream]([ExtResource("9_xn7pf"), ExtResource("10_nfl11")])
+soundsVolume = -10.0
+maxHealth = null
+healthBarHeight = -35.0
+grabbableCollisionShapeSize = Vector2(40, 36)
+grabbableCollisionShapeOffset = Vector2(0, -10)
+groundedFrictionModifier = 0.4
+arialFrictionModifier = 0.99
+takesDamageOnGrab = null
+grabbableDisabled = null
+immuneToKineticEnergy = null
+
+[node name="BaseEnemy" parent="." unique_id=1658250846 instance=ExtResource("2_me7qk")]
+detectionRange = 250.0
+
 [node name="HeadCollisionShape" type="CollisionShape2D" parent="." unique_id=471889347]
 position = Vector2(0, -16)
 shape = SubResource("CircleShape2D_jgq81")
@@ -24,16 +48,6 @@ shape = SubResource("CircleShape2D_jgq81")
 [node name="LegsCollisionShape" type="CollisionShape2D" parent="." unique_id=173315447]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_me7qk")
-
-[node name="BaseEntity" parent="." unique_id=1200200737 instance=ExtResource("3_y74d1")]
-healthBarHeight = -35.0
-grabbableCollisionShapeSize = Vector2(40, 36)
-grabbableCollisionShapeOffset = Vector2(0, -10)
-groundedFrictionModifier = 0.4
-arialFrictionModifier = 0.99
-
-[node name="BaseEnemy" parent="." unique_id=1658250846 instance=ExtResource("2_me7qk")]
-detectionRange = 250.0
 
 [node name="HeadSprite" type="Sprite2D" parent="." unique_id=1726754037]
 z_index = 9

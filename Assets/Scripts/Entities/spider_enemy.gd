@@ -33,7 +33,6 @@ var fire_from_offset: Vector2 = Vector2(0,-16)
 
 @export var webProjectile: PackedScene
 
-
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():

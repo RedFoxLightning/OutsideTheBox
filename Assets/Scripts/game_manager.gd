@@ -23,6 +23,8 @@ var cleared: bool
 @export var windSounds: AudioStream
 @export var torchFlickering: AudioStream
 
+@export var audioClipPlayer: PackedScene
+
 func _physics_process(_delta: float) -> void:
 	
 	if roomsHandler.currently_in_room == Vector2(-1,0):
@@ -104,8 +106,16 @@ func StartGame():
 	goober.position = Vector2(-48,32)
 
 func CheckIfRoomIsClear():
-		if enemyCount == 0:
-			MarkRoomAsClear(roomsHandler.currently_in_room)
-			MarkRoomAsClean(roomsHandler.currently_in_room)
-			MarkRoomAsClean(roomsHandler.currently_in_room + Vector2.RIGHT)
-			MarkRoomAsClean(roomsHandler.currently_in_room + Vector2.LEFT)
+	if enemyCount == 0:
+		MarkRoomAsClear(roomsHandler.currently_in_room)
+		MarkRoomAsClean(roomsHandler.currently_in_room)
+		MarkRoomAsClean(roomsHandler.currently_in_room + Vector2.RIGHT)
+		MarkRoomAsClean(roomsHandler.currently_in_room + Vector2.LEFT)
+		
+	
+
+func PlayClipAtPoint(position_of_clip: Vector2, sound: AudioStream,soundsVolume: float):
+	var newPlayer = audioClipPlayer.instantiate()
+	newPlayer.position = position_of_clip
+	add_child(newPlayer)
+	newPlayer.Play(sound, soundsVolume)

@@ -1,3 +1,4 @@
+class_name particle_summoner_script
 extends Node2D
 
 @export var particlesToSummon: PackedScene

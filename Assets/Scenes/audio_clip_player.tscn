@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cgl82eit8f5fn"]
+
+[ext_resource type="Script" uid="uid://cjwfk74wll6mb" path="res://Assets/Scripts/audio_clip_player.gd" id="1_ovrps"]
+
+[node name="AudioClipPlayer" type="AudioStreamPlayer2D" unique_id=1975090881]
+script = ExtResource("1_ovrps")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

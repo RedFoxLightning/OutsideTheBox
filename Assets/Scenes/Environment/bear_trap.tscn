@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://urcy63f3svje"]
+
+[ext_resource type="Script" uid="uid://cidly7sduv14f" path="res://Assets/Scenes/Environment/bear_trap.gd" id="1_c75ks"]
+[ext_resource type="Texture2D" uid="uid://bb05cewlyctvu" path="res://Assets/BearTrapArt.png" id="1_uwmc1"]
+[ext_resource type="PackedScene" uid="uid://2ndsilsew1dk" path="res://Assets/Scenes/particle_summoner.tscn" id="3_sornv"]
+[ext_resource type="PackedScene" uid="uid://bolp0s6rk13kc" path="res://Assets/Scenes/Entites/metal_particle.tscn" id="4_tux6x"]
+[ext_resource type="AudioStream" uid="uid://bfdujcgb2blim" path="res://Assets/Sounds/BearTrapActivate.ogg" id="5_tux6x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c75ks"]
+atlas = ExtResource("1_uwmc1")
+region = Rect2(0, 32, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26vgq"]
+atlas = ExtResource("1_uwmc1")
+region = Rect2(0, 64, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sornv"]
+atlas = ExtResource("1_uwmc1")
+region = Rect2(0, 96, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tux6x"]
+atlas = ExtResource("1_uwmc1")
+region = Rect2(0, 32, 80, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nghb4"]
+atlas = ExtResource("1_uwmc1")
+region = Rect2(0, 0, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfdun"]
+atlas = ExtResource("1_uwmc1")
+region = Rect2(0, 32, 80, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vg7a2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c75ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26vgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sornv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tux6x")
+}],
+"loop": false,
+"name": &"activate",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nghb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfdun")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acd7y"]
+size = Vector2(16, 3)
+
+[node name="BearTrap" type="Node2D" unique_id=1992591329]
+script = ExtResource("1_c75ks")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=508194766]
+z_index = 11
+sprite_frames = SubResource("SpriteFrames_vg7a2")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1278163496]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1314027473]
+position = Vector2(0, 14.5)
+shape = SubResource("RectangleShape2D_acd7y")
+
+[node name="ParticleSummoner" parent="." unique_id=838000790 instance=ExtResource("3_sornv")]
+particlesToSummon = ExtResource("4_tux6x")
+particleSummonChancePerTick = 1.0
+maxParticleDistY = 16.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=366011353]
+stream = ExtResource("5_tux6x")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

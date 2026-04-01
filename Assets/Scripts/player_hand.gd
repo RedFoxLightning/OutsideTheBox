@@ -9,6 +9,7 @@ const panning_sensitivity: float = 1 # 1 means it'll move perfectly with the mou
 @onready var animator: AnimatedSprite2D = $AnimatedSprite2D
 
 var grabbing: bool
+var hasSomething: bool
 
 var mousePosition: Vector2
 var panning: bool

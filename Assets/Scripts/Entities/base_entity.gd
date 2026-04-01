@@ -2,12 +2,15 @@ class_name base_entity
 extends Node2D
 
 @export var isGoober: bool
+var gameManager: game_manager
 
 @onready var health_bar: Node2D = $HealthBar
 @onready var grabbable: Node2D = $Grabbable
 #@onready var grabbable_collision_shape: CollisionShape2D = $Grabbable/CollisionShape2D
 @onready var audioPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D
-@export var hurtSounds: Array[AudioStreamWAV]
+@export var hurtSounds: Array[AudioStream]
+@export var deathSounds: Array[AudioStream]
+@export var soundsVolume: float
 
 @export var getHurtParticle: PackedScene
 
@@ -35,6 +38,7 @@ const debugMode: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	gameManager = get_tree().get_first_node_in_group("GameManager")
 	characterBody = get_parent()
 	health_bar.global_position.y = global_position.y + healthBarHeight
 	health_bar.SetMaxHealth(maxHealth)
@@ -100,14 +104,18 @@ func Damage(amount: int):
 	# handle death/sound effects
 	
 	if health_bar.currentHealth <= 0:
+		#audioPlayer.stream = deathSounds.pick_random()
+		#audioPlayer.play(0)
+		gameManager.PlayClipAtPoint(global_position, deathSounds.pick_random(),soundsVolume)
 		if !isGoober:
 			print("oh no, " + str(get_parent().name) + " has died!")
 			get_parent().queue_free()
 		else:
 			get_tree().reload_current_scene()
 	elif !hurtSounds.is_empty():
-		audioPlayer.stream = hurtSounds.pick_random()
-		audioPlayer.play()
+		#audioPlayer.stream = hurtSounds.pick_random()
+		#audioPlayer.play()
+		gameManager.PlayClipAtPoint(global_position, hurtSounds.pick_random(),soundsVolume)
 
 func Heal(amount: int):
 	health_bar.Heal(amount)

@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://bolp0s6rk13kc"]
+
+[ext_resource type="Texture2D" uid="uid://bsakw65ti8l1s" path="res://Assets/MetalParticles.png" id="1_ymbv6"]
+[ext_resource type="Script" uid="uid://dshu7sux3jlwa" path="res://Assets/Scenes/Entites/physics_particle.gd" id="2_ymbv6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wp255"]
+atlas = ExtResource("1_ymbv6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_my6dn"]
+atlas = ExtResource("1_ymbv6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u1hb"]
+atlas = ExtResource("1_ymbv6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6r5q"]
+atlas = ExtResource("1_ymbv6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_360ar"]
+atlas = ExtResource("1_ymbv6")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpedb"]
+atlas = ExtResource("1_ymbv6")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27qv5"]
+atlas = ExtResource("1_ymbv6")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwhfe"]
+atlas = ExtResource("1_ymbv6")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yv8p4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wp255")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my6dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u1hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6r5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wp255")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my6dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u1hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6r5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wp255")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my6dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u1hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6r5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wp255")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my6dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u1hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6r5q")
+}],
+"loop": false,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_360ar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpedb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27qv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwhfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_360ar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpedb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27qv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwhfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_360ar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpedb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27qv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwhfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_360ar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpedb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27qv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwhfe")
+}],
+"loop": false,
+"name": &"2",
+"speed": 5.0
+}]
+
+[node name="metal_particle" type="AnimatedSprite2D" unique_id=2000438701]
+z_index = 14
+sprite_frames = SubResource("SpriteFrames_yv8p4")
+animation = &"2"
+frame = 15
+frame_progress = 1.0
+script = ExtResource("2_ymbv6")
+yBaseForce = -3.0
+xRandomForce = 5.0
+yRandomForce = 0.1
+gravityForce = 0.2
+frictionForce = 1.001
+animation_count = 2
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

@@ -1,3 +1,4 @@
+class_name grabbable_script
 extends Node2D
 #@onready var collision_shape: CollisionShape2D = $"CollisionShape2D"
 @export var collision_shape: Vector2
@@ -35,29 +36,33 @@ func _init() -> void:
 func _process(_delta: float) -> void:
 	if grabbed and !disabled:
 		object_to_grab.global_position = get_global_mouse_position() + relative_position
-	if disabled:
+	if disabled and grabbed:
 		grabbed = false
+		playerHand.grabbing = false
 
 
 func _input(event: InputEvent) -> void:
 	playerHand = get_tree().get_first_node_in_group("Player")
 	gameManager = get_tree().get_first_node_in_group("GameManager")
-	if Input.is_action_pressed("Grab") and !disabled and playerHand.canGrab() and !grabbed and !gameManager.isPaused():
+	if Input.is_action_pressed("Grab") and !disabled and playerHand.canGrab() and !grabbed and !gameManager.isPaused() and !playerHand.grabbing:
 		#var size: Vector2 = collision_shape.shape.size
 		var size: Vector2 = collision_shape
 		var mouse: Vector2 = get_global_mouse_position()
 		pos = object_to_grab.global_position;
+		
 		
 		if (mouse.x < (pos.x + hitbox_offset.x) + size.x / 2) and (mouse.x > (pos.x + hitbox_offset.x) - size.x / 2):
 			if (mouse.y < (pos.y + hitbox_offset.y) + size.y / 2) and (mouse.y > (pos.y + hitbox_offset.y) - size.y / 2):
 				#print("click!");
 				relative_position = pos - get_global_mouse_position() 
 				grabbed = true
+				playerHand.grabbing = true
 	if event.is_action_released("Grab") and !disabled:
 	
 		if(grabbed):
 			emit_signal("thrown")
 			grabbed = false 
+			playerHand.grabbing = false
 			playerHand.ResetGrabbingCooldown()
 		
 		#print("unclick!");

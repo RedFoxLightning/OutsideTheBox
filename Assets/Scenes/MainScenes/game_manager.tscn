@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bht0w2d3smds7"]
 
 [ext_resource type="Script" uid="uid://bvcrlb8ck5y00" path="res://Assets/Scripts/game_manager.gd" id="1_4mb3g"]
+[ext_resource type="PackedScene" uid="uid://cgl82eit8f5fn" path="res://Assets/Scenes/audio_clip_player.tscn" id="2_ihsbp"]
 
 [node name="GameManager" type="Node2D" unique_id=1826632049]
 script = ExtResource("1_4mb3g")
+audioClipPlayer = ExtResource("2_ihsbp")
