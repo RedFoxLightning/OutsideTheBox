@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bhra0aetenbx0"]
+
+[ext_resource type="Script" uid="uid://bnq31wcm241vj" path="res://Assets/Scripts/Environment/room.gd" id="1_3s85m"]
+[ext_resource type="Script" uid="uid://8e0gc8ygjxx8" path="res://Assets/Scripts/the_end_room.gd" id="2_3s85m"]
+
+[node name="the_end_room" type="Node2D" unique_id=686885757]
+script = ExtResource("1_3s85m")
+
+[node name="Node" type="Node2D" parent="." unique_id=227730927]
+script = ExtResource("2_3s85m")

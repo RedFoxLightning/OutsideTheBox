@@ -34,5 +34,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			#print("WOA I HIT A LVING SOMETHING!!!!!!11! ^^")
 			body.entity.Damage(5)
 			body.entity.SpawnImpactParticle(false)
+	
+	if body.get_script() == pile_of_crates:
+		body.queue_free()
+	
 	if body.get_script() != creator:
 		queue_free()

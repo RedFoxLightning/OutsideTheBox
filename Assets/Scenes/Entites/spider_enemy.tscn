@@ -3,11 +3,15 @@
 [ext_resource type="Script" uid="uid://c0e7ci6417jk" path="res://Assets/Scripts/Entities/spider_enemy.gd" id="1_3mds1"]
 [ext_resource type="PackedScene" uid="uid://c05db60rl1oyj" path="res://Assets/Scenes/Entites/base_enemy.tscn" id="2_me7qk"]
 [ext_resource type="PackedScene" uid="uid://bhg0e87wpcmhq" path="res://Assets/Scenes/Entites/spider_web_projectile.tscn" id="2_y74d1"]
+[ext_resource type="AudioStream" uid="uid://b71jhpsmryrm8" path="res://Assets/Sounds/SpiderShoot4.ogg" id="3_p4tb5"]
 [ext_resource type="PackedScene" uid="uid://dkbcbtx7qao03" path="res://Assets/Scenes/Entites/base_entity.tscn" id="3_y74d1"]
 [ext_resource type="AudioStream" uid="uid://crokvljej4ixo" path="res://Assets/Sounds/SpiderHurt1.ogg" id="4_ganlb"]
 [ext_resource type="Texture2D" uid="uid://f3e4wjylajlu" path="res://Assets/ArcherSpriteSheet.png" id="4_lg7j0"]
+[ext_resource type="AudioStream" uid="uid://cml77vdiblj23" path="res://Assets/Sounds/SpiderShoot5.ogg" id="4_mnw5w"]
 [ext_resource type="AudioStream" uid="uid://b3am3hrt07dg6" path="res://Assets/Sounds/SpiderHurt2.ogg" id="5_8qsas"]
 [ext_resource type="Texture2D" uid="uid://bm1cfapyyxd0n" path="res://Assets/SpiderLegsStatic.png" id="5_me7qk"]
+[ext_resource type="AudioStream" uid="uid://gegakc48in3y" path="res://Assets/Sounds/SpiderShoot6.ogg" id="5_yec7m"]
+[ext_resource type="AudioStream" uid="uid://mm8d0g8re82y" path="res://Assets/Sounds/SpiderShoot.ogg" id="6_f3e7h"]
 [ext_resource type="AudioStream" uid="uid://cajyrsdbh8gvk" path="res://Assets/Sounds/SpiderHurt3.ogg" id="6_rnu8j"]
 [ext_resource type="AudioStream" uid="uid://cljy24c5u8s62" path="res://Assets/Sounds/SpiderHurt4.ogg" id="7_sh4ht"]
 [ext_resource type="AudioStream" uid="uid://c6w1o4isba2h4" path="res://Assets/Sounds/SpiderDeath2.ogg" id="9_xn7pf"]
@@ -22,6 +26,7 @@ size = Vector2(30, 14)
 [node name="spider_enemy" type="CharacterBody2D" unique_id=1457878292]
 script = ExtResource("1_3mds1")
 webProjectile = ExtResource("2_y74d1")
+shootingSounds = Array[AudioStream]([ExtResource("3_p4tb5"), ExtResource("4_mnw5w"), ExtResource("5_yec7m"), ExtResource("6_f3e7h")])
 
 [node name="BaseEntity" parent="." unique_id=1200200737 instance=ExtResource("3_y74d1")]
 isGoober = null

@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bvhxqx3jnij8r" path="res://Assets/Scenes/Rooms/bear_trap_storage_room.tscn" id="15_lhftc"]
 [ext_resource type="PackedScene" uid="uid://onr4fnik8ucu" path="res://Assets/Scenes/Rooms/perimiter_room_warehouse.tscn" id="16_ppiff"]
 [ext_resource type="PackedScene" uid="uid://ds8pur5fi2gbo" path="res://Assets/Scenes/Rooms/maze_room.tscn" id="17_yesou"]
+[ext_resource type="PackedScene" uid="uid://bhra0aetenbx0" path="res://Assets/Scenes/Rooms/the_end_room.tscn" id="22_5l4jr"]
 
 [sub_resource type="Resource" id="Resource_vcdch"]
 script = ExtResource("6_nbfx8")
@@ -66,6 +67,11 @@ name = "VictoryRoom"
 rooms = Array[PackedScene]([ExtResource("10_3unti")])
 metadata/_custom_type_script = "uid://cnlemdipuqv83"
 
+[sub_resource type="Resource" id="Resource_jopxq"]
+script = ExtResource("6_nbfx8")
+rooms = Array[PackedScene]([ExtResource("22_5l4jr")])
+metadata/_custom_type_script = "uid://cnlemdipuqv83"
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jvcv2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v85qa"]
@@ -109,7 +115,7 @@ position = Vector2(-36, -53)
 
 [node name="RoomsHandler" parent="." unique_id=506314096 instance=ExtResource("5_3ns6s")]
 z_index = 0
-areas = Array[ExtResource("6_nbfx8")]([SubResource("Resource_vcdch"), SubResource("Resource_0s2cn"), SubResource("Resource_gtapb"), SubResource("Resource_5l4jr"), SubResource("Resource_ppiff"), SubResource("Resource_4asoh"), SubResource("Resource_sjujk")])
+areas = Array[ExtResource("6_nbfx8")]([SubResource("Resource_vcdch"), SubResource("Resource_0s2cn"), SubResource("Resource_gtapb"), SubResource("Resource_5l4jr"), SubResource("Resource_ppiff"), SubResource("Resource_4asoh"), SubResource("Resource_sjujk"), SubResource("Resource_jopxq")])
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1276421170]
 

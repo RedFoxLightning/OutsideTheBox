@@ -1,3 +1,4 @@
+class_name pile_of_crates
 extends StaticBody2D
 
 @export var flipped: bool

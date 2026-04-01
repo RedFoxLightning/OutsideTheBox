@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@onready var entity: Node2D = $BaseEntity
+@onready var entity: base_entity = $BaseEntity
 @onready var base_enemy: Node2D = $BaseEnemy
 @onready var head_sprite: Sprite2D = $HeadSprite
 @onready var legs_sprite: Sprite2D = $LegsSprite
@@ -32,6 +32,7 @@ var time_since_last_shot: float
 var fire_from_offset: Vector2 = Vector2(0,-16)
 
 @export var webProjectile: PackedScene
+@export var shootingSounds: Array[AudioStream]
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -55,6 +56,7 @@ func _physics_process(delta: float) -> void:
 		time_since_last_shot += delta
 		if time_since_last_shot > fire_rate:
 			time_since_last_shot = 0
+			entity.gameManager.PlayClipAtPoint(global_position,shootingSounds.pick_random(),0)
 			print("pew pew! x3");
 			var newProjectile = webProjectile.instantiate()
 			newProjectile.SetRotation(head_rotation)
