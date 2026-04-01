@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
-@onready var entity: Node2D = $BaseEntity
+@onready var entity: base_entity = $BaseEntity
 @onready var tasksAI: Node2D = $tasks_ai
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var base_enemy: Node2D = $BaseEnemy
 
 
 @export var states: Array[TasksStateSO]
+@export var idleSounds: Array[AudioStream]
+@export var attackSounds: Array[AudioStream]
 
 enum actions { IDLE, HOPPING, ANTSY_STABBING, STABBING, LEAPING, CHARGING }
 var currentAction = actions.IDLE
@@ -66,9 +68,11 @@ func _on_tasks_ai_new_task(task) -> void:
 		animation_player.play("idle")
 	elif task == "Antsy stabs":
 		animation_player.play("antsy_stabbing")
+		entity.gameManager.PlayClipAtPoint(global_position,idleSounds.pick_random(),0)
 	elif task == "Hop twice":
 		#print("hop!")
 		velocity.y = HOP_STRENGTH
+		entity.gameManager.PlayClipAtPoint(global_position,idleSounds.pick_random(),0)
 	
 	#aggroed stuff
 	
@@ -79,13 +83,16 @@ func _on_tasks_ai_new_task(task) -> void:
 			currentAction = actions.CHARGING
 			#print("(charging :p)")
 		else:
+			entity.gameManager.PlayClipAtPoint(global_position,attackSounds.pick_random(),0)
 			base_enemy.goober.entity.Damage(12)
 			base_enemy.goober.entity.SpawnImpactParticle(false)
 			animation_player.play("violent_stabbing")
 			#print("stab stab")
 		
 	if task == "Leap":
+		
 		if is_on_floor():
+			entity.gameManager.PlayClipAtPoint(global_position,attackSounds.pick_random(),0)
 			velocity.y = LEAP_STRENGTH
 			#print("LEAPING")
 

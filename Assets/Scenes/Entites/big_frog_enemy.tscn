@@ -5,8 +5,23 @@
 [ext_resource type="Texture2D" uid="uid://ct75sxtvtr6yh" path="res://Assets/KnifeGuySpriteSheet.png" id="3_887g6"]
 [ext_resource type="PackedScene" uid="uid://kh3wv76aol3r" path="res://Assets/Scenes/Entites/tasks_ai.tscn" id="3_dcuvd"]
 [ext_resource type="Script" uid="uid://bul4aj6tik7lk" path="res://Assets/TaskAIStateSO.gd" id="4_rod8d"]
+[ext_resource type="AudioStream" uid="uid://b32fuyyqmh6du" path="res://Assets/Sounds/BigFrogIdle1.ogg" id="4_sarpr"]
 [ext_resource type="Script" uid="uid://8pm11srdvu7f" path="res://Assets/TaskSO.gd" id="5_1k0fd"]
+[ext_resource type="AudioStream" uid="uid://bg2iolvy3mftx" path="res://Assets/Sounds/BigFrogHurt1.ogg" id="5_a8aem"]
 [ext_resource type="PackedScene" uid="uid://c05db60rl1oyj" path="res://Assets/Scenes/Entites/base_enemy.tscn" id="5_b64l7"]
+[ext_resource type="AudioStream" uid="uid://b5r80jqi73d7e" path="res://Assets/Sounds/BigFrogIdle2.ogg" id="5_svtkr"]
+[ext_resource type="AudioStream" uid="uid://wq11u6fmptsm" path="res://Assets/Sounds/BigFrogHurt2.ogg" id="6_u3qpa"]
+[ext_resource type="AudioStream" uid="uid://u0uymuj1gydq" path="res://Assets/Sounds/BigFrogIdle3.ogg" id="6_wxe85"]
+[ext_resource type="AudioStream" uid="uid://sojujrqxr2j8" path="res://Assets/Sounds/BigFrogHurt3.ogg" id="7_hg28a"]
+[ext_resource type="AudioStream" uid="uid://di8p20sg0bq3e" path="res://Assets/Sounds/BigFrogIdle4.ogg" id="7_lthc7"]
+[ext_resource type="AudioStream" uid="uid://c787bft43mejj" path="res://Assets/Sounds/BigFrogAttack2.ogg" id="8_3x0xu"]
+[ext_resource type="AudioStream" uid="uid://d3tcvoc38jyxi" path="res://Assets/Sounds/BigFrogHurt4.ogg" id="8_4ykj3"]
+[ext_resource type="AudioStream" uid="uid://dlln75kcs30vr" path="res://Assets/Sounds/BigFrogHurt5.ogg" id="9_2qose"]
+[ext_resource type="AudioStream" uid="uid://bj7yvnamgqaib" path="res://Assets/Sounds/BigFrogAttack3.ogg" id="9_cmgq4"]
+[ext_resource type="AudioStream" uid="uid://d2gf8fdn02xr2" path="res://Assets/Sounds/BigFrogAttack.ogg" id="10_5ed6h"]
+[ext_resource type="AudioStream" uid="uid://c0qmry85mti0i" path="res://Assets/Sounds/BigFrogDeath1.ogg" id="10_ymygp"]
+[ext_resource type="AudioStream" uid="uid://d0hu6cv1wl8tx" path="res://Assets/Sounds/BigFrogDeath2.ogg" id="11_mad6a"]
+[ext_resource type="AudioStream" uid="uid://bgi73uekcjacm" path="res://Assets/Sounds/BigFrogDeath3.ogg" id="12_sarpr"]
 
 [sub_resource type="Resource" id="Resource_rod8d"]
 script = ExtResource("5_1k0fd")
@@ -163,8 +178,12 @@ _data = {
 floor_max_angle = 0.34906584
 script = ExtResource("1_biyj2")
 states = Array[ExtResource("4_rod8d")]([SubResource("Resource_mcp5s"), SubResource("Resource_fnu1k")])
+idleSounds = Array[AudioStream]([ExtResource("4_sarpr"), ExtResource("5_svtkr"), ExtResource("6_wxe85"), ExtResource("7_lthc7")])
+attackSounds = Array[AudioStream]([ExtResource("8_3x0xu"), ExtResource("9_cmgq4"), ExtResource("10_5ed6h")])
 
 [node name="BaseEntity" parent="." unique_id=1200200737 instance=ExtResource("2_dcuvd")]
+hurtSounds = Array[AudioStream]([ExtResource("5_a8aem"), ExtResource("6_u3qpa"), ExtResource("7_hg28a"), ExtResource("8_4ykj3"), ExtResource("9_2qose")])
+deathSounds = Array[AudioStream]([ExtResource("10_ymygp"), ExtResource("11_mad6a"), ExtResource("12_sarpr")])
 healthBarHeight = -30.0
 grabbableCollisionShapeSize = Vector2(64, 64)
 grabbableCollisionShapeOffset = Vector2(0, 8)
